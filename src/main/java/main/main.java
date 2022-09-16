@@ -1,6 +1,6 @@
-package jumpnstuff;
+package main;
 
-public class JumpNStuff {
+public class main {
 
     public static void main(String args[]){
 
