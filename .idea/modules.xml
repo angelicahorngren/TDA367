@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/JumpNStuff.iml" filepath="$PROJECT_DIR$/JumpNStuff.iml" />
       <module fileurl="file://$PROJECT_DIR$/TDA367.iml" filepath="$PROJECT_DIR$/TDA367.iml" />
     </modules>
   </component>
