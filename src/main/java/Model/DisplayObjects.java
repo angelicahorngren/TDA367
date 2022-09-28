@@ -1,6 +1,6 @@
-package main;
-import javax.swing.*;
-import java.awt.*;
+package Model;
+import Utilities.Constants;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -64,6 +64,7 @@ public class DisplayObjects extends JComponent {
 
 
         x_pos_circle = u;
+
 
 
 
