@@ -7,6 +7,13 @@ import java.awt.*;
 
 public class MenuView extends JComponent {
 
+    JFrame jframe = new JFrame();
+
+    public MenuView(){
+        this.jframe.setSize(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+        this.jframe.setResizable(false);
+    }
+
     private final Rectangle startButton = new Rectangle((Constants.SCREEN_WIDTH - 150) / 2, (Constants.SCREEN_HEIGHT - 170 ), Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT); //creating rectangle for button, its placement and size.
     private final int border_thickness = 2; //declares thickness of rectangle border.
 

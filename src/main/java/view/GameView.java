@@ -1,13 +1,12 @@
 package view;
-import main.Constants;
-import main.ProgressBar;
+
+import Utilities.Constants;
 
 import javax.swing.JFrame;
 import java.awt.*;
 
 
 public class GameView extends JFrame{
-    ProgressBar progressBar = new ProgressBar() ;
 
     public GameView() {
         DrawGameBackground dbg = new DrawGameBackground(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
@@ -19,7 +18,5 @@ public class GameView extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
-        add(progressBar);
-        progressBar.fill();
     }
 }
