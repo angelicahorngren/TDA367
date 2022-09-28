@@ -4,6 +4,7 @@ import view.DrawGameBackground;
 
 import javax.swing.*;
 import java.awt.*;
+import Utilities.Constants;
 
 public class PaintingStuff extends JComponent {
     DrawRect drawrect = new DrawRect(Constants.RECT_HEIGHT, Constants.RECT_WIDTH);

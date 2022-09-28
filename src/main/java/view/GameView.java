@@ -1,5 +1,6 @@
 package view;
 import main.*;
+import Utilities.Constants;
 
 import javax.swing.JFrame;
 import java.awt.*;
