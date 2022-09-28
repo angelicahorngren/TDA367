@@ -1,5 +1,7 @@
-package main;
+package view;
 
+import Model.DrawCirc;
+import Model.DrawRect;
 import view.DrawGameBackground;
 
 import javax.swing.*;

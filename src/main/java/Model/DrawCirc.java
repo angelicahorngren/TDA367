@@ -1,19 +1,17 @@
-package main;
+package Model;
 import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
 
-
-
-public class DrawRect extends JComponent {
+public class DrawCirc extends JComponent {
     private int cWidth;
     private int cHeight;
     private int cSpeed;
-    private int X_POS = Constants.RECT_START_X;         //startposition för kvadraten xled
 
+    private int x_pos_circle = Constants.CIRC_START_X;
     int w = 1500;                       //skärmens bredd (osynlig+synlig)
 
-    public DrawRect(int h, int w) {
+    public DrawCirc(int h, int w) {
         cWidth = w;
         cHeight = h;
         cSpeed = -3;
@@ -23,22 +21,21 @@ public class DrawRect extends JComponent {
         int objectSpeed = -3;
     }
 
-    public void draw(Graphics g) {
+    public void draw3(Graphics g) {
 
         Graphics2D gg = (Graphics2D) g;
-        int x = X_POS + cSpeed;
 
-        if (x > w + cWidth) {
-            x = -cWidth;
+        int u = x_pos_circle + cSpeed;
+
+        if (u > w + cWidth) {
+            u = -cWidth;
         }
 
         gg.setColor(Constants.RECT_COLOR);
-        gg.fillRect(x,Constants.Y_POS, cWidth, cHeight);      //här sätts även yposition
+        gg.fillOval(u,Constants.Y_POS, cWidth, cHeight);      //här sätts även yposition
 
-        X_POS = x;
 
+        x_pos_circle = u;
 
     }
 }
-
-
