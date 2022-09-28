@@ -12,12 +12,12 @@ public class DrawGameBackground extends JComponent {
         width = w;
         height = h;
     }
-    protected void paintComponent(Graphics g){
+    public void draw2(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
 
-        Rectangle2D.Double sky = new Rectangle2D.Double(0,0, width, 300);
+       /* Rectangle2D.Double sky = new Rectangle2D.Double(0,0, width, 300);
         g2d.setColor(new Color(135, 206, 250));
-        g2d.fill(sky);
+        g2d.fill(sky);*/
 
         Rectangle2D.Double grass = new Rectangle2D.Double(0,300,width, 10);
         g2d.setColor(Color.green);
