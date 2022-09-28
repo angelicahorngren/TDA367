@@ -1,15 +1,9 @@
 package view;
-
-import Model.DisplayObjects;
-import Utilities.Constants;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.*;
 
 public class DrawGameBackground extends JComponent {
-
-    private int X_POS = Constants.RECT_START_X;         //startposition för kvadraten xled
 
     private int width;
     private int height;
@@ -17,19 +11,13 @@ public class DrawGameBackground extends JComponent {
     public DrawGameBackground(int w, int h){
         width = w;
         height = h;
-
     }
-    protected void paintComponent(Graphics g){
-        ProgressBar progressBar = new ProgressBar();
-        add(progressBar);
-
+    public void draw2(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
 
-
-
-        Rectangle2D.Double sky = new Rectangle2D.Double(0,0, width, 300);
+       /* Rectangle2D.Double sky = new Rectangle2D.Double(0,0, width, 300);
         g2d.setColor(new Color(135, 206, 250));
-        g2d.fill(sky);
+        g2d.fill(sky);*/
 
         Rectangle2D.Double grass = new Rectangle2D.Double(0,300,width, 10);
         g2d.setColor(Color.green);
@@ -38,8 +26,6 @@ public class DrawGameBackground extends JComponent {
         Rectangle2D.Double ground = new Rectangle2D.Double(0,310,width, 90);
         g2d.setColor(new Color(63,38,29));
         g2d.fill(ground);
-
-
     }
 
 }

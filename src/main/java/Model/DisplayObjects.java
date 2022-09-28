@@ -10,7 +10,7 @@ public class DisplayObjects extends JComponent {
 
     public DisplayObjects() {   //detta ska flyttas till en annan klass, repaintar jframe
 
-        Thread animationThread = new Thread(new Runnable() {
+    /*    Thread animationThread = new Thread(new Runnable() {
             public void run() {
                 while (true) {
                     repaint();
@@ -23,6 +23,8 @@ public class DisplayObjects extends JComponent {
         });
 
         animationThread.start();
+
+     */
     }
 
 
