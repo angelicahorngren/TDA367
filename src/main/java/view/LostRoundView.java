@@ -1,6 +1,7 @@
 package view;
 
-import main.Constants;
+
+import Utilities.Constants;
 
 import javax.swing.*;
 import java.awt.*;
