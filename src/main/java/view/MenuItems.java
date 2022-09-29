@@ -12,13 +12,14 @@ import java.util.ArrayList;
 
 public class MenuItems extends JComponent {
 
-    ArrayList<Shape> shapes = new ArrayList<>();
-    Rectangles rectangle = new Rectangles(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT);
+    ArrayList<IMenuItems> items = new ArrayList<>();
 
 
     public MenuItems(){
-       shapes.add(rectangle);
 
+        items.add(new Rectangles(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT));
+        items.add(new GameTitle());
+        items.add(new HighScoreText());
 
        this.addMouseListener(new MouseAdapter() {
 
@@ -47,26 +48,10 @@ public class MenuItems extends JComponent {
     @Override  //not necessary, but can reduce runtime errors and makes code more readable.
     protected void paintComponent(Graphics g){
 
-        for (Shape s: shapes){
-            s.draw(g);
+        for (IMenuItems i: items){
+            i.draw(g);
         }
 
     }
 
-
-       /* Graphics2D g2d = (Graphics2D) g;
-
-        //Game title
-        Font titleFont = new Font("Bell MT", Font.BOLD, 50);
-        g.setFont(titleFont);
-        g.setColor(Color.BLACK);
-        g.drawString("JumpNStuff", (Constants.SCREEN_WIDTH - 260) / 2, (Constants.SCREEN_HEIGHT - 200) / 2);
-
-        //HighScore
-        Font font = new Font("Agency FB", Font.PLAIN, 40); //creating font for HighScore: text.
-        g.setFont(font);
-        g.setColor(Color.BLACK); // setting font color
-        g.drawString("High Score : ", (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 35) / 2); //drawing the "HighScore:" text.
-
-*/
 }

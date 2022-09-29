@@ -13,11 +13,7 @@ public class Rectangles extends Shape {
 
     }
 
-    public void drawStartButton(Graphics g){
-        Graphics2D g2d = (Graphics2D) g;
-
-        g2d.setStroke(new BasicStroke(border_thickness));
-        g.drawRect(getX(), getY(), getWidth(), getHeight());
+    private void drawStartText(Graphics g){
 
         Font fontbtn = new Font("Bahnschrift", Font.BOLD, 30); //creating font for startbutton.
         g.setFont(fontbtn);
@@ -26,8 +22,14 @@ public class Rectangles extends Shape {
     }
 
     @Override
-    public void draw(Graphics g){
-        drawStartButton(g);
+    public void draw(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+
+        g2d.setStroke(new BasicStroke(border_thickness));
+        g.drawRect(getX(), getY(), getWidth(), getHeight());
+
+        drawStartText(g);
+
     }
 
 }
