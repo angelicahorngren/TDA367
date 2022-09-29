@@ -12,8 +12,10 @@ public class Constants {
     public static final Color RECT_COLOR = Color.RED;
     public static final int Y_POS = 250;
     public static final int CIRC_START_X = 1000;
-
+    public static final double SEC_LV1 = 20000;
     public static final int START_BTN_WIDTH = 150;
     public static final int START_BTN_HEIGHT = 50;
+
+
 }
 
