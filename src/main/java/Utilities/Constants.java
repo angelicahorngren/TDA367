@@ -15,5 +15,8 @@ public class Constants {
 
     public static final int START_BTN_WIDTH = 150;
     public static final int START_BTN_HEIGHT = 50;
+
+    public static final int START_BTN_POSX = (SCREEN_WIDTH - 150) / 2;
+    public static final int START_BTN_POSY = SCREEN_HEIGHT - 170;
 }
 
