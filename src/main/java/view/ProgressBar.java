@@ -19,7 +19,7 @@ public class ProgressBar extends JProgressBar {
         this.setStringPainted(true); // show the percentage on the bar
         this.setFont(new Font("MV Boli", Font.BOLD, 10)); // customize the bar
         this.setForeground(Color.red); // set the fill color of the bar
-        this.setBackground(Color.red); // set the background color of the bar
+        this.setBackground(Color.WHITE); // set the background color of the bar
         UIManager.put("ProgressBar.selectionBackground", Color.red);
 
 

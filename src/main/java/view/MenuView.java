@@ -5,19 +5,17 @@ import Utilities.Constants;
 
 import javax.swing.*;
 
-public class MenuView{
-
-    JFrame jframe = new JFrame();
+public class MenuView extends JFrame{
 
     public MenuView() {
 
-        this.jframe.setTitle("JumpNStuff");
-        this.jframe.setSize(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
-        this.jframe.add( new MenuItems());
-        this.jframe.setResizable(false);
-        this.jframe.setVisible(true);
-        this.jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.jframe.setLocationRelativeTo(null);
+        this.setTitle("JumpNStuff");
+        this.setSize(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+        this.add( new MenuItems());
+        this.setResizable(false);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
 }

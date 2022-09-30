@@ -5,14 +5,17 @@ import Utilities.Constants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class LostRoundView extends JFrame {
 
-    Color popUpColor = new Color(30,63,90);
+    Color popUpColor = new Color(255,255,255);
     Container c = getContentPane();
 
+
     public LostRoundView(){
-        this.setSize(Constants.SCREEN_WIDTH / 2, Constants.SCREEN_HEIGHT / 2);
+        this.setSize(Constants.LOST_ROUND_VIEW_WIDTH, Constants.LOST_ROUND_VIEW_HEIGHT);
+        this.add( new LostRoundItems());
         this.setResizable(false);
         this.setUndecorated(true);
         this.setVisible(true);

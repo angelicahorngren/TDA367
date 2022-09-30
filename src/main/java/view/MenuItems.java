@@ -1,8 +1,6 @@
 package view;
 
-
 import Utilities.Constants;
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +15,7 @@ public class MenuItems extends JComponent {
 
     public MenuItems(){
 
-        items.add(new Rectangles(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT));
+        items.add(new StartButtonRectangle(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT));
         items.add(new GameTitle());
         items.add(new HighScoreText());
 
@@ -29,9 +27,9 @@ public class MenuItems extends JComponent {
                int mousex = e.getX();
                int mousey = e.getY();
 
-               if ( mousex >= Constants.START_BTN_POSX && mousex <= Constants.START_BTN_POSX + 150){
+               if ( mousex >= Constants.START_BTN_POSX && mousex <= Constants.START_BTN_POSX + Constants.START_BTN_WIDTH){
 
-                   if (mousey >= Constants.START_BTN_POSY && mousey <= Constants.START_BTN_POSY + 50){
+                   if (mousey >= Constants.START_BTN_POSY && mousey <= Constants.START_BTN_POSY + Constants.START_BTN_HEIGHT){
 
                        //switch to gameview frame
                        new GameView();

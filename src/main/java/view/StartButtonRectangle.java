@@ -4,11 +4,9 @@ import Utilities.Constants;
 
 import java.awt.*;
 
-public class Rectangles extends Shape {
+public class StartButtonRectangle extends Shape {
 
-    private final int border_thickness = 2; //declares thickness of rectangle border.
-
-    public Rectangles(int x, int y, int width, int height){
+    public StartButtonRectangle(int x, int y, int width, int height){
         super(x, y, width, height);
 
     }
@@ -25,7 +23,7 @@ public class Rectangles extends Shape {
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
 
-        g2d.setStroke(new BasicStroke(border_thickness));
+        g2d.setStroke(new BasicStroke(Constants.BORDER_THICKNESS));
         g.drawRect(getX(), getY(), getWidth(), getHeight());
 
         drawStartText(g);
