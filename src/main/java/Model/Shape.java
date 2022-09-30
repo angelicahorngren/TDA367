@@ -1,8 +1,10 @@
-package view;
+package Model;
+
+import view.IMenuItems;
 
 import java.awt.*;
 
-public abstract class Shape implements IMenuItems{
+public abstract class Shape implements IMenuItems {
 
     private int x;
     private int y;

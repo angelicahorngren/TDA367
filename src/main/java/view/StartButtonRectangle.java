@@ -1,7 +1,7 @@
 package view;
 
 import Utilities.Constants;
-
+import Model.Shape;
 import java.awt.*;
 
 public class StartButtonRectangle extends Shape {

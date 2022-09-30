@@ -25,20 +25,6 @@ public class ProgressBar extends JProgressBar {
 
     }
 
-    public void fill() {
-        int counter = 0;
-        while (counter <= 100) {
-            this.setValue(counter);
-            try {
-                Thread.sleep(1000); // 1000 = 1 second
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            counter += 1;
-        }
-
-    }
-
     public double getIncreasedTime(double milliSeconds) {
         double increase = 1000 / milliSeconds;
         return increase;
@@ -48,7 +34,6 @@ public class ProgressBar extends JProgressBar {
         while (x % 1 != 0.0 || x == 0.0) {
             x = (x + getIncreasedTime(Constants.SEC_LV1));
             x = Math.round(x * 1000000000d) / 1000000000d;
-            //System.out.println(x);
             break;
         }
     }
@@ -58,7 +43,18 @@ public class ProgressBar extends JProgressBar {
 
             counter += 1;
             x = 0;
-
         }
     }
+
+    public void setUpdatedcounter(){
+        this.setValue(counter);
+    }
+
+    public void setProgressbarbounds(){
+        this.setBounds(200,10, 400, 10);
+
+    }
+
+
+
 }

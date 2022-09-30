@@ -1,7 +1,6 @@
 package view;
 import Utilities.Constants;
 import javax.swing.JFrame;
-import java.awt.*;
 
 public class GameView extends JFrame{
 
@@ -14,8 +13,10 @@ public class GameView extends JFrame{
                 while (true || progressBar.counter <= 100 ) {
                     //paintComponents(getGraphics());
                     repaint();
-                    progressBar.setValue(progressBar.counter);
-                    progressBar.setBounds(200,10,400,10);
+                    progressBar.setUpdatedcounter();
+                    progressBar.setProgressbarbounds();
+
+
                     try {
                         Thread.sleep(10);
 
@@ -46,6 +47,10 @@ public class GameView extends JFrame{
         this.add(new PaintingStuff());
 
 
+        //this.add(new DrawGameBackground(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT));
+        //this.add(new DisplayObjects());
+        //this.add(new Canvas());
+        //this.add(new DrawCirc(Constants.RECT_HEIGHT,Constants.RECT_WIDTH));
     }
 
 
