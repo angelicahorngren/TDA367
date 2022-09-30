@@ -44,8 +44,8 @@ public class ProgressBar extends JProgressBar {
 
     }
 
-    public double getIncreasedTime(double seconds) {
-        double increase = 1000 / seconds;
+    public double getIncreasedTime(double milliSeconds) {
+        double increase = 1000 / milliSeconds;
         return increase;
     }
 

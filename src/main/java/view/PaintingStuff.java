@@ -14,11 +14,13 @@ public class PaintingStuff extends JComponent {
     DrawCirc drawcirc = new DrawCirc(Constants.RECT_HEIGHT,Constants.RECT_WIDTH);
 
     public void paint(Graphics g){
+        //System.out.println("worked");
         //Graphics2D gg = (Graphics2D) g;
-        //super.paint(g);
+        super.paint(g);
         drawrect.draw(g);
         dbg.draw2(g);
         drawcirc.draw3(g);
+
 
     }
 }

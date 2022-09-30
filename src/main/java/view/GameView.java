@@ -31,7 +31,7 @@ public class GameView extends JFrame{
                     while (x % 1 != 0.0 || x == 0.0) {
                         x = (x + progressBar.getIncreasedTime(Constants.SEC_LV1));
                         x = Math.round(x * 1000000000d) / 1000000000d;
-                        System.out.println(x);
+                        //System.out.println(x);
                         break;
                     }
                     if (x % 1 == 0.0) {
