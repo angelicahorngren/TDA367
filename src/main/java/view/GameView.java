@@ -10,11 +10,11 @@ public class GameView extends JFrame{
         add(progressBar);
         Thread animationThread = new Thread(new Runnable() {
             public void run() {
-                while (true || progressBar.counter <= 100 ) {
+                while (true) {
                     //paintComponents(getGraphics());
                     repaint();
-                    progressBar.setUpdatedcounter();
-                    progressBar.setProgressbarbounds();
+                    progressBar.setUpdatedCounter();
+                    progressBar.setProgressbarBounds();
 
 
                     try {

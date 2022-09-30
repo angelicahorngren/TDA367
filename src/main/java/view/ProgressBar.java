@@ -13,14 +13,12 @@ public class ProgressBar extends JProgressBar {
 
     public ProgressBar() {
 
-        this.setValue(0);
-        this.setBounds(200, 2, 420, 20);
 
         this.setStringPainted(true); // show the percentage on the bar
         this.setFont(new Font("MV Boli", Font.BOLD, 10)); // customize the bar
         this.setForeground(Color.red); // set the fill color of the bar
         this.setBackground(Color.WHITE); // set the background color of the bar
-        UIManager.put("ProgressBar.selectionBackground", Color.red);
+
 
 
     }
@@ -46,11 +44,12 @@ public class ProgressBar extends JProgressBar {
         }
     }
 
-    public void setUpdatedcounter(){
+    public void setUpdatedCounter(){
+
         this.setValue(counter);
     }
 
-    public void setProgressbarbounds(){
+    public void setProgressbarBounds(){
         this.setBounds(200,10, 400, 10);
 
     }

@@ -16,9 +16,6 @@ public class DrawCirc extends JComponent {
         cHeight = h;
         cSpeed = -3;
 
-        //int w = Constants.RECT_WIDTH;
-        // int objectHeight = Constants.RECT_HEIGHT;
-        int objectSpeed = -3;
     }
 
     public void draw3(Graphics g) {
