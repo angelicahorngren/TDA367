@@ -1,25 +1,26 @@
 package view;
 import Controller.MouseListener;
-import Model.Player;
+import Model.PlayerModel;
 import Utilities.Constants;
 import javax.swing.JFrame;
 
+
 public class GameView extends JFrame{
 
-    MouseListener mouseListener;
 
     public GameView() {
         ProgressBar progressBar = new ProgressBar();
         add(progressBar);
+        MouseListener mouseListener;
         mouseListener = new MouseListener();
         addMouseListener(mouseListener);
         Thread animationThread = new Thread(new Runnable() {
             public void run() {
                 while (true) {
-                    Player.gravity();
                     if(mouseListener.mousePressed){
-                        Player.jump();
+                        PlayerModel.jump();
                     }
+                    PlayerModel.gravity();
                     repaint();
                     progressBar.setUpdatedCounter();
                     progressBar.setProgressbarBounds();
@@ -49,6 +50,7 @@ public class GameView extends JFrame{
         this.add(new PaintingStuff());
 
     }
+
 
 
 }

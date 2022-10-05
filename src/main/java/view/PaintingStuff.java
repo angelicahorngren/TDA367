@@ -1,7 +1,7 @@
 package view;
 
 import Model.DrawRectModel;
-import Model.Player;
+import Model.PlayerModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +11,8 @@ public class PaintingStuff extends JComponent {
     DrawRectView drawrect = new DrawRectView(Constants.RECT_HEIGHT, Constants.RECT_WIDTH);
     DrawGameBackground dbg = new DrawGameBackground(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
     DrawCircView drawcirc = new DrawCircView(Constants.RECT_HEIGHT,Constants.RECT_WIDTH);
-    Player player = new Player();
+    PlayerView playerView = new PlayerView();
+
 
     public void paint(Graphics g){
         //Graphics2D gg = (Graphics2D) g;
@@ -19,7 +20,8 @@ public class PaintingStuff extends JComponent {
         drawrect.draw(g);
         dbg.draw2(g);
         drawcirc.draw3(g);
-        player.drawPlayer(g);
+        playerView.drawPlayer(g);
+
 
     }
 }
