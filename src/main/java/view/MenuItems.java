@@ -16,7 +16,7 @@ public class MenuItems extends JComponent {
     public MenuItems(){
 
         items.add(new StartButtonRectangle(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT));
-        items.add(new GameTitle());
+        items.add(new TitleText("JumpNStuff"));
         items.add(new HighScoreText());
 
        this.addMouseListener(new MouseAdapter() {

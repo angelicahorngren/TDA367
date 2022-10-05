@@ -1,8 +1,5 @@
 package view;
-
-
 import Utilities.Constants;
-
 import javax.swing.*;
 
 public class MenuView extends JFrame{
