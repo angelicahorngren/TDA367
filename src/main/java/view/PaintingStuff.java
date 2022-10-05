@@ -1,7 +1,6 @@
 package view;
 
-import Model.DrawCirc;
-import Model.DrawRect;
+import Model.DrawRectModel;
 import Model.Player;
 
 import javax.swing.*;
@@ -9,9 +8,9 @@ import java.awt.*;
 import Utilities.Constants;
 
 public class PaintingStuff extends JComponent {
-    DrawRect drawrect = new DrawRect(Constants.RECT_HEIGHT, Constants.RECT_WIDTH);
+    DrawRectView drawrect = new DrawRectView(Constants.RECT_HEIGHT, Constants.RECT_WIDTH);
     DrawGameBackground dbg = new DrawGameBackground(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
-    DrawCirc drawcirc = new DrawCirc(Constants.RECT_HEIGHT,Constants.RECT_WIDTH);
+    DrawCircView drawcirc = new DrawCircView(Constants.RECT_HEIGHT,Constants.RECT_WIDTH);
     Player player = new Player();
 
     public void paint(Graphics g){
