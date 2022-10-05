@@ -3,12 +3,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.*;
 
-public class DrawGameBackground extends JComponent {
+public class DrawGameBackgroundView extends JComponent {
 
     private int width;
     private int height;
 
-    public DrawGameBackground(int w, int h){
+    public DrawGameBackgroundView(int w, int h){
         width = w;
         height = h;
     }

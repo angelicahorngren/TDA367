@@ -14,7 +14,6 @@ public class MenuItemsModel {
         items.add(new MenuText("High Score : ", 40, (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 35) / 2));
 
 
-
     }
 
     public ArrayList<IMenuItems> getArrayList(){

@@ -1,22 +1,22 @@
 package view;
 
+import Controller.MenuItemsController;
 import Model.MenuItemsModel;
-import Utilities.Constants;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class MenuItemsView extends JComponent {
 
-    public MenuItemsModel mi;
+    private MenuItemsModel mi;
+    public MenuItemsController mic;
 
     public MenuItemsView(){
 
         mi = new MenuItemsModel();
+        mic = new MenuItemsController();
 
-        this.addMouseListener(new MouseAdapter() {
+        /*this.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -34,9 +34,11 @@ public class MenuItemsView extends JComponent {
                 }
             }
 
-        });
+        });*/
 
     }
+
+
 
     @Override
     protected void paintComponent(Graphics g){
@@ -46,6 +48,7 @@ public class MenuItemsView extends JComponent {
             i.draw(g);
 
         }
+
 
     }
 
