@@ -12,12 +12,10 @@ public class MenuItems extends JComponent {
 
     ArrayList<IMenuItems> items = new ArrayList<>();
 
-
-    public MenuItems(){
-
-        items.add(new StartButtonRectangle(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT));
-        items.add(new TitleText("JumpNStuff", 50, (Constants.SCREEN_WIDTH - 260)/2, (Constants.SCREEN_HEIGHT - 200)/2));
-        items.add(new HighScoreText());
+    public MenuItems(){     //Göra om MenuButtons till JButton
+        items.add(new MenuButton(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, Constants.START_BTN_POSX + 41, Constants.START_BTN_POSY + 35, 30, "Start"));
+        items.add(new MenuText("JumpNStuff", 50, (Constants.SCREEN_WIDTH - 260)/2, (Constants.SCREEN_HEIGHT - 200)/2));
+        items.add(new MenuText("High Score : ", 40, (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 35) / 2));
 
        this.addMouseListener(new MouseAdapter() {
 
@@ -40,8 +38,6 @@ public class MenuItems extends JComponent {
        });
 
     }
-
-
 
     @Override  //not necessary, but can reduce runtime errors and makes code more readable.
     protected void paintComponent(Graphics g){

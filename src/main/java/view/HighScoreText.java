@@ -1,4 +1,4 @@
-package view;
+/*package view;
 
 import Utilities.Constants;
 
@@ -14,3 +14,4 @@ public class HighScoreText implements Texts{
         g.drawString("High Score : ", (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 35) / 2); //drawing the "HighScore:" text.
     }
 }
+*/

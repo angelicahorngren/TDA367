@@ -4,14 +4,14 @@ import Utilities.Constants;
 
 import java.awt.*;
 
-public class TitleText implements Texts {
+public class MenuText implements Texts {
 
     private String t;
     private int s;
     private int xc; //Placement of text
     private int yc;
 
-    TitleText(String text, int size, int Xcentering, int Ycentering){
+    MenuText(String text, int size, int Xcentering, int Ycentering){
         t = text;
         s = size;
         xc = Xcentering;
