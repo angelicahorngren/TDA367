@@ -11,6 +11,7 @@ public class Constants {
     //Game items
     public static final int RECT_WIDTH = 50;
     public static final int RECT_HEIGHT = 50;
+    public static final int PLAYER_START_X = 400;
     public static final int RECT_START_X = 700;
     public static final Color RECT_COLOR = Color.RED;
     public static final int Y_POS = 250;
@@ -45,6 +46,7 @@ public class Constants {
     public static final int PLAY_AGAIN_BTN_POSY = (LOST_ROUND_VIEW_HEIGHT - 80);
 
 
+    public static final int GRAVITY = 10;
 
 }
 
