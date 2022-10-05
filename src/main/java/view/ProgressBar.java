@@ -8,12 +8,11 @@ import javax.swing.*;
 
 public class ProgressBar extends JProgressBar {
 
-    double x = 0;               //x is initialized to 0
-    int percentageOnBar = 0;    //the percentage on the progressbar is initialized to 0%
+    double currentIncrease = 0;               //currentIncrease is initialized to 0
+    int percentageOnBar = 0;                  //the percentage on the progressbar is initialized to 0%
+    int fullProgressBar = 100;
 
     public ProgressBar() {
-
-
         this.setStringPainted(true); // show the percentage on the bar
         this.setFont(new Font("MV Boli", Font.BOLD, 10)); // customize the bar
         this.setForeground(Color.red); // set the fill color of the bar
@@ -23,26 +22,26 @@ public class ProgressBar extends JProgressBar {
 
     }
 
-    public double getIncreasedTime(double milliseconds) {
-        return 1000 / milliseconds;                      //decides the amount x should increase by with each iteration depending on ->
-                                                    //-> the current level pre-decided length
+    public double getIncreasedTime(double ms_perLevel) {
+        double inc_EveryThreadIteration = Constants.Thread_argument_ms * fullProgressBar / ms_perLevel;  //decides the procentage increase "inc_EveryThreadIteration" every 10 millieseconds by multiplying 10 ms with 100 % and divding it with the amount of millie seconds that a level takes to clear ->
+        return inc_EveryThreadIteration;                                                                  //-> the current level pre-decided length
     }
 
     public void updateTime() {
-        while (x % 1 != 0.0 || x == 0.0) {                      //"if x is not a whole number or if x equals 0: enter the while loop"
-            x = (x + getIncreasedTime(Constants.SEC_LV1));      //updates the x value by a specific value depending on the pre-decided ->
+        while (currentIncrease % 1 != 0.0 || currentIncrease == 0.0) {                      //"if currentIncrease is not a whole number or if currentIncrease equals 0: enter the while loop"
+            currentIncrease = (currentIncrease + getIncreasedTime(Constants.SEC_LV1));      //updates the currentIncrease value by a specific value depending on the pre-decided ->
                                                                 //-> length of level 1 (this value is calculated in getIncreasedTime)
-            x = Math.round(x * 1000000000d) / 1000000000d;      //rounds the number to a double with only 2 decimal places
+            currentIncrease = Math.round(currentIncrease * 1000000000d) / 1000000000d;      //rounds the number to a double with only 2 decimal places
             //System.out.println(x);
             break;                                              //break the loop to move on to "increaseIfWholeNumber"
         }
     }
 
     public void increaseIfWholeNumber() {
-        if (x % 1 == 0.0) {
-                                    //if x is a whole number with no decimals(in this case x will only ever equal 1.0): increase the progressbar percentage by 1
+        if (currentIncrease % 1 == 0.0) {
+                                    //if currentIncrease is a whole number with no decimals(in this case currentIncrease will only ever equal 1.0): increase the progressbar percentage by 1
             percentageOnBar += 1;
-            x = 0;                  //reset x to 0 so that the while-loop above will continue to be entered during the coming game-loop iterations
+            currentIncrease = 0;                  //reset currentIncrease to 0 so that the while-loop above will continue to be entered during the coming game-loop iterations
         }
     }
 

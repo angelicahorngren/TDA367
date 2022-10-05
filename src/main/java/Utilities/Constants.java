@@ -17,6 +17,8 @@ public class Constants {
     public static final int CIRC_START_X = 1000;
 
     //Timer
+    public static final int Thread_argument_ms = 10;
+
     public static final double SEC_LV1 = 5000;
 
     //Lost round jframe

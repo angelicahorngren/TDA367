@@ -18,7 +18,7 @@ public class GameView extends JFrame{
 
 
                     try {
-                        Thread.sleep(10);           //repaints the game view every 10 milliseconds
+                        Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
                     } catch (Exception ex) {
                     }
