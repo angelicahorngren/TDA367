@@ -14,7 +14,7 @@ public class LostRoundItems extends JComponent {
 
         lritems.add(new MenuButtonRectangle(Constants.MENU_BTN_POSX, Constants.MENU_BTN_POSY, Constants.MENU_BTN_WIDTH, Constants.MENU_BTN_HEIGHT));
         lritems.add(new PlayAgainButtonRectangle(Constants.PLAY_AGAIN_BTN_POSX, Constants.PLAY_AGAIN_BTN_POSY, Constants.PLAY_AGAIN_BTN_WIDTH, Constants.PLAY_AGAIN_BTN_HEIGHT));
-        lritems.add(new OopsText());
+        lritems.add(new TitleText("Oops", 30, Constants.LOST_ROUND_VIEW_WIDTH - 245, Constants.LOST_ROUND_VIEW_HEIGHT - 150));
         lritems.add(new ProgressText());
 
     }

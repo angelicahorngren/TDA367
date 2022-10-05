@@ -24,7 +24,7 @@ public class GameView extends JFrame{
                     progressBar.setUpdatedCounter();
                     progressBar.setProgressbarBounds();
                     try {
-                        Thread.sleep(15);           //repaints the game view every 10 milliseconds
+                        Thread.sleep(10);           //repaints the game view every 10 milliseconds
 
                     } catch (Exception ex) {
                     }
