@@ -2,9 +2,9 @@ package Model;
 
 import view.IMenuItems;
 
-import java.awt.*;
 
-public abstract class Shape implements IMenuItems {
+
+public class Shape {
 
     private int x;
     private int y;
@@ -17,8 +17,6 @@ public abstract class Shape implements IMenuItems {
         this.width = width;
         this.height = height;
     }
-
-    public abstract void draw(Graphics g);
 
     public int getX(){
         return x;

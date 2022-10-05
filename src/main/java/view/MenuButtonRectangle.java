@@ -4,7 +4,8 @@ import Utilities.Constants;
 import Model.Shape;
 import java.awt.*;
 
-public class MenuButtonRectangle extends Shape{
+public class MenuButtonRectangle extends Shape implements IMenuItems{
+
 
     public MenuButtonRectangle(int x, int y, int width, int height){
         super(x, y, width, height);

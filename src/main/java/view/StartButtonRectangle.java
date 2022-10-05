@@ -4,7 +4,7 @@ import Utilities.Constants;
 import Model.Shape;
 import java.awt.*;
 
-public class StartButtonRectangle extends Shape {
+public class StartButtonRectangle extends Shape implements IMenuItems {
 
     public StartButtonRectangle(int x, int y, int width, int height){
         super(x, y, width, height);
