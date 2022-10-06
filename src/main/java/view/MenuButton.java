@@ -1,10 +1,10 @@
 package view;
 
 import Utilities.Constants;
-import Model.Shape;
+import Model.ShapeModel;
 import java.awt.*;
 
-public class MenuButton extends Shape{   //Gör om till JButton?
+public class MenuButton extends ShapeModel {   //Gör om till JButton?
 
     private int bx;
     private int by;

@@ -1,0 +1,56 @@
+package view;
+
+import Controller.MenuItemsController;
+import Model.MenuItemsModel;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class MenuItemsView extends JComponent {
+
+    private MenuItemsModel mi;
+    public MenuItemsController mic;
+
+    public MenuItemsView(){
+
+        mi = new MenuItemsModel();
+        mic = new MenuItemsController();
+
+        /*this.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                int mousex = e.getX();
+                int mousey = e.getY();
+
+                if (mousex >= Constants.START_BTN_POSX && mousex <= Constants.START_BTN_POSX + Constants.START_BTN_WIDTH) {
+
+                    if (mousey >= Constants.START_BTN_POSY && mousey <= Constants.START_BTN_POSY + Constants.START_BTN_HEIGHT) {
+
+                        //switch to gameview frame
+                        new GameView();
+                    }
+                }
+            }
+
+        });*/
+
+    }
+
+
+
+    @Override
+    protected void paintComponent(Graphics g){
+
+        for ( IMenuItems i: mi.getArrayList()){
+
+            i.draw(g);
+
+        }
+
+
+    }
+
+
+}

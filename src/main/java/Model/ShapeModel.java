@@ -4,14 +4,14 @@ import view.IMenuItems;
 
 import java.awt.*;
 
-public abstract class Shape implements IMenuItems {
+public abstract class ShapeModel implements IMenuItems {
 
     private int x;
     private int y;
     private int width;
     private int height;
 
-    public Shape(int x, int y, int width, int height){
+    public ShapeModel(int x, int y, int width, int height){
         this.x = x;
         this.y = y;
         this.width = width;

@@ -11,7 +11,7 @@ public class MenuText implements Texts {
     private int xc; //Placement of text
     private int yc;
 
-    MenuText(String text, int size, int Xcentering, int Ycentering){
+    public MenuText(String text, int size, int Xcentering, int Ycentering){
         t = text;
         s = size;
         xc = Xcentering;
