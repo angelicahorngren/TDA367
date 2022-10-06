@@ -1,7 +1,7 @@
 package Model;
 
 import Utilities.Constants;
-
+//
 public class ProgressBar {
     public double currentIncrease = 0;               //currentIncrease is initialized to 0
     public int percentageOnBar = 0;                  //the percentage on the progressbar is initialized to 0%

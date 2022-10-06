@@ -1,5 +1,4 @@
 package Model;
-import view.ProgressBar;
 
 public class Score {
     private int cs;

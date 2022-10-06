@@ -4,7 +4,7 @@ import Model.ProgressBar;
 import java.awt.*;
 import javax.swing.*;
 
-
+//hh
 public class ProgressBar_View extends JProgressBar {
     public ProgressBar progressBar_;
 
