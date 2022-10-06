@@ -10,14 +10,16 @@ public class Score {
     }
 
     public int getCurrentScore(){
-        Integer stringCs = cs;
+        /*Integer stringCs = cs;
         stringCs.toString();
-        return stringCs;
+        return stringCs;*/
+        return cs;
     }
     public int getHighScore(){
-        Integer stringHs = hs;
+        /*Integer stringHs = hs;
         stringHs.toString();
-        return stringHs;
+        return stringHs;*/
+        return hs;
     }
     public void updateCurrentScore(int currentScore){
         cs = currentScore;

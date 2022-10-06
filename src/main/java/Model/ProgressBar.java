@@ -32,7 +32,22 @@ public class ProgressBar {
         }
     }
 
-
+    // i en while loop: if player alive = false {stopProgressbar, progressBarScore}
+    public void stopProgressbar(){
+        //Stop progressbar
+        //Hitta vart progressbar stoppat och sätt s = det värdet
+        //uppdatera score: progressbarScore(s)
+    }
+/*
+    public void progressbarScore(int score){
+        oldHS = Model.Score.getHighScore();
+        if (score>oldHS){
+            Model.Score.updateHighScore(score);
+        else(){
+                Model.Score.updateCurrentScore(score);
+            }
+        }
+    */
 
 }
 
