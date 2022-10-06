@@ -1,11 +1,7 @@
 package view;
-
-
 import Utilities.Constants;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class LostRoundView extends JFrame {
 
@@ -15,7 +11,7 @@ public class LostRoundView extends JFrame {
 
     public LostRoundView(){
         this.setSize(Constants.LOST_ROUND_VIEW_WIDTH, Constants.LOST_ROUND_VIEW_HEIGHT);
-        this.add( new LostRoundItems());
+        this.add( new LostRoundItemsView());
         this.setResizable(false);
         this.setUndecorated(true);
         this.setVisible(true);

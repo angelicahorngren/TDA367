@@ -22,6 +22,9 @@ public class GameView extends JFrame{
                     if(mouseListener.mousePressed){
                         PlayerModel.jump();
                     }
+                    if(PlayerModel.yPosition >= 250){
+                        mouseListener.mousePressed = false;
+                    }
                     PlayerModel.gravity();
                     repaint();
                     progressBarView.setUpdatedCounter();

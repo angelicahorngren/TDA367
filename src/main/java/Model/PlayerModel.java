@@ -9,6 +9,7 @@ public class PlayerModel {
     public static int velY;
     public final int playerWidth;
     public final int playerHeight;
+    public static int velReducer;
 
 
     public PlayerModel() {
@@ -20,17 +21,21 @@ public class PlayerModel {
 
     public static void gravity() {
         if (yPosition < Constants.Y_POS) {
+            velReducer++;
+            if (velReducer % 2 == 0){
+                velY++;
+            }
             yPosition += velY;
-            velY += 1;
         } else {
             yPosition = Constants.Y_POS;
             velY = 0;
+            velReducer = 0;
         }
 
     }
 
     public static void jump() {
-        yPosition -= 12;
+        yPosition -= 10;
     }
 
 
