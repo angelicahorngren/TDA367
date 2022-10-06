@@ -1,4 +1,4 @@
-package view;
+/* package view;
 
 import Utilities.Constants;
 
@@ -14,4 +14,4 @@ public class ProgressText implements Texts {
         g.drawString("Progress: ", Constants.LOST_ROUND_VIEW_WIDTH - 270, Constants.LOST_ROUND_VIEW_HEIGHT - 100) ;
     }
 
-}
+} */

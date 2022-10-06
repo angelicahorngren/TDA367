@@ -1,6 +1,6 @@
 package view;
 import Controller.MouseListener;
-import Model.Player;
+import Model.PlayerModel;
 import Utilities.Constants;
 import javax.swing.JFrame;
 
@@ -19,15 +19,13 @@ public class GameView extends JFrame{
         Thread animationThread = new Thread(new Runnable() {
             public void run() {
                 while (true) {
-                    Player.gravity();
                     if(mouseListener.mousePressed){
-                        Player.jump();
+                        PlayerModel.jump();
                     }
+                    PlayerModel.gravity();
                     repaint();
                     progressBarView.setUpdatedCounter();
                     progressBarView.setProgressbarBounds();
-
-
                     try {
                         Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
@@ -52,6 +50,7 @@ public class GameView extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.add(new PaintingStuff());
+
     }
 
 

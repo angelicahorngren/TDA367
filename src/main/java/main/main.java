@@ -1,8 +1,11 @@
 package main;
 import view.GameView;
+import view.LostRoundView;
 import view.MenuView;
 
 import java.awt.*;
+
+import javax.swing.*;
 
 public class main {
 
@@ -10,6 +13,7 @@ public class main {
 
         System.out.println("Hello, do you wanna jump and stuff?");
         MenuView menuView = new MenuView();
+        //new LostRoundView();
 
 
     }
