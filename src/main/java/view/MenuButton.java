@@ -1,10 +1,10 @@
 package view;
 
 import Utilities.Constants;
-import Model.Shape_Model;
+import Model.Shapes;
 import java.awt.*;
 
-public class MenuButton extends Shape_Model implements IMenuItems{
+public class MenuButton extends Shapes implements IMenuItems{
 
 
     private int bx;

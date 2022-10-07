@@ -5,11 +5,11 @@ import Utilities.Constants;
 public class ProgressIndicator {
     public double currentIncrease = 0;               //currentIncrease is initialized to 0
     public int currentPercentage = 0;                  //the percentage on the progressbar is initialized to 0%
-    int fullercentage = 100;
+    int fullPercentage = 100;
 
 
     public double getIncreasedTime(double ms_perLevel) {
-        double inc_EveryThreadIteration = Constants.Thread_argument_ms * fullercentage / ms_perLevel;  //decides the procentage increase "inc_EveryThreadIteration" every 10 millieseconds by multiplying 10 ms with 100 % and divding it with the amount of millie seconds that a level takes to clear ->
+        double inc_EveryThreadIteration = Constants.Thread_argument_ms * fullPercentage / ms_perLevel;  //decides the procentage increase "inc_EveryThreadIteration" every 10 millieseconds by multiplying 10 ms with 100 % and divding it with the amount of millie seconds that a level takes to clear ->
         return inc_EveryThreadIteration;                                                                  //-> the current level pre-decided length
     }
 

@@ -1,6 +1,6 @@
 package view;
 
-import Model.LostRoundItemsModel;
+
 import Utilities.Constants;
 
 import javax.swing.*;
@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 public class LostRoundItemsView extends JComponent {
 
-    private LostRoundItemsModel lrim;
+    private LostRoundItems lrim;
 
     public LostRoundItemsView(){
 
-        lrim = new LostRoundItemsModel();
+        lrim = new LostRoundItems();
 
         /*this.addMouseListener(new MouseAdapter() {
 

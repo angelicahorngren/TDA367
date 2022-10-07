@@ -6,10 +6,10 @@ import javax.swing.*;
 
 //hh
 public class ProgressBar extends JProgressBar {
-    public ProgressIndicator progressIndicator_;
+    public ProgressIndicator progressIndicator;
 
     public ProgressBar() {
-        this.progressIndicator_ = new ProgressIndicator();
+        this.progressIndicator = new ProgressIndicator();
         this.setStringPainted(true); // show the percentage on the bar
         this.setFont(new Font("MV Boli", Font.BOLD, 10)); // customize the bar
         this.setForeground(Color.red); // set the fill color of the bar
@@ -17,7 +17,7 @@ public class ProgressBar extends JProgressBar {
     }
 
     public void setUpdatedCounter(){
-        this.setValue(progressIndicator_.currentPercentage);     //inserts the percentageOnBar -value in the progressbar class object
+        this.setValue(progressIndicator.currentPercentage);     //inserts the percentageOnBar -value in the progressbar class object
     }
 
     public void setProgressbarBounds(){

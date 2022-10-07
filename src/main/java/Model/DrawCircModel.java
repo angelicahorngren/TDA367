@@ -23,6 +23,7 @@ public class DrawCircModel {
         if (u > w + cWidth) {
             u = -cWidth;
         }
+
         x_pos_circle = u;
         return u;
 

@@ -14,15 +14,14 @@ public class MouseListener extends MouseAdapter {
 
     @Override
     public void mousePressed(MouseEvent mouseEvent){
-        this.mousePressed = true;
-        this.mouseButton = mouseEvent.getButton();
+        //this.mousePressed = true;
+        //this.mouseButton = mouseEvent.getButton();
 
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         mousePressed = true;
-
 
     }
 
