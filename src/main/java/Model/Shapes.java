@@ -1,12 +1,12 @@
 package Model;
 
-public class Shape_Model {
+public class Shapes {
     private int x;
     private int y;
     private int width;
     private int height;
 
-    public Shape_Model(int x, int y, int width, int height){
+    public Shapes(int x, int y, int width, int height){
         this.x = x;
         this.y = y;
         this.width = width;
