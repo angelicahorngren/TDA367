@@ -1,15 +1,15 @@
 package view;
 
-import Model.ProgressBar;
+import Model.ProgressIndicator;
 import java.awt.*;
 import javax.swing.*;
 
 //hh
-public class ProgressBar_View extends JProgressBar {
-    public ProgressBar progressBar_;
+public class ProgressBar extends JProgressBar {
+    public ProgressIndicator progressIndicator_;
 
-    public ProgressBar_View() {
-        this.progressBar_ = new ProgressBar();
+    public ProgressBar() {
+        this.progressIndicator_ = new ProgressIndicator();
         this.setStringPainted(true); // show the percentage on the bar
         this.setFont(new Font("MV Boli", Font.BOLD, 10)); // customize the bar
         this.setForeground(Color.red); // set the fill color of the bar
@@ -17,11 +17,18 @@ public class ProgressBar_View extends JProgressBar {
     }
 
     public void setUpdatedCounter(){
-        this.setValue(progressBar_.percentageOnBar);     //inserts the percentageOnBar -value in the progressbar class object
+        this.setValue(progressIndicator_.currentPercentage);     //inserts the percentageOnBar -value in the progressbar class object
     }
 
     public void setProgressbarBounds(){
         this.setBounds(200,10, 400, 10);        //sets the bounds of the progressbar
+    }
+
+    public int getCurrentProgressValue() {
+        int currentProgressBarValue = this.getValue();
+        System.out.print(currentProgressBarValue);
+        return currentProgressBarValue;
+
     }
 
 }
