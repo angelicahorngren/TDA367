@@ -1,16 +1,19 @@
 package view;
-import Model.DrawCircModel;
+import Model.Obstacle;
 import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
 
 public class DrawCircView extends JComponent {
 
+    //public int hight;
+   // public int width;
+    Obstacle obstacle;
 
-    DrawCircModel drawCircModel;
     public DrawCircView(int h, int w) {
-
-        this.drawCircModel = new DrawCircModel(h, w);
+        this.obstacle = new Obstacle(h, w, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X);
+        //this.hight = obstacle.Height;
+        //this.width = obstacle.Width;
 
 
     }
@@ -21,7 +24,7 @@ public class DrawCircView extends JComponent {
 
 
         gg.setColor(Constants.RECT_COLOR);
-        gg.fillOval(drawCircModel.move(),Constants.Y_POS, drawCircModel.cWidth, drawCircModel.cHeight);      //här sätts även yposition
+        gg.fillOval(obstacle.move(),Constants.Y_POS, obstacle.Width, obstacle.Height);      //här sätts även yposition
 
 
 

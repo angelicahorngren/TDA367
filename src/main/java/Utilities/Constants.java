@@ -16,7 +16,10 @@ public class Constants {
     public static final Color RECT_COLOR = Color.RED;
     public static final int Y_POS = 250;
     public static final int CIRC_START_X = 1000;
-    //public static final int OBSTICLE_START_X = 1000; använd istället
+    public static final int DISTANCE_OBSTACLE_TRAVELS = 1500;                       //skärmens bredd (osynlig+synlig)
+
+    public static final int OBSTACLE_START_X = 1000;
+    public static final int OBSTACLE_SPEED = -3;
 
     //Timer
     public static final int Thread_argument_ms = 10;

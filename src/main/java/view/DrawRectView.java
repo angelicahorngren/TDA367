@@ -1,5 +1,5 @@
 package view;
-import Model.DrawRectModel;
+import Model.Obstacle;
 import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
@@ -7,10 +7,10 @@ import java.awt.*;
 public class DrawRectView extends JComponent {
 
 
-    DrawRectModel drawRectModel;
+    Obstacle obstacle;
     public DrawRectView(int h, int w) {
 
-        this.drawRectModel = new DrawRectModel(h, w);
+        this.obstacle = new Obstacle(h, w, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X);
 
 
     }
@@ -21,7 +21,7 @@ public class DrawRectView extends JComponent {
 
 
         gg.setColor(Constants.RECT_COLOR);
-        gg.fillRect(drawRectModel.moveRect(),Constants.Y_POS, drawRectModel.rWidth, drawRectModel.rHeight);      //här sätts även yposition
+        gg.fillRect(obstacle.move(),Constants.Y_POS, obstacle.Width, obstacle.Height);      //här sätts även yposition
 
 
 
