@@ -10,13 +10,13 @@ public class PlayerModel {
     public final int playerWidth;
     public final int playerHeight;
     public static int velReducer;
+    public static int xPosition = -100;
 
 
     public PlayerModel() {
         playerWidth = Constants.RECT_WIDTH;
         playerHeight = Constants.RECT_HEIGHT;
         yPosition = Constants.Y_POS;
-
     }
 
     public static void gravity() {
@@ -31,16 +31,28 @@ public class PlayerModel {
             velY = 0;
             velReducer = 0;
         }
-
     }
 
     public static void jump() {
-        yPosition -= 10;
+        if(xPosition > 250){
+            yPosition -= 10;
+        }
     }
 
 
     public int getYPosition() {
         return yPosition;
+    }
+
+    public int getXPosition() {
+        return xPosition;
+    }
+
+    public static void moveIntoFrame(){
+        if(xPosition < 250){
+            xPosition += 4;
+        }
+
     }
 
 

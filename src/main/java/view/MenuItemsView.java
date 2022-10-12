@@ -19,7 +19,7 @@ public class MenuItemsView extends JComponent {
         mi = new MenuItems();
         mic = new MenuItemsController();
 
-        this.addMouseListener(new MouseAdapter() {
+        /*this.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -37,7 +37,7 @@ public class MenuItemsView extends JComponent {
                 }
             }
 
-        });
+        });*/
 
     }
 
