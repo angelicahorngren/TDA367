@@ -6,7 +6,7 @@ public class Obstacle {
     public int Width;
     public int Height;
     public int Speed;
-    public int startXposition = Constants.OBSTACLE_START_X;
+    public int startXposition; //= Constants.OBSTACLE_START_X;
 
     public Obstacle(int width, int height, int speed, int startXpos){
         this.Width = width;

@@ -1,22 +1,25 @@
 package view;
 
 import Controller.MenuItemsController;
-import Model.MenuItemsModel;
+import Model.Obstacle;
+import Utilities.Constants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MenuItemsView extends JComponent {
 
-    private MenuItemsModel mi;
+    private MenuItems mi;
     public MenuItemsController mic;
 
-    public MenuItemsView(){
+    public MenuItemsView(Obstacle obstacle){
 
-        mi = new MenuItemsModel();
+        mi = new MenuItems();
         mic = new MenuItemsController();
 
-        /*this.addMouseListener(new MouseAdapter() {
+        this.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -29,12 +32,12 @@ public class MenuItemsView extends JComponent {
                     if (mousey >= Constants.START_BTN_POSY && mousey <= Constants.START_BTN_POSY + Constants.START_BTN_HEIGHT) {
 
                         //switch to gameview frame
-                        new GameView();
+                        new GameView(obstacle);
                     }
                 }
             }
 
-        });*/
+        });
 
     }
 

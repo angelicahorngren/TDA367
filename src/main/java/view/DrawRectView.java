@@ -8,9 +8,10 @@ public class DrawRectView extends JComponent {
 
 
     Obstacle obstacle;
-    public DrawRectView(int h, int w) {
+    public DrawRectView(Obstacle obstacle) {
+        this.obstacle = obstacle;
 
-        this.obstacle = new Obstacle(h, w, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X);
+        //this.obstacle = new Obstacle(h, w, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X);
 
 
     }

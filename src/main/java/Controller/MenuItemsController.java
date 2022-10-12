@@ -1,4 +1,5 @@
 package Controller;
+import Model.Obstacle;
 import Utilities.Constants;
 import view.GameView;
 import view.MenuItemsView;
@@ -27,7 +28,7 @@ public class MenuItemsController extends JComponent {
                     if (mousey >= Constants.START_BTN_POSY && mousey <= Constants.START_BTN_POSY + Constants.START_BTN_HEIGHT) {
 
                         //switch to gameview frame
-                        new GameView();
+                        //new GameView();
                     }
                 }
             }

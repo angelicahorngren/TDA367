@@ -1,5 +1,6 @@
 package view;
 import Controller.MouseListener;
+import Model.Obstacle;
 import Model.PlayerModel;
 import Utilities.Constants;
 import javax.swing.JFrame;
@@ -7,13 +8,14 @@ import javax.swing.JFrame;
 public class GameView extends JFrame{
 
     MouseListener mouseListener;
-    ProgressBar_View progressBarView = new ProgressBar_View();
+    ProgressBar progressBar = new ProgressBar();
 
 
 
 
-    public GameView() {
-        add(progressBarView);
+    public GameView(Obstacle obstacle) {
+
+        add(progressBar);
         mouseListener = new MouseListener();
         addMouseListener(mouseListener);
         Thread animationThread = new Thread(new Runnable() {
@@ -27,16 +29,16 @@ public class GameView extends JFrame{
                     }
                     PlayerModel.gravity();
                     repaint();
-                    progressBarView.setUpdatedCounter();
-                    progressBarView.setProgressbarBounds();
+                    progressBar.setUpdatedCounter();
+                    progressBar.setProgressbarBounds();
                     try {
                         Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
                     } catch (Exception ex) {
                     }
 
-                    progressBarView.progressBar_.updateTime();
-                    progressBarView.progressBar_.increaseIfWholeNumber();
+                    progressBar.progressIndicator_.updateTime();
+                    progressBar.progressIndicator_.increaseIfWholeNumber();
 
 
                     }
@@ -52,7 +54,7 @@ public class GameView extends JFrame{
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.add(new PaintingStuff());
+        this.add(new PaintingStuff(obstacle));
 
     }
 

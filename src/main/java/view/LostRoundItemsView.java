@@ -1,6 +1,5 @@
 package view;
 
-import Model.LostRoundItemsModel;
 import Utilities.Constants;
 
 import javax.swing.*;
@@ -11,11 +10,11 @@ import java.util.ArrayList;
 
 public class LostRoundItemsView extends JComponent {
 
-    private LostRoundItemsModel lrim;
+    private LostRoundItems lrim;
 
     public LostRoundItemsView(){
 
-        lrim = new LostRoundItemsModel();
+        lrim = new LostRoundItems();
 
         /*this.addMouseListener(new MouseAdapter() {
 
@@ -70,7 +69,7 @@ public class LostRoundItemsView extends JComponent {
                     if (mousey >= Constants.MENU_BTN_POSY && mousey <= Constants.MENU_BTN_POSY + Constants.MENU_BTN_HEIGHT){
 
                         //switch to Startpage frame
-                        new MenuView();
+                        //new MenuView();
 
                     }
                 }
@@ -80,7 +79,7 @@ public class LostRoundItemsView extends JComponent {
                     if (mousey >= Constants.PLAY_AGAIN_BTN_POSY && mousey <= Constants.PLAY_AGAIN_BTN_POSY + Constants.PLAY_AGAIN_BTN_HEIGHT){
 
                         //switch to Startpage frame
-                        new GameView();
+                        //new GameView();
 
                     }
                 }
