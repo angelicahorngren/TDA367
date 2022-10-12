@@ -1,14 +1,14 @@
-import Model.PlayerModel;
-
-import java.awt.*;
+import Model.Player;
 
 public class test1 {
 
     //@Test
     void playerJumpTest() {
-        PlayerModel playerModelJumpTest = new PlayerModel();
-        PlayerModel.jump();
+        /*Player playerModelJumpTest = new Player();
+        Player.jump();
         System.out.println(playerModelJumpTest.getYPosition());
        //assertEquals(0, playerModelJumpTest.getYPosition());
+
+         */
     }
 }

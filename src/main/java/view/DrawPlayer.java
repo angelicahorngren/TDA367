@@ -1,16 +1,15 @@
 package view;
 
-import Model.PlayerModel;
-import Utilities.Constants;
+import Model.Player;
 
 import java.awt.*;
 
-public class PlayerView {
+public class DrawPlayer {
 
-    PlayerModel player;
+    Player player;
 
-    public PlayerView() {
-        this.player = new PlayerModel();
+    public DrawPlayer(Player player) {
+        this.player = player;
     }
 
     public void drawPlayer(Graphics g) {

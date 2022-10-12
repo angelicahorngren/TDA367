@@ -1,4 +1,5 @@
 package Controller;
+import Model.Player;
 import Model.Obstacle;
 import Utilities.Constants;
 import view.GameView;
@@ -12,6 +13,8 @@ import java.awt.event.MouseListener;
 public class MenuItemsController extends JComponent {
 
     //private MenuItemsView miv;
+
+
 
     public MenuItemsController() {
 

@@ -1,7 +1,7 @@
 package view;
 import Controller.MouseListener;
+import Model.Player;
 import Model.Obstacle;
-import Model.PlayerModel;
 import Utilities.Constants;
 import javax.swing.JFrame;
 
@@ -13,8 +13,7 @@ public class GameView extends JFrame{
 
 
 
-    public GameView(Obstacle obstacle) {
-
+    public GameView(Player player, Obstacle obstacle) {
         add(progressBar);
         mouseListener = new MouseListener();
         addMouseListener(mouseListener);
@@ -22,14 +21,14 @@ public class GameView extends JFrame{
             public void run() {
                 while (true) {
                     if(mouseListener.mousePressed){
-                        PlayerModel.jump();
+                        player.jump();
                     }
-                    PlayerModel.gravity();
-                    if(PlayerModel.yPosition == 250){
+                    player.gravity();
+                    if(player.yPosition == 250){
                         mouseListener.mousePressed = false;
                     }
                     repaint();
-                    PlayerModel.moveIntoFrame();
+                    player.moveIntoFrame();
                     progressBar.setUpdatedCounter();
                     progressBar.setProgressbarBounds();
                     try {
@@ -38,8 +37,8 @@ public class GameView extends JFrame{
                     } catch (Exception ex) {
                     }
 
-                    progressBar.progressIndicator_.updateTime();
-                    progressBar.progressIndicator_.increaseIfWholeNumber();
+                    progressBar.progressIndicator.updateTime();
+                    progressBar.progressIndicator.increaseIfWholeNumber();
 
 
                     }
@@ -55,7 +54,7 @@ public class GameView extends JFrame{
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.add(new PaintingStuff(obstacle));
+        this.add(new PaintingStuff(player, obstacle));
 
     }
 

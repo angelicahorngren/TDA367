@@ -2,18 +2,23 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
+import Model.Player;
+
 import Model.Obstacle;
 import Utilities.Constants;
 
 public class PaintingStuff extends JComponent {
+    Player player;
+    DrawPlayer drawPlayer;
     Obstacle obstacle;
     DrawRectView drawrect;
-    public PaintingStuff(Obstacle obstacle){
+    public PaintingStuff(Player player, Obstacle obstacle){
          this.drawrect = new DrawRectView(obstacle);
+         this.drawPlayer = new DrawPlayer(player);
     }
     DrawGameBackgroundView dbg = new DrawGameBackgroundView(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
     DrawCircView drawcirc = new DrawCircView(Constants.RECT_HEIGHT,Constants.RECT_WIDTH);
-    PlayerView playerView = new PlayerView();
+
 
 
     public void paint(Graphics g){
@@ -21,7 +26,7 @@ public class PaintingStuff extends JComponent {
         drawrect.draw(g);
         dbg.draw2(g);
         drawcirc.draw3(g);
-        playerView.drawPlayer(g);
+        drawPlayer.drawPlayer(g);
 
 
     }

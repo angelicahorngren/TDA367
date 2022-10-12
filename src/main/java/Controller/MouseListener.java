@@ -1,6 +1,4 @@
-package Controller;;
-
-import Model.PlayerModel;
+package Controller;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
