@@ -3,30 +3,53 @@ package Model;
 import Utilities.Constants;
 
 public class Obstacle {
-    public int Width;
-    public int Height;
-    public int Speed;
+    public int width;
+    public int height;
+    public int speed;
     public int startXposition; //= Constants.OBSTACLE_START_X;
+    public Shapes hitBox;
+    public int xPosition;
+
 
     public Obstacle(int width, int height, int speed, int startXpos){
-        this.Width = width;
-        this.Height = height;
-        this.Speed = speed;
+        this.width = width;
+        this.height = height;
+        this.speed = speed;
         this.startXposition = startXpos;
+        this.hitBox = new Shapes(startXpos, Constants.Y_POS, width, height);
+
 
     }
 
     public int move() {
-        int x = startXposition + Speed;
+        xPosition = startXposition + speed;
 
-        if (x > Constants.DISTANCE_OBSTACLE_TRAVELS + Width) {
-            x = -Width;
+        if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
+            xPosition = -width;
         }
 
-        startXposition = x;
-        return x;
-
-
+        startXposition = xPosition;
+        return xPosition;
 
     }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getxPosition() {
+        return xPosition;
+    }
+
+    public int getyPosition() {
+        return xPosition;
+    }
+
+
+
+
 }

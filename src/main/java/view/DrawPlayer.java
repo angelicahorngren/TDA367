@@ -15,7 +15,7 @@ public class DrawPlayer {
     public void drawPlayer(Graphics g) {
         Graphics2D gg = (Graphics2D) g;
         gg.setColor(Color.MAGENTA);
-        gg.fillRect(player.getXPosition(), player.getYPosition(), player.playerWidth, player.playerHeight);      //här sätts även yposition
+        gg.fillRect(player.getxPosition(), player.getyPosition(), player.playerWidth, player.playerHeight);      //här sätts även yposition
     }
 
 }

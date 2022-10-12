@@ -24,7 +24,7 @@ public class DrawCircView extends JComponent {
 
 
         gg.setColor(Constants.RECT_COLOR);
-        gg.fillOval(obstacle.move(),Constants.Y_POS, obstacle.Width, obstacle.Height);      //här sätts även yposition
+        gg.fillOval(obstacle.move(),Constants.Y_POS, obstacle.width, obstacle.height);      //här sätts även yposition
 
 
 

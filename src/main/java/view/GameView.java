@@ -1,5 +1,6 @@
 package view;
 import Controller.MouseListener;
+import Model.Collision;
 import Model.Player;
 import Model.Obstacle;
 import Utilities.Constants;
@@ -9,17 +10,19 @@ public class GameView extends JFrame{
 
     MouseListener mouseListener;
     ProgressBar progressBar = new ProgressBar();
+    Collision collision;
 
 
 
 
-    public GameView(Player player, Obstacle obstacle) {
+    public GameView(Player player, Obstacle obstacle, Collision collision) {
         add(progressBar);
         mouseListener = new MouseListener();
         addMouseListener(mouseListener);
         Thread animationThread = new Thread(new Runnable() {
             public void run() {
                 while (true) {
+                    collision.detectCollision();
                     if(mouseListener.mousePressed){
                         player.jump();
                     }
@@ -27,7 +30,7 @@ public class GameView extends JFrame{
                     if(player.yPosition == 250){
                         mouseListener.mousePressed = false;
                     }
-                    repaint();
+                    paintComponents(getGraphics());
                     player.moveIntoFrame();
                     progressBar.setUpdatedCounter();
                     progressBar.setProgressbarBounds();

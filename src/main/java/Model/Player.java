@@ -1,8 +1,6 @@
 package Model;
 
-import Controller.KL;
 import Utilities.Constants;
-import view.DrawPlayer;
 
 
 public class Player {
@@ -15,6 +13,7 @@ public class Player {
     public int velReducer;
     public int xPosition;
     public boolean alive;
+    public Shapes hitBox;
 
 
     public Player(int playerWidth, int playerHeight, int yPosition, int xPosition, boolean alive) {
@@ -23,6 +22,8 @@ public class Player {
         this.yPosition = yPosition;
         this.alive = alive;
         this.xPosition = xPosition;
+        this.hitBox = new Shapes(xPosition, yPosition, playerWidth, playerHeight);
+
     }
 
     public void gravity() {
@@ -46,11 +47,19 @@ public class Player {
     }
 
 
-    public int getYPosition() {
+    public int getyPosition() {
         return yPosition;
     }
 
-    public int getXPosition() {
+    public int getPlayerWidth() {
+        return playerWidth;
+    }
+
+    public int getPlayerHeight() {
+        return playerHeight;
+    }
+
+    public int getxPosition() {
         return xPosition;
     }
 
@@ -72,6 +81,15 @@ public class Player {
     public void setPlayerNotAlive(){
         alive = false;
     }
+
+    public Shapes getHitBox(){
+        hitBox.x = xPosition;
+        hitBox.y = yPosition;
+        return hitBox;
+    }
+
+
+
 
 
 }

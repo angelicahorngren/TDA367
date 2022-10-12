@@ -1,10 +1,10 @@
 package Model;
 
 public class Shapes {
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+    public int x;
+    public int y;
+    public int width;
+    public int height;
 
     public Shapes(int x, int y, int width, int height){
         this.x = x;
