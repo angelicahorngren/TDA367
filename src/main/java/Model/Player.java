@@ -51,7 +51,6 @@ public class Player {
     }
 
     public int getXPosition() {
-        xPosition = -100;
         return xPosition;
     }
 
