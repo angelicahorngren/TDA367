@@ -10,9 +10,6 @@ public class GameView extends JFrame{
 
     MouseListener mouseListener;
     ProgressBar progressBar = new ProgressBar();
-    Collision collision;
-
-
 
 
     public GameView(Player player, Obstacle obstacle, Collision collision) {
@@ -34,6 +31,7 @@ public class GameView extends JFrame{
                     player.moveIntoFrame();
                     progressBar.setUpdatedCounter();
                     progressBar.setProgressbarBounds();
+                    repaint();
                     try {
                         Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
 

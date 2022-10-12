@@ -18,7 +18,7 @@ public class Constants {
     public static final int CIRC_START_X = 1500;
     public static final int DISTANCE_OBSTACLE_TRAVELS = 1500;                       //skärmens bredd (osynlig+synlig)
 
-    public static final int OBSTACLE_START_X = 1000;
+    public static final int OBSTACLE_START_X = 1500;
     public static final int OBSTACLE_SPEED = -3;
 
     //Timer
