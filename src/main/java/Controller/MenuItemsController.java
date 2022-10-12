@@ -1,66 +1,68 @@
 package Controller;
-import Model.Player;
 import Model.Obstacle;
+import Model.Player;
 import Utilities.Constants;
 import view.GameView;
-import view.MenuItemsView;
+import view.MenuView;
 
-import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-public class MenuItemsController extends JComponent {
-
-    //private MenuItemsView miv;
 
 
+public class MenuItemsController extends MouseAdapter {
 
-    public MenuItemsController() {
+    private int buttonPosX; //Constants.START_BTN_POSX
+    private int buttonPosY; //Constants.START_BTN_POSY
+    private int buttonWidth; //Constants.START_BTN_WIDTH
+    private int buttonHeight; //Constants.START_BTN_HEIGHT
+    Player player;
+    Obstacle obstacle;
+    GameView gm;
 
-        this.addMouseListener(new MouseAdapter() {
+    public MenuItemsController(int buttonPosX, int buttonPosY, int buttonWidth, int buttonHeight, Player player, Obstacle obstacle, GameView gm) {
 
-            @Override
-            public void mouseClicked(MouseEvent e) {
+        this.buttonPosX = buttonPosX;
+        this.buttonPosY = buttonPosY;
+        this.buttonWidth = buttonWidth;
+        this.buttonHeight = buttonHeight;
 
-                int mousex = e.getX();
-                int mousey = e.getY();
+        this.player = player;
+        this.obstacle = obstacle;
 
-                if (mousex >= Constants.START_BTN_POSX && mousex <= Constants.START_BTN_POSX + Constants.START_BTN_WIDTH) {
-
-                    if (mousey >= Constants.START_BTN_POSY && mousey <= Constants.START_BTN_POSY + Constants.START_BTN_HEIGHT) {
-
-                        //switch to gameview frame
-                        //new GameView();
-                    }
-                }
-            }
-
-        });
+        this.gm = gm;
 
     }
 
-    /*public MouseListener getMouseListener() {
+    @Override
+    public void mouseClicked(MouseEvent e) {
 
-        return new MouseAdapter() {
+        int mousex = e.getX();
+        int mousey = e.getY();
 
-            @Override
-            public void mouseClicked(MouseEvent e) {
+        if (mousex >= buttonPosX && mousex <= buttonPosX + buttonWidth) {
 
-                int mousex = e.getX();
-                int mousey = e.getY();
+            if (mousey >= buttonPosY && mousey <= buttonPosY + buttonHeight) {
 
-                if (mousex >= Constants.START_BTN_POSX && mousex <= Constants.START_BTN_POSX + Constants.START_BTN_WIDTH) {
 
-                    if (mousey >= Constants.START_BTN_POSY && mousey <= Constants.START_BTN_POSY + Constants.START_BTN_HEIGHT) {
+                if ( buttonPosX == Constants.START_BTN_POSX || buttonPosX == Constants.PLAY_AGAIN_BTN_POSX){
 
-                        //switch to gameview frame
-                        new GameView();
-                    }
+                    //switch to gameview
+                    //new GameView(player, obstacle);
+                    gm.toFront(); //funkar det här?
+
+                }
+
+                else if (buttonPosX == Constants.MENU_BTN_POSX){
+
+                    //switch to startpage
+                    //new MenuView(player, obstacle, null);
+
                 }
             }
+        }
+    }
 
-        };
-    }*/
+
+
 
 }

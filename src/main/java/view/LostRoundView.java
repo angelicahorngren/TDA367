@@ -1,4 +1,5 @@
 package view;
+import Controller.MenuItemsController;
 import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
@@ -9,9 +10,9 @@ public class LostRoundView extends JFrame {
     Container c = getContentPane();
 
 
-    public LostRoundView(){
+    public LostRoundView(MenuItemsController menuBtnC, MenuItemsController playAgainBtnC){
         this.setSize(Constants.LOST_ROUND_VIEW_WIDTH, Constants.LOST_ROUND_VIEW_HEIGHT);
-        this.add( new LostRoundItemsView());
+        this.add( new LostRoundItemsView(menuBtnC, playAgainBtnC));
         this.setResizable(false);
         this.setUndecorated(true);
         this.setVisible(true);
