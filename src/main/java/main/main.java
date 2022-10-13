@@ -1,16 +1,11 @@
 package main;
 import Controller.*;
-import Model.Collision;
+import Model.CollisionDetector;
+import Model.ProgressIndicator;
 import Utilities.Constants;
 import Model.Player;
-import Utilities.Constants;
 import view.*;
 import Model.Obstacle;
-import Utilities.Constants;
-
-import java.awt.*;
-
-import javax.swing.*;
 
 public class main {
 
@@ -20,12 +15,13 @@ public class main {
         System.out.println("Hello, do you wanna jump and stuff?");
         Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X);
         Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, -100, true);
-        Collision collisionDetector = new Collision(player, obstacle);
+        CollisionDetector collisionDetector = new CollisionDetector(player, obstacle);
         DrawPlayer dp = new DrawPlayer(player);
-        ProgressBar progressBar = new ProgressBar();
+        ProgressIndicator progressIndicator = new ProgressIndicator();
+        ProgressBar progressBar = new ProgressBar(progressIndicator);
         MouseListener mouseListener = new MouseListener();
-        GameView gm = new GameView(player, obstacle, collisionDetector, progressBar, mouseListener);
-        GameLoop gameLoop = new GameLoop(player, obstacle, gm, progressBar);
+        GameView gm = new GameView(player, obstacle, progressBar, mouseListener);
+        GameLoop gameLoop = new GameLoop(player, obstacle, gm, progressBar, mouseListener, collisionDetector);
 
         StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT);
         MenuButtonController menuBtnC = new MenuButtonController(Constants.MENU_BTN_POSX, Constants.MENU_BTN_POSY, Constants.MENU_BTN_WIDTH, Constants.MENU_BTN_HEIGHT);

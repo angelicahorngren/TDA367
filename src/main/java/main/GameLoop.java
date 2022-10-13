@@ -1,6 +1,7 @@
 package main;
 
 import Controller.MouseListener;
+import Model.CollisionDetector;
 import Model.Obstacle;
 import Model.Player;
 import view.GameView;
@@ -12,20 +13,21 @@ public class GameLoop {       //Have to extend JFrame for add()-functions to wor
 
     Thread animationThread;
 
-    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar){
+    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, MouseListener mouseListener, CollisionDetector collisionDetector){
 
 
 
      this.animationThread = new Thread(new Runnable() {
         public void run() {
             while (true) {
-                /*if(mouseListener.mousePressed){
+                if(mouseListener.mousePressed){
                     player.jump(); //switch to controller
                 }
 
                 if(player.yPosition == 250){
                     mouseListener.mousePressed = false;
-                }*/
+                }
+                collisionDetector.detectCollision();
                 player.gravity();
                 gameView.paintComponents(gameView.getGraphics());
                 //gameView.repaint();

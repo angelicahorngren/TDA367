@@ -4,14 +4,14 @@ import Controller.MenuItemsController;
 import view.LostRoundView;
 import view.MenuView;
 
-public class Collision {
+public class CollisionDetector {
 
     Player player;
     Obstacle obstacle;
 
 
 
-    public Collision(Player player, Obstacle obstacle){
+    public CollisionDetector(Player player, Obstacle obstacle){
         this.player = player;
         this.obstacle = obstacle;
     }

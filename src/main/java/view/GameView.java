@@ -1,6 +1,6 @@
 package view;
 import Controller.MouseListener;
-import Model.Collision;
+import Model.CollisionDetector;
 import Model.Player;
 import Model.Obstacle;
 import Utilities.Constants;
@@ -11,7 +11,7 @@ public class GameView extends JFrame{
     //MouseListener mouseListener;
 
 
-    public GameView(Player player, Obstacle obstacle, Collision collision, ProgressBar progressBar, MouseListener mouseListener) {
+    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, MouseListener mouseListener) {
         add(progressBar);
         this.addMouseListener(mouseListener);
 
