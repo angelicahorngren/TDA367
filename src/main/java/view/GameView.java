@@ -5,6 +5,7 @@ import Model.Player;
 import Model.Obstacle;
 import Utilities.Constants;
 import javax.swing.JFrame;
+import java.awt.*;
 
 public class GameView extends JFrame{
 
@@ -14,8 +15,6 @@ public class GameView extends JFrame{
     public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, MouseListener mouseListener) {
         add(progressBar);
         this.addMouseListener(mouseListener);
-
-
         this.setTitle(Constants.SCREEN_TITLE);
         this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
         this.setResizable(false);
@@ -23,7 +22,6 @@ public class GameView extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.add(new PaintingStuff(player, obstacle));
-
     }
 
 

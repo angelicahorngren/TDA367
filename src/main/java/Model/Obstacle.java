@@ -6,30 +6,29 @@ public class Obstacle {
     public int width;
     public int height;
     public int speed;
-    public int startXposition; //= Constants.OBSTACLE_START_X;
+     //= Constants.OBSTACLE_START_X;
     public Shapes hitBox;
     public int xPosition;
+    public int yPosition;
 
 
-    public Obstacle(int width, int height, int speed, int startXpos){
+    public Obstacle(int width, int height, int speed, int startXpos, int yPosition){
         this.width = width;
         this.height = height;
         this.speed = speed;
-        this.startXposition = startXpos;
+        this.xPosition = startXpos;
+        this.yPosition = yPosition;
         this.hitBox = new Shapes(startXpos, Constants.Y_POS, width, height);
-
 
     }
 
-    public int move() {
-        xPosition = startXposition + speed;
+    public void move() {
+        speed = -10;
+        xPosition += speed;
 
         if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
             xPosition = -width;
         }
-
-        startXposition = xPosition;
-        return xPosition;
 
     }
 
@@ -46,7 +45,7 @@ public class Obstacle {
     }
 
     public int getyPosition() {
-        return xPosition;
+        return yPosition;
     }
 
 

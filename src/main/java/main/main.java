@@ -13,7 +13,7 @@ public class main {
 
 
         System.out.println("Hello, do you wanna jump and stuff?");
-        Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X);
+        Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y);
         Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, -100, true);
         CollisionDetector collisionDetector = new CollisionDetector(player, obstacle);
         DrawPlayer dp = new DrawPlayer(player);
