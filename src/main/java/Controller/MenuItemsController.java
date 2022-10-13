@@ -2,6 +2,7 @@ package Controller;
 import Model.Obstacle;
 import Model.Player;
 import Utilities.Constants;
+import main.GameLoop;
 import view.GameView;
 import view.MenuView;
 
@@ -15,21 +16,13 @@ public class MenuItemsController extends MouseAdapter {
     private int buttonPosY; //Constants.START_BTN_POSY
     private int buttonWidth; //Constants.START_BTN_WIDTH
     private int buttonHeight; //Constants.START_BTN_HEIGHT
-    Player player;
-    Obstacle obstacle;
-    GameView gm;
 
-    public MenuItemsController(int buttonPosX, int buttonPosY, int buttonWidth, int buttonHeight, Player player, Obstacle obstacle, GameView gm) {
+    public MenuItemsController(int buttonPosX, int buttonPosY, int buttonWidth, int buttonHeight) {
 
         this.buttonPosX = buttonPosX;
         this.buttonPosY = buttonPosY;
         this.buttonWidth = buttonWidth;
         this.buttonHeight = buttonHeight;
-
-        this.player = player;
-        this.obstacle = obstacle;
-
-        this.gm = gm;
 
     }
 
@@ -43,23 +36,26 @@ public class MenuItemsController extends MouseAdapter {
 
             if (mousey >= buttonPosY && mousey <= buttonPosY + buttonHeight) {
 
+                buttonPressed();
 
-                if ( buttonPosX == Constants.START_BTN_POSX || buttonPosX == Constants.PLAY_AGAIN_BTN_POSX){
-
-                    //switch to gameview
-                    //new GameView(player, obstacle);
-                    gm.toFront(); //funkar det här?
-
-                }
-
-                else if (buttonPosX == Constants.MENU_BTN_POSX){
-
-                    //switch to startpage
-                    //new MenuView(player, obstacle, null);
-
-                }
             }
         }
+    }
+
+    public void buttonPressed(){
+
+        if ( buttonPosX == Constants.START_BTN_POSX || buttonPosX == Constants.PLAY_AGAIN_BTN_POSX){
+
+            System.out.println("yay");
+
+        }
+
+        else if (buttonPosX == Constants.MENU_BTN_POSX){
+
+            System.out.println("hoo");
+
+        }
+
     }
 
 

@@ -16,38 +16,7 @@ public class GameView extends JFrame{
         add(progressBar);
         mouseListener = new MouseListener();
         addMouseListener(mouseListener);
-        Thread animationThread = new Thread(new Runnable() {
-            public void run() {
-                while (true) {
-                    collision.detectCollision();
-                    if(mouseListener.mousePressed){
-                        player.jump();
-                    }
-                    player.gravity();
-                    if(player.yPosition == 250){
-                        mouseListener.mousePressed = false;
-                    }
-                    paintComponents(getGraphics());
-                    player.moveIntoFrame();
-                    progressBar.setUpdatedCounter();
-                    progressBar.setProgressbarBounds();
-                    repaint();
-                    try {
-                        Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
-                    } catch (Exception ex) {
-                    }
-
-                    progressBar.progressIndicator.updateTime();
-                    progressBar.progressIndicator.increaseIfWholeNumber();
-
-
-                    }
-                }
-
-        });
-
-        animationThread.start();
 
         this.setTitle(Constants.SCREEN_TITLE);
         this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);

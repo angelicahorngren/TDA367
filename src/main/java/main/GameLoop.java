@@ -3,31 +3,31 @@ package main;
 import Controller.MouseListener;
 import Model.Obstacle;
 import Model.Player;
+import view.GameView;
 import view.ProgressBar;
 import Utilities.Constants;
 import javax.swing.*;
 
-public class GameLoop extends JFrame {       //Have to extend JFrame for add()-functions to work, still working on this
+public class GameLoop {       //Have to extend JFrame for add()-functions to work, still working on this
 
-    MouseListener mouseListener;
-    ProgressBar progressBar = new ProgressBar();
+    Thread animationThread;
 
-    public GameLoop(Player player, Obstacle obstacle){
+    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar){
 
-    add(progressBar);
-    mouseListener = new MouseListener();
-    addMouseListener(mouseListener);
-    Thread animationThread = new Thread(new Runnable() {
+
+
+     this.animationThread = new Thread(new Runnable() {
         public void run() {
             while (true) {
-                if(mouseListener.mousePressed){
+                /*if(mouseListener.mousePressed){
                     player.jump();
                 }
-                player.gravity();
+
                 if(player.yPosition == 250){
                     mouseListener.mousePressed = false;
-                }
-                repaint();
+                }*/
+                player.gravity();
+                gameView.repaint();
                 player.moveIntoFrame();
                 progressBar.setUpdatedCounter();
                 progressBar.setProgressbarBounds();
@@ -46,6 +46,11 @@ public class GameLoop extends JFrame {       //Have to extend JFrame for add()-f
 
     });
 
-        animationThread.start();
+
 }
+
+    public void startGame(){
+        animationThread.start();
+    }
+
 }
