@@ -12,6 +12,7 @@ public class PaintingStuff extends JComponent {
     DrawPlayer drawPlayer;
     Obstacle obstacle;
     DrawRectView drawrect;
+
     public PaintingStuff(Player player, Obstacle obstacle){
          this.drawrect = new DrawRectView(obstacle);
          this.drawPlayer = new DrawPlayer(player);

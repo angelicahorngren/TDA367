@@ -4,10 +4,13 @@ import Model.Collision;
 import Model.Player;
 import Model.Obstacle;
 import Utilities.Constants;
+import main.GameLoop;
+
 import javax.swing.JFrame;
 
 public class GameView extends JFrame{
 
+    //private final GameLoop gameLoop;
     MouseListener mouseListener;
     ProgressBar progressBar = new ProgressBar();
 
@@ -17,6 +20,8 @@ public class GameView extends JFrame{
         mouseListener = new MouseListener();
         addMouseListener(mouseListener);
 
+        //this.gameLoop = gameLoop;
+
 
         this.setTitle(Constants.SCREEN_TITLE);
         this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
@@ -25,6 +30,12 @@ public class GameView extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.add(new PaintingStuff(player, obstacle));
+
+    }
+
+    public void startingLoop(){
+
+        //gameLoop.run();
 
     }
 
