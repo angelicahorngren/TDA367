@@ -1,6 +1,7 @@
 package main;
 
 import Controller.MouseListener;
+import Model.CollisionDetector;
 import Model.Obstacle;
 import Model.Player;
 import view.GameView;
@@ -17,12 +18,11 @@ public class GameLoop implements Runnable{
 
     Thread animationThread;
 
-    public GameLoop(Player player, GameView gameView, ProgressBar progressBar){
+    public GameLoop(Player player, GameView gameView, ProgressBar progressBar, CollisionDetector collisionDetector){
         this.player = player;
         this.gameView = gameView;
         this.progressBar = progressBar;
 
-    }
 
     @Override
     public void run() {
@@ -34,6 +34,7 @@ public class GameLoop implements Runnable{
                 if(player.yPosition == 250){
                     mouseListener.mousePressed = false;
                 }*/
+            collisionDetector.detectCollision();
             player.gravity();
             gameView.repaint();
             player.moveIntoFrame();
@@ -42,17 +43,18 @@ public class GameLoop implements Runnable{
             try {
                 Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
-            } catch (Exception ex) {
+                } catch (Exception ex) {
+                }
+
+                progressBar.progressIndicator.updateTime();
+                progressBar.progressIndicator.increaseIfWholeNumber();
+
+
             }
-
-            progressBar.progressIndicator.updateTime();
-            progressBar.progressIndicator.increaseIfWholeNumber();
-
-
         }
         //animationThread.start();
 
-    }
+}
 
     public void startGame(){
         animationThread.start();

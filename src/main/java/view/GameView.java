@@ -1,26 +1,20 @@
 package view;
 import Controller.MouseListener;
-import Model.Collision;
+import Model.CollisionDetector;
 import Model.Player;
 import Model.Obstacle;
 import Utilities.Constants;
-import main.GameLoop;
-
 import javax.swing.JFrame;
 
 public class GameView extends JFrame{
 
-    //private final GameLoop gameLoop;
-    MouseListener mouseListener;
-    ProgressBar progressBar = new ProgressBar();
+    //MouseListener mouseListener;
+    //ProgressBar progressBar = new ProgressBar();
 
 
-    public GameView(Player player, Obstacle obstacle, Collision collision) {
+    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, MouseListener mouseListener) {
         add(progressBar);
-        mouseListener = new MouseListener();
-        addMouseListener(mouseListener);
-
-        //this.gameLoop = gameLoop;
+        this.addMouseListener(mouseListener);
 
 
         this.setTitle(Constants.SCREEN_TITLE);
@@ -30,12 +24,6 @@ public class GameView extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.add(new PaintingStuff(player, obstacle));
-
-    }
-
-    public void startingLoop(){
-
-        //gameLoop.run();
 
     }
 
