@@ -20,10 +20,11 @@ public class main {
         ProgressIndicator progressIndicator = new ProgressIndicator();
         ProgressBar progressBar = new ProgressBar(progressIndicator);
         MouseListener mouseListener = new MouseListener();
-        GameView gm = new GameView(player, obstacle, progressBar, mouseListener);
-        GameLoop gameLoop = new GameLoop(player, obstacle, gm, progressBar, mouseListener, collisionDetector);
 
-        StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT);
+        GameView gameView = new GameView(player, obstacle, progressBar, mouseListener);
+        GameLoop gameLoop = new GameLoop(player, obstacle, gameView, progressBar, mouseListener, collisionDetector);
+
+        StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop, gameView);
         MenuButtonController menuBtnC = new MenuButtonController(Constants.MENU_BTN_POSX, Constants.MENU_BTN_POSY, Constants.MENU_BTN_WIDTH, Constants.MENU_BTN_HEIGHT);
         PlayAgainButtonController playAgainBtnC = new PlayAgainButtonController(Constants.PLAY_AGAIN_BTN_POSX, Constants.PLAY_AGAIN_BTN_POSY, Constants.PLAY_AGAIN_BTN_WIDTH, Constants.PLAY_AGAIN_BTN_HEIGHT);
 

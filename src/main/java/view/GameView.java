@@ -10,6 +10,7 @@ import java.awt.*;
 public class GameView extends JFrame{
 
     //MouseListener mouseListener;
+    //ProgressBar progressBar = new ProgressBar();
 
 
     public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, MouseListener mouseListener) {

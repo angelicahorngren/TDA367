@@ -14,10 +14,12 @@ public class GameLoop {       //Have to extend JFrame for add()-functions to wor
     Thread animationThread;
 
     public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, MouseListener mouseListener, CollisionDetector collisionDetector){
+
+
+
      this.animationThread = new Thread(new Runnable() {
         public void run() {
             while (true) {
-                obstacle.move();
                 if(mouseListener.mousePressed){
                     player.jump(); //switch to controller
                 }
