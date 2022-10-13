@@ -20,14 +20,15 @@ public class GameLoop {       //Have to extend JFrame for add()-functions to wor
         public void run() {
             while (true) {
                 /*if(mouseListener.mousePressed){
-                    player.jump();
+                    player.jump(); //switch to controller
                 }
 
                 if(player.yPosition == 250){
                     mouseListener.mousePressed = false;
                 }*/
                 player.gravity();
-                gameView.repaint();
+                gameView.paintComponents(gameView.getGraphics());
+                //gameView.repaint();
                 player.moveIntoFrame();
                 progressBar.setUpdatedCounter();
                 progressBar.setProgressbarBounds();

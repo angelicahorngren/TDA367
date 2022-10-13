@@ -8,14 +8,12 @@ import javax.swing.JFrame;
 
 public class GameView extends JFrame{
 
-    MouseListener mouseListener;
-    ProgressBar progressBar = new ProgressBar();
+    //MouseListener mouseListener;
 
 
-    public GameView(Player player, Obstacle obstacle, Collision collision) {
+    public GameView(Player player, Obstacle obstacle, Collision collision, ProgressBar progressBar, MouseListener mouseListener) {
         add(progressBar);
-        mouseListener = new MouseListener();
-        addMouseListener(mouseListener);
+        this.addMouseListener(mouseListener);
 
 
         this.setTitle(Constants.SCREEN_TITLE);
