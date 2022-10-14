@@ -12,9 +12,10 @@ import javax.swing.*;
 
 public class GameLoop implements Runnable{
 
-    private final Player player;       //Have to extend JFrame for add()-functions to work, still working on this
-    private final ProgressBar progressBar;
-    private final GameView gameView;
+    private Player player;       //Have to extend JFrame for add()-functions to work, still working on this
+    private ProgressBar progressBar;
+    private GameView gameView;
+    private CollisionDetector collisionDetector;
 
     Thread animationThread;
 
@@ -22,12 +23,14 @@ public class GameLoop implements Runnable{
         this.player = player;
         this.gameView = gameView;
         this.progressBar = progressBar;
+        this.collisionDetector = collisionDetector;
 
+    }
 
     @Override
     public void run() {
         while (true) {
-                /*if(mouseListener.mousePressed){
+            /*if(mouseListener.mousePressed){
                     player.jump();
                 }
 
@@ -43,18 +46,16 @@ public class GameLoop implements Runnable{
             try {
                 Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
-                } catch (Exception ex) {
-                }
-
-                progressBar.progressIndicator.updateTime();
-                progressBar.progressIndicator.increaseIfWholeNumber();
-
-
+            } catch (Exception ex) {
             }
-        }
-        //animationThread.start();
 
-}
+            progressBar.progressIndicator.updateTime();
+            progressBar.progressIndicator.increaseIfWholeNumber();
+
+
+        }
+    }
+    //animationThread.start();
 
     public void startGame(){
         animationThread.start();

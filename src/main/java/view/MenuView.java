@@ -1,21 +1,31 @@
 package view;
 import Controller.MenuItemsController;
+import Controller.StartButtonController;
 import Model.Obstacle;
 import Model.Player;
 import Utilities.Constants;
+
 import javax.swing.*;
+import java.awt.*;
 
-public class MenuView extends JFrame{
+public class MenuView extends JPanel{
 
-    public MenuView(MenuItemsController startBtnC) {
+    public MenuView( MenuItemsView menuItemsView) {
 
-        this.setTitle("JumpNStuff");
-        this.setSize(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
-        this.add( new MenuItemsView(startBtnC));
-        this.setResizable(false);
+        BorderLayout borderLayout = new BorderLayout();
+
+        this.setLayout( borderLayout );
+
+        this.add( menuItemsView );
+        repaint();
+
+        this.setBackground(Color.WHITE);
+        this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
+
         this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
+
+
     }
+
 
 }
