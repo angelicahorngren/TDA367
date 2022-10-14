@@ -12,7 +12,7 @@ public class DrawCircView extends JComponent {
 
     }
 
-    public void draw3(Graphics g) {
+    public void drawCirc(Graphics g) {
 
         Graphics2D gg = (Graphics2D) g;
 
