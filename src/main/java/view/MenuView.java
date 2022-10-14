@@ -17,7 +17,6 @@ public class MenuView extends JPanel{
         this.setLayout( borderLayout );
 
         this.add( menuItemsView );
-        repaint();
 
         this.setBackground(Color.WHITE);
         this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
