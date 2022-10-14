@@ -7,7 +7,7 @@ public class Obstacle {
     public int height;
     public int speed;
      //= Constants.OBSTACLE_START_X;
-    public Shapes hitBox;
+    //public Shapes hitBox;
     public int xPosition;
     public int yPosition;
 
@@ -18,7 +18,7 @@ public class Obstacle {
         this.speed = speed;
         this.xPosition = startXpos;
         this.yPosition = yPosition;
-        this.hitBox = new Shapes(startXpos, Constants.Y_POS, width, height);
+       // this.hitBox = new Shapes(startXpos, Constants.Y_POS, width, height);
 
     }
 
