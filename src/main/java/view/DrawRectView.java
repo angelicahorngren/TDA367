@@ -16,7 +16,7 @@ public class DrawRectView extends JComponent {
 
     }
 
-    public void draw(Graphics g) {
+    public void drawRect(Graphics g) {
 
         Graphics2D gg = (Graphics2D) g;
 
