@@ -15,8 +15,8 @@ public class PaintingStuff extends JComponent {
     DrawCircView drawcirc;
     DrawLevel drawLevel;
 
-    public PaintingStuff(Player player, Obstacle obstacle, LevelOne levelOne){
-         this.drawLevel = new DrawLevel(levelOne);
+    public PaintingStuff(Player player, Obstacle obstacle/*, LevelOne levelOne*/){
+        // this.drawLevel = new DrawLevel(levelOne);
          this.drawrect = new DrawRectView(obstacle);
          this.drawPlayer = new DrawPlayer(player);
          this.drawcirc = new DrawCircView(obstacle);

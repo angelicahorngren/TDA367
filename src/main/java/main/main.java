@@ -46,12 +46,18 @@ public class main {
         MainWindow mainWindow = new MainWindow(menuView, gameView, lostRoundView, startBtnC, playAgainBtnC, menuBtnC);
 
         mainWindow.addMenuView();
-        
 
 
-        //GameLoop gameLoop = new GameLoop(player, gameView, progressBar, collisionDetector);
+        if (startBtnC.buttonPressed() || playAgainBtnC.buttonPressed()) {
+            mainWindow.addGameView(); //toFront
+        } else if (menuBtnC.buttonPressed()) {
+            mainWindow.addMenuView(); //toFront
+        }
 
+
+            //GameLoop gameLoop = new GameLoop(player, gameView, progressBar, collisionDetector);
+
+
+        }
 
     }
-
-}
