@@ -16,13 +16,16 @@ public class PlayAgainButtonController extends MenuItemsController{
     }
 
     @Override
-    public void buttonPressed() {
+    public boolean buttonPressed() {
 
+        boolean button = false;
 
         if (buttonPosX == Constants.START_BTN_POSX || buttonPosX == Constants.PLAY_AGAIN_BTN_POSX) {
 
             gameLoop.startGame();
             System.out.println("start & play again");
+            button = true;
+
 
         }
 

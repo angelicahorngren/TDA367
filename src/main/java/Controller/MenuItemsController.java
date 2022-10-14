@@ -37,19 +37,24 @@ public class MenuItemsController extends MouseAdapter {
         }
     }
 
-    public void buttonPressed(){
+    public boolean buttonPressed(){
+
+        boolean button = false;
 
         if ( buttonPosX == Constants.START_BTN_POSX || buttonPosX == Constants.PLAY_AGAIN_BTN_POSX){
 
             System.out.println("yay");
+            button = true;
 
         }
 
         else if (buttonPosX == Constants.MENU_BTN_POSX){
 
             System.out.println("hoo");
+            button = true;
 
         }
+        return button;
 
     }
 

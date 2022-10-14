@@ -16,7 +16,8 @@ public class MenuButtonController extends MenuItemsController{
     }
 
     @Override
-    public void buttonPressed() {
+    public boolean buttonPressed() {
+        boolean button = false;
 
 
         if (buttonPosX == Constants.MENU_BTN_POSX) {

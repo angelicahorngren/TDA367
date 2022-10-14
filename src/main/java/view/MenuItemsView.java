@@ -14,11 +14,9 @@ public class MenuItemsView extends JComponent {
 
         mi = new MenuItems();
 
-
         this.addMouseListener(startBtn);
 
 
-        //new GameView(player, obstacle);
     }
 
 
