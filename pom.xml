@@ -7,6 +7,14 @@
     <groupId>group17</groupId>
     <artifactId>JumpNStuff</artifactId>
     <version>1.0.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>

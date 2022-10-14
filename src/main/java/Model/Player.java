@@ -41,7 +41,7 @@ public class Player {
     }
 
     public void jump() {
-        if(xPosition > 250){
+        if(xPosition >= 250){
             yPosition -= 10;
         }
     }
@@ -70,23 +70,10 @@ public class Player {
 
     }
 
-    public void detectCollision(){
-        //if player collides with object
-        if (alive) //progressIndicator.currentPercentage == 100)
-            setPlayerNotAlive();
-
-        //System.out.println(alive);
-    }
-
     public void setPlayerNotAlive(){
         alive = false;
     }
 
-    public Shapes getHitBox(){
-        hitBox.x = xPosition;
-        hitBox.y = yPosition;
-        return hitBox;
-    }
 
 
 

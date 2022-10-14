@@ -26,6 +26,7 @@ public class DrawGameBackgroundView extends JComponent {
         Rectangle2D.Double ground = new Rectangle2D.Double(0,310,width, 90);
         g2d.setColor(new Color(63,38,29));
         g2d.fill(ground);
+
     }
 
 }

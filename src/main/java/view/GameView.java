@@ -4,9 +4,7 @@ import Model.CollisionDetector;
 import Model.Player;
 import Model.Obstacle;
 import Utilities.Constants;
-
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
 
 public class GameView extends JFrame{
 
@@ -14,7 +12,9 @@ public class GameView extends JFrame{
     //ProgressBar progressBar = new ProgressBar();
 
 
-    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, MouseListener mouseListener, MenuView menuView) {
+    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, MouseListener mouseListener, MenuView menuView, LostRoundView lostRoundView) {
+        add(progressBar);
+        this.addMouseListener(mouseListener);
 
         FlowLayout mainLayout = new FlowLayout();
         this.setTitle(Constants.SCREEN_TITLE);
@@ -26,6 +26,7 @@ public class GameView extends JFrame{
         JPanel mainPanel = new JPanel( mainLayout );
 
         mainPanel.add(menuView);
+        mainPanel.add(lostRoundView);
         add(mainPanel);
 
         add(progressBar);

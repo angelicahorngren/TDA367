@@ -32,7 +32,8 @@ public class main {
         MenuButtonController menuBtnC = new MenuButtonController(Constants.MENU_BTN_POSX, Constants.MENU_BTN_POSY, Constants.MENU_BTN_WIDTH, Constants.MENU_BTN_HEIGHT);
         PlayAgainButtonController playAgainBtnC = new PlayAgainButtonController(Constants.PLAY_AGAIN_BTN_POSX, Constants.PLAY_AGAIN_BTN_POSY, Constants.PLAY_AGAIN_BTN_WIDTH, Constants.PLAY_AGAIN_BTN_HEIGHT);
 
-
+        LostRoundItemsView lostRoundItemsView = new LostRoundItemsView(menuBtnC, playAgainBtnC);
+        LostRoundView lostRoundView = new LostRoundView(lostRoundItemsView);
 
         MenuItemsView menuItemsView = new MenuItemsView(startBtnC);
 
@@ -46,8 +47,11 @@ public class main {
 
         //gameLoop.startGame();
 
+       // MenuView menuView = new MenuView(player, obstacle, startBtnC);
 
 
+        //new MenuView(startBtnC);
+        //new LostRoundView(menuBtnC, playAgainBtnC);
 
 
     }

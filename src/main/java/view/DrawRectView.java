@@ -22,7 +22,7 @@ public class DrawRectView extends JComponent {
 
 
         gg.setColor(Constants.RECT_COLOR);
-        gg.fillRect(obstacle.move(),Constants.Y_POS, obstacle.width, obstacle.height);      //här sätts även yposition
+        gg.fillRect(obstacle.getxPosition(),Constants.Y_POS, obstacle.width, obstacle.height);      //här sätts även yposition
 
 
 

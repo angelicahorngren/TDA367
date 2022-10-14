@@ -25,7 +25,8 @@ public class CollisionDetector {
             (player.getyPosition() <= obstacle.getyPosition() + obstacle.height)
         )
         {
-            System.out.println("touching detected warning warning you died you are shit at the game");
+            System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
+            System.out.println("Obstacle x : " + obstacle.getxPosition() + " Obstacle y : " + obstacle.getyPosition());
         }
     }
 
