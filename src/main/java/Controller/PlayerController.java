@@ -3,7 +3,7 @@ package Controller;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MouseListener extends MouseAdapter {
+public class PlayerController extends MouseAdapter {
 
     public boolean mousePressed;
     public int mouseButton;

@@ -1,10 +1,5 @@
 package Controller;
-import Model.Obstacle;
-import Model.Player;
 import Utilities.Constants;
-import main.GameLoop;
-import view.GameView;
-import view.MenuView;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

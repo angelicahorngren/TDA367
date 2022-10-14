@@ -1,31 +1,30 @@
 package main;
 
-import Controller.MouseListener;
+import Controller.PlayerController;
 import Model.CollisionDetector;
-import Model.Obstacle;
+import Model.Object;
 import Model.Player;
 import view.GameView;
 import view.ProgressBar;
 import Utilities.Constants;
-import javax.swing.*;
 
 public class GameLoop {       //Have to extend JFrame for add()-functions to work, still working on this
 
     Thread animationThread;
 
-    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, MouseListener mouseListener, CollisionDetector collisionDetector){
+    public GameLoop(Player player, Object object, GameView gameView, ProgressBar progressBar, PlayerController playerController, CollisionDetector collisionDetector){
 
 
 
      this.animationThread = new Thread(new Runnable() {
         public void run() {
             while (true) {
-                if(mouseListener.mousePressed){
+                object.move();
+                if(playerController.mousePressed){
                     player.jump(); //switch to controller
                 }
-
                 if(player.yPosition == 250){
-                    mouseListener.mousePressed = false;
+                    playerController.mousePressed = false;
                 }
                 collisionDetector.detectCollision();
                 player.gravity();

@@ -51,7 +51,5 @@ public class Constants {
     public static final int PLAY_AGAIN_BTN_POSY = (LOST_ROUND_VIEW_HEIGHT - 80);
 
 
-    public static final int GRAVITY = 10;
-
 }
 

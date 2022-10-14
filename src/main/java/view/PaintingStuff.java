@@ -5,36 +5,34 @@ import java.awt.*;
 import Model.LevelOne;
 import Model.Player;
 
-import Model.Obstacle;
+import Model.Object;
 import Utilities.Constants;
 
 public class PaintingStuff extends JComponent {
 
     DrawPlayer drawPlayer;
     DrawRectView drawrect;
-    DrawCircView drawcirc;
-    DrawLevel drawLevel;
+    DrawCircView drawCirc;
+    DrawLevel levelOne;
 
-    public PaintingStuff(Player player, Obstacle obstacle, LevelOne levelOne){
-         this.drawLevel = new DrawLevel(levelOne);
-         this.drawrect = new DrawRectView(obstacle);
+    public PaintingStuff(Player player, Object object, LevelOne levelOne){
+         //this.drawLevel = new DrawLevel(levelOne);
+         this.drawrect = new DrawRectView(object);
          this.drawPlayer = new DrawPlayer(player);
-         this.drawcirc = new DrawCircView(obstacle);
-
+         this.drawCirc = new DrawCircView(object);
+         this.levelOne = new DrawLevel(levelOne);
     }
     DrawGameBackgroundView dbg = new DrawGameBackgroundView(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
-    //DrawCircView drawcirc = new DrawCircView(Constants.RECT_HEIGHT,Constants.RECT_WIDTH);
 
 
 
     public void paint(Graphics g){
-
-
         drawrect.drawRect(g);
         dbg.draw2(g);
-        drawcirc.drawCirc(g);
+        drawCirc.drawCirc(g);
         drawPlayer.drawPlayer(g);
-
-
+        //levelOne.drawLevelOne(g);
     }
+
+    //put this in GameView
 }

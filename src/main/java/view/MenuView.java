@@ -1,7 +1,5 @@
 package view;
 import Controller.MenuItemsController;
-import Model.Obstacle;
-import Model.Player;
 import Utilities.Constants;
 import javax.swing.*;
 

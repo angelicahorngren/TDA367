@@ -1,40 +1,46 @@
 package Model;
 
+import Utilities.Constants;
 import view.DrawCircView;
 import view.DrawRectView;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
 
 public class LevelOne {
 
-    //public Collection list = new ArrayList();
+
+    Collection<Object> levelOne;
+
+
     //public List list = new ArrayList();
 
-    Collection<JComponent> collection;
 
-    public LevelOne(Obstacle obstacle) {
+    public LevelOne(Object object){
+
         Collection<JComponent> collection = new ArrayList<JComponent>(); //byt från string till obstacle eller liknande
-        DrawRectView rectInList = new DrawRectView(obstacle);
-        DrawCircView circleInList = new DrawCircView(obstacle);
+        DrawRectView rectInList = new DrawRectView(object);
+        DrawCircView circleInList = new DrawCircView(object);
         collection.add(rectInList);                                 //lägg till de olika hindren här
         collection.add(circleInList);
         collection.add(rectInList);
 
-        // for-each loop
-      /*  for (JComponent s : collection) {
-            //System.out.println(collection); //lägg till nåt sätt att chilla lite innan den tar nästa hinder i kön
-         s.repaint();
 
-        }*/
+        levelOne = new ArrayList();
+        levelOne.add(new Object(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y));
+        levelOne.add(new Object(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X + 100, Constants.OBSTACLE_START_Y));
+        levelOne.add(new Object(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X + 200, Constants.OBSTACLE_START_Y));
+
     }
 
-    public Collection<JComponent> GetList() {
-        return collection;
+    public Collection<JComponent> getList() {
+        return null;
+        //return collection;
     }
+
+
 }
 
 

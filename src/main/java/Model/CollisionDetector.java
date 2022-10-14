@@ -1,32 +1,33 @@
 package Model;
 
-import Controller.MenuItemsController;
-import view.LostRoundView;
-import view.MenuView;
-
 public class CollisionDetector {
 
     Player player;
-    Obstacle obstacle;
+    Object object;
+
+
+    public Boolean collided;
 
 
 
-    public CollisionDetector(Player player, Obstacle obstacle){
+    public CollisionDetector(Player player, Object object){
         this.player = player;
-        this.obstacle = obstacle;
+        this.object = object;
+        this.collided = false;
     }
 
 
     public void detectCollision(){
+        //System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
+        //System.out.println("Obstacle x : " + object.getxPosition() + " Obstacle y : " + object.getyPosition());
         if(
-            (player.getxPosition() + player.playerWidth >= obstacle.getxPosition()) &&
-            (player.getxPosition() <= obstacle.getxPosition() + obstacle.width) &&
-            (player.getyPosition() + player.playerHeight >= obstacle.getyPosition()) &&
-            (player.getyPosition() <= obstacle.getyPosition() + obstacle.height)
+            (player.getxPosition() + player.playerWidth >= object.getxPosition()) &&
+            (player.getxPosition() <= object.getxPosition() + object.width) &&
+            (player.getyPosition() + player.playerHeight >= object.getyPosition()) &&
+            (player.getyPosition() <= object.getyPosition() + object.height)
         )
         {
-            System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
-            System.out.println("Obstacle x : " + obstacle.getxPosition() + " Obstacle y : " + obstacle.getyPosition());
+            player.alive = false;
         }
     }
 
