@@ -6,8 +6,6 @@ public class Obstacle {
     public int width;
     public int height;
     public int speed;
-     //= Constants.OBSTACLE_START_X;
-    //public Shapes hitBox;
     public int xPosition;
     public int yPosition;
 
