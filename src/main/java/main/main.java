@@ -9,17 +9,17 @@ public class main {
 
     public static void main(String args[]) {
 
-
         System.out.println("Hello, do you wanna jump and stuff?");
         Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y);
         Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, -100, true);
         CollisionDetector collisionDetector = new CollisionDetector(player, obstacle);
         ProgressIndicator progressIndicator = new ProgressIndicator();
         ProgressBar progressBar = new ProgressBar(progressIndicator);
-        PlayerController mouseListener = new PlayerController();
+        PlayerMouseController mouseListener = new PlayerMouseController(player);
+        PlayerKeyController playerKeyController = new PlayerKeyController(player);
         LevelOne levelOne = new LevelOne(obstacle);
 
-        GameView gameView = new GameView(player, obstacle, progressBar, mouseListener, levelOne);
+        GameView gameView = new GameView(player, obstacle, progressBar, mouseListener, playerKeyController, levelOne);
         GameLoop gameLoop = new GameLoop(player, obstacle, gameView, progressBar, mouseListener, collisionDetector);
 
 

@@ -4,8 +4,6 @@ import Utilities.Constants;
 
 
 public class Player {
-
-
     public int yPosition;
     public int velY;
     public int playerWidth;
@@ -13,7 +11,7 @@ public class Player {
     public int velReducer;
     public int xPosition;
     public boolean alive;
-    public Shapes hitBox;
+
 
 
     public Player(int playerWidth, int playerHeight, int yPosition, int xPosition, boolean alive) {
@@ -22,7 +20,6 @@ public class Player {
         this.yPosition = yPosition;
         this.alive = alive;
         this.xPosition = xPosition;
-        this.hitBox = new Shapes(xPosition, yPosition, playerWidth, playerHeight);
 
     }
 

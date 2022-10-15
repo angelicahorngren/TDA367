@@ -1,22 +1,18 @@
 package view;
-import Controller.PlayerController;
+import Controller.PlayerKeyController;
+import Controller.PlayerMouseController;
 import Model.LevelOne;
 import Model.Obstacle;
 import Model.Player;
-import Model.Obstacle;
 import Utilities.Constants;
 import javax.swing.JFrame;
-import java.awt.*;
 
 public class GameView extends JFrame{
 
-    //MouseListener mouseListener;
-    //ProgressBar progressBar = new ProgressBar();
-
-
-    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, PlayerController mouseListener, LevelOne levelOne) {
+    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne) {
         add(progressBar);
         this.addMouseListener(mouseListener);
+        this.addKeyListener(playerKeyController);
         this.setTitle(Constants.SCREEN_TITLE);
         this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
         this.setResizable(false);

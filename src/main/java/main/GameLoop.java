@@ -1,6 +1,6 @@
 package main;
 
-import Controller.PlayerController;
+import Controller.PlayerMouseController;
 import Model.CollisionDetector;
 import Model.Obstacle;
 import Model.Player;
@@ -12,7 +12,7 @@ public class GameLoop {       //Have to extend JFrame for add()-functions to wor
 
     Thread animationThread;
 
-    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, PlayerController playerController, CollisionDetector collisionDetector){
+    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, PlayerMouseController playerMouseController, CollisionDetector collisionDetector){
 
 
 
@@ -20,11 +20,11 @@ public class GameLoop {       //Have to extend JFrame for add()-functions to wor
         public void run() {
             while (true) {
                 obstacle.move();
-                if(playerController.mousePressed){
+                if(playerMouseController.mousePressed){
                     player.jump(); //switch to controller
                 }
                 if(player.yPosition == 250){
-                    playerController.mousePressed = false;
+                    playerMouseController.mousePressed = false;
                 }
                 collisionDetector.detectCollision();
                 player.gravity();
