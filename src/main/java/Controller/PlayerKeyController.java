@@ -1,14 +1,16 @@
 package Controller;
 
 import Model.Player;
+import Model.Projectile;
 
 import java.awt.event.*;
 
-public class PlayerKeyController extends KeyAdapter implements KeyListener {
+public class PlayerKeyController extends KeyAdapter {
 
 
     private boolean keyPressed; // which keyboard keys currently are being pressed, 128 ascii character set
     Player player;
+
 
     public PlayerKeyController(Player player){
         this.player = player;
@@ -17,7 +19,7 @@ public class PlayerKeyController extends KeyAdapter implements KeyListener {
     @Override
     public void keyPressed (KeyEvent e) {
         if (e.getKeyCode() == 32){
-            player.jump();
+            Projectile p = new Projectile(1, 1, 3, player.getxPosition(), player.yPosition);
         }
     }
 
