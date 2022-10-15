@@ -2,7 +2,7 @@ package main;
 
 import Controller.PlayerController;
 import Model.CollisionDetector;
-import Model.Object;
+import Model.Obstacle;
 import Model.Player;
 import view.GameView;
 import view.ProgressBar;
@@ -12,14 +12,14 @@ public class GameLoop {       //Have to extend JFrame for add()-functions to wor
 
     Thread animationThread;
 
-    public GameLoop(Player player, Object object, GameView gameView, ProgressBar progressBar, PlayerController playerController, CollisionDetector collisionDetector){
+    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, PlayerController playerController, CollisionDetector collisionDetector){
 
 
 
      this.animationThread = new Thread(new Runnable() {
         public void run() {
             while (true) {
-                object.move();
+                obstacle.move();
                 if(playerController.mousePressed){
                     player.jump(); //switch to controller
                 }

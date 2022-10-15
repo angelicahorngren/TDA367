@@ -2,7 +2,7 @@ package Model;
 
 import Utilities.Constants;
 
-public class Object {
+public class Obstacle {
     public int width;
     public int height;
     public int speed;
@@ -12,7 +12,7 @@ public class Object {
     public int yPosition;
 
 
-    public Object(int width, int height, int speed, int startXpos, int yPosition){
+    public Obstacle(int width, int height, int speed, int startXpos, int yPosition){
         this.width = width;
         this.height = height;
         this.speed = speed;

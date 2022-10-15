@@ -5,7 +5,7 @@ import java.awt.*;
 import Model.LevelOne;
 import Model.Player;
 
-import Model.Object;
+import Model.Obstacle;
 import Utilities.Constants;
 
 public class PaintingStuff extends JComponent {
@@ -15,11 +15,11 @@ public class PaintingStuff extends JComponent {
     DrawCircView drawCirc;
     DrawLevel levelOne;
 
-    public PaintingStuff(Player player, Object object, LevelOne levelOne){
+    public PaintingStuff(Player player, Obstacle obstacle, LevelOne levelOne){
          //this.drawLevel = new DrawLevel(levelOne);
-         this.drawrect = new DrawRectView(object);
+         this.drawrect = new DrawRectView(obstacle);
          this.drawPlayer = new DrawPlayer(player);
-         this.drawCirc = new DrawCircView(object);
+         this.drawCirc = new DrawCircView(obstacle);
          this.levelOne = new DrawLevel(levelOne);
     }
     DrawGameBackgroundView dbg = new DrawGameBackgroundView(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);

@@ -43,7 +43,6 @@ public class MainWindow extends JFrame {
     }
 
     public void addGameView(){
-
         this.add(gameView);
     }
 
@@ -51,13 +50,6 @@ public class MainWindow extends JFrame {
         this.add(lostRoundView);
     }
 
-    public void PanelToFront(){
-        if (startBtnC.buttonPressed() || playBtnC.buttonPressed()) {
-        this.addGameView(); //toFront
-    } else if (menuBtnC.buttonPressed()) {
-        this.addMenuView(); //toFront
-    }
 
-    }
 
 }

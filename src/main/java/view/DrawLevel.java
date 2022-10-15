@@ -1,18 +1,16 @@
 package view;
 
 import Model.LevelOne;
-import Model.Object;
-import Utilities.Constants;
+import Model.Obstacle;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class DrawLevel extends JPanel{
 
     LevelOne levelOne;
-    public ArrayList<Object> testList;
+    public ArrayList<Obstacle> testList;
 
 
     public DrawLevel(LevelOne levelOne){
@@ -24,9 +22,9 @@ public class DrawLevel extends JPanel{
 
     public void drawLevelOne(Graphics g, LevelOne levelOne){
         super.paintComponent(g);
-        for(Object object : testList){
-            System.out.println(object.getxPosition());
-            g.fillRect(object.getxPosition(), object.getyPosition(), object.getWidth(), object.getHeight());
+        for(Obstacle obstacle : testList){
+            System.out.println(obstacle.getxPosition());
+            g.fillRect(obstacle.getxPosition(), obstacle.getyPosition(), obstacle.getWidth(), obstacle.getHeight());
             g.setColor(Color.black);
         }
     }

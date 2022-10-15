@@ -1,7 +1,4 @@
 package view;
-import Controller.MenuItemsController;
-import Model.Object;
-import Model.Player;
 import Utilities.Constants;
 
 import javax.swing.*;

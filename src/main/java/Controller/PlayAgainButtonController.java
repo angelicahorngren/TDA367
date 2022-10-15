@@ -29,6 +29,8 @@ public class PlayAgainButtonController extends MenuItemsController{
 
         }
 
+        return button;
+
 
     }
 

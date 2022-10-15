@@ -46,7 +46,7 @@ public class StartButtonController extends MenuItemsController{
 
         }
 
-
+        return button;
     }
 
 }

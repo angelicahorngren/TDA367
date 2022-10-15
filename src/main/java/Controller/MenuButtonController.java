@@ -25,7 +25,9 @@ public class MenuButtonController extends MenuItemsController{
             System.out.println("menu");
 
         }
+        return button;
     }
+
 
 
 }
