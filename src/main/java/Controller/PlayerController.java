@@ -12,21 +12,15 @@ public class PlayerController extends MouseAdapter {
 
     @Override
     public void mousePressed(MouseEvent mouseEvent){
-        //this.mousePressed = true;
-        //this.mouseButton = mouseEvent.getButton();
-
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         mousePressed = true;
-
     }
 
     @Override
     public void mouseReleased(MouseEvent e){
-        this.mousePressed = false;
-        this.mouseDragged = false;
     }
 }
 

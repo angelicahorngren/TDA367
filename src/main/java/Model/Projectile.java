@@ -13,8 +13,10 @@ public class Projectile extends Obstacle{
     }
 
     @Override
-    public void move(){
-
+    public void move() {
+        super.move();
     }
+
+
 
 }
