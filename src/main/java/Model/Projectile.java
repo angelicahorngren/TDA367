@@ -12,4 +12,9 @@ public class Projectile extends Obstacle{
         this.yPosition = yPosition;
     }
 
+    @Override
+    public void move(){
+
+    }
+
 }

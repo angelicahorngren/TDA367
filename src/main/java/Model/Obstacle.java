@@ -21,7 +21,6 @@ public class Obstacle {
     }
 
     public void move() {
-        speed = -10;
         xPosition += speed;
 
         if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
