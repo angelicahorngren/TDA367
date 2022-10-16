@@ -1,25 +1,36 @@
 package view;
 import Controller.PlayerKeyController;
 import Controller.PlayerMouseController;
-import Model.*;
+import Model.CollisionDetector;
+import Model.LevelOne;
+import Model.Obstacle;
+import Model.Player;
 import Utilities.Constants;
-import javax.swing.JFrame;
 import java.util.ArrayList;
 
-public class GameView extends JFrame{
+import javax.swing.*;
+import java.awt.*;
 
-    public GameView(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne) {
-        add(progressBar);
+public class GameView extends JPanel{
+
+    public GameView(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne, PowerUp powerUp) {
+        BorderLayout borderLayout = new BorderLayout();
+        this.add(progressBar);
         this.addMouseListener(mouseListener);
         this.addKeyListener(playerKeyController);
-        this.setTitle(Constants.SCREEN_TITLE);
-        this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
-        this.setResizable(false);
+
+        this.setLayout( borderLayout );
+        this.setBackground(Color.WHITE);
+        this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
+
+        this.add(progressBar);
+        this.addMouseListener(mouseListener);
+
+        this.add(new PaintingStuff(player, projectiles, obstacle, levelOne, powerUp));
         this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-        this.add(new PaintingStuff(player, projectiles, obstacle, levelOne));
+
     }
+
 
     //put PaintingStuff stuff here
 
