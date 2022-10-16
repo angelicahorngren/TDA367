@@ -9,7 +9,7 @@ public class ProgressIndicatorTest {
     @Test
     void getIncreasedTime() {
         ProgressIndicator progressIndicatorTest = new ProgressIndicator();
-        int expectedInc_EveryThreadIteration = 0.05;
+        double expectedInc_EveryThreadIteration = 0.05;
         assertEquals(expectedInc_EveryThreadIteration, progressIndicatorTest.getIncreasedTime(20000));
     }
 
@@ -18,7 +18,7 @@ public class ProgressIndicatorTest {
     @Test
     void updateTimeTest() {
         ProgressIndicator progressIndicatorTest = new ProgressIndicator();
-        int expectedCurrentIncrease = 0.2;
+        double expectedCurrentIncrease = 0.2;
         progressIndicatorTest.getIncreasedTime(5000);
         progressIndicatorTest.updateTime();
         assertEquals(expectedCurrentIncrease, progressIndicatorTest.currentIncrease );

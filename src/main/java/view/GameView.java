@@ -1,28 +1,33 @@
 package view;
-import Controller.PlayerKeyController;
-import Controller.PlayerMouseController;
-import Model.LevelOne;
-import Model.Obstacle;
+import Controller.MouseListener;
+import Model.CollisionDetector;
 import Model.Player;
+import Model.Obstacle;
 import Utilities.Constants;
-import javax.swing.JFrame;
 
-public class GameView extends JFrame{
+import javax.swing.*;
+import java.awt.*;
 
-    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne) {
-        add(progressBar);
-        this.addMouseListener(mouseListener);
+public class GameView extends JPanel{
+
+
+    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, MouseListener mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne) {
+
+        BorderLayout borderLayout = new BorderLayout();
         this.addKeyListener(playerKeyController);
-        this.setTitle(Constants.SCREEN_TITLE);
-        this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
-        this.setResizable(false);
-        this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-        this.add(new PaintingStuff(player, obstacle, levelOne));
-    }
 
-    //put PaintingStuff stuff here
+        this.setLayout( borderLayout );
+        this.setBackground(Color.WHITE);
+        this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
+
+        this.add(progressBar);
+        this.addMouseListener(mouseListener);
+        this.add(new PaintingStuff(player, obstacle, levelOne, powerUp));
+
+        this.setVisible(true);
+
+
+    }
 
 
 }

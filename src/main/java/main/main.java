@@ -1,27 +1,34 @@
 package main;
-import Controller.*;
+import Controller.MenuButtonController;
+import Controller.MouseListener;
+import Controller.PlayAgainButtonController;
+import Controller.StartButtonController;
 import Model.*;
-import Model.Obstacle;
 import Utilities.Constants;
 import view.*;
 
+
 public class main {
 
-    public static void main(String args[]) {
+    public static void main(String args[]){
+
 
         System.out.println("Hello, do you wanna jump and stuff?");
+
         Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y);
         Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, -100, true);
-        CollisionDetector collisionDetector = new CollisionDetector(player, obstacle);
+        PowerUp powerUp = new PowerUp(Constants.POWERUP_WIDTH, Constants.POWERUP_HEIGHT, Constants.POWERUP_SPEED, Constants.POWERUP_START_X, Constants.POWERUP_START_Y );
+
+        CollisionDetector collisionDetector = new CollisionDetector(player, obstacle, powerUp);
+        DrawPlayer dp = new DrawPlayer(player);
         ProgressIndicator progressIndicator = new ProgressIndicator();
         ProgressBar progressBar = new ProgressBar(progressIndicator);
-        PlayerMouseController mouseListener = new PlayerMouseController(player);
+        MouseListener mouseListener = new MouseListener();
         PlayerKeyController playerKeyController = new PlayerKeyController(player);
         LevelOne levelOne = new LevelOne(obstacle);
 
-        GameView gameView = new GameView(player, obstacle, progressBar, mouseListener, playerKeyController, levelOne);
-        GameLoop gameLoop = new GameLoop(player, obstacle, gameView, progressBar, mouseListener, collisionDetector);
-
+        GameView gameView = new GameView(player, obstacle, progressBar, mouseListener, playerKeyController, levelOne, powerUp);
+        GameLoop gameLoop = new GameLoop(player, obstacle,powerUp, gameView, progressBar, collisionDetector,mouseListener);
 
         StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop);
 
@@ -38,8 +45,15 @@ public class main {
 
         LostRoundView lostRoundView = new LostRoundView(lostRoundItemsView);
 
+        MainWindow mainWindow = new MainWindow(menuView, gameView, lostRoundView, startBtnC, playAgainBtnC, menuBtnC);
+
+        mainWindow.addMenuView();
         gameLoop.startGame();
 
 
+            //GameLoop gameLoop = new GameLoop(player, gameView, progressBar, collisionDetector);
+
+
+        }
+
     }
-}
