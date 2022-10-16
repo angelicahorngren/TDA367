@@ -13,7 +13,6 @@ public class PlayerKeyController extends KeyAdapter {
 
     private boolean keyPressed; // which keyboard keys currently are being pressed, 128 ascii character set
     Player player;
-    Projectile projectile;
     ArrayList<Projectile> projectiles;
 
 
@@ -24,16 +23,17 @@ public class PlayerKeyController extends KeyAdapter {
 
     @Override
     public void keyPressed (KeyEvent e) {
-        System.out.println(e.getKeyCode());
-        if (e.getKeyCode() == 32) {
-            System.out.println("hej");
+        if (e.getKeyCode() == 32 && projectiles.size() <= 10) {
             projectiles.add(new Projectile(20, 10, 10, true, player.getxPosition() + player.getPlayerWidth(), player.yPosition + player.playerHeight/2 - 5));
+        }
+        else {
+            System.out.println("no more ammo!");
         }
     }
 
     @Override
     public void keyReleased (KeyEvent e) {
-        keyPressed= false;
+        keyPressed = false;
     }
 
 
