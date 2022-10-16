@@ -29,9 +29,9 @@ public class LevelOne {
 
 
         levelOne = new ArrayList();
-        levelOne.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y));
-        levelOne.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X + 100, Constants.OBSTACLE_START_Y));
-        levelOne.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X + 200, Constants.OBSTACLE_START_Y));
+        levelOne.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, false, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y));
+        levelOne.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, false, Constants.OBSTACLE_START_X + 100, Constants.OBSTACLE_START_Y));
+        levelOne.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, false, Constants.OBSTACLE_START_X + 200, Constants.OBSTACLE_START_Y));
 
     }
 
@@ -41,6 +41,9 @@ public class LevelOne {
     }
 
 
+    public void remove(Obstacle obstacle) {
+        levelOne.remove(obstacle);
+    }
 }
 
 

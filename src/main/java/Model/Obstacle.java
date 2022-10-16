@@ -8,14 +8,16 @@ public class Obstacle {
     public int speed;
     public int xPosition;
     public int yPosition;
+    public boolean isDestroyable;
 
 
-    public Obstacle(int width, int height, int speed, int startXpos, int yPosition){
+    public Obstacle(int width, int height, int speed, boolean isDestroyable, int startXpos, int yPosition){
         this.width = width;
         this.height = height;
         this.speed = speed;
         this.xPosition = startXpos;
         this.yPosition = yPosition;
+        this.isDestroyable = isDestroyable;
        // this.hitBox = new Shapes(startXpos, Constants.Y_POS, width, height);
 
     }

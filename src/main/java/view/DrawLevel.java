@@ -19,7 +19,6 @@ public class DrawLevel extends JPanel{
     }
 
 
-
     public void drawLevelOne(Graphics g, LevelOne levelOne){
         super.paintComponent(g);
         for(Obstacle obstacle : testList){

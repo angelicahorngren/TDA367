@@ -2,24 +2,30 @@ package Controller;
 
 import Model.Player;
 import Model.Projectile;
+import view.DrawProjectile;
 
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class PlayerKeyController extends KeyAdapter {
 
 
+
     private boolean keyPressed; // which keyboard keys currently are being pressed, 128 ascii character set
     Player player;
+    Projectile projectile;
+    ArrayList<Projectile> projectiles;
 
 
-    public PlayerKeyController(Player player){
+    public PlayerKeyController(Player player, ArrayList<Projectile> projectiles){
         this.player = player;
+        this.projectiles = projectiles;
     }
 
     @Override
     public void keyPressed (KeyEvent e) {
-        if (e.getKeyCode() == 32){
-            Projectile p = new Projectile(1, 1, 3, player.getxPosition(), player.yPosition);
+        if (e.getKeyCode() == 32) {
+            projectiles.add(new Projectile(20, 10, 10, true, player.getxPosition() + player.getPlayerWidth(), player.yPosition + player.playerHeight/2 - 5));
         }
     }
 

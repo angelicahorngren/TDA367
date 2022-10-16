@@ -1,15 +1,14 @@
 package view;
 import Controller.PlayerKeyController;
 import Controller.PlayerMouseController;
-import Model.LevelOne;
-import Model.Obstacle;
-import Model.Player;
+import Model.*;
 import Utilities.Constants;
 import javax.swing.JFrame;
+import java.util.ArrayList;
 
 public class GameView extends JFrame{
 
-    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne) {
+    public GameView(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne) {
         add(progressBar);
         this.addMouseListener(mouseListener);
         this.addKeyListener(playerKeyController);
@@ -19,7 +18,7 @@ public class GameView extends JFrame{
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.add(new PaintingStuff(player, obstacle, levelOne));
+        this.add(new PaintingStuff(player, projectiles, obstacle, levelOne));
     }
 
     //put PaintingStuff stuff here
