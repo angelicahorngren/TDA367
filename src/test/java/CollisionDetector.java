@@ -1,4 +1,4 @@
-import Model.Player;
+/*import Model.Player;
 import Utilities.Constants;
 import org.junit.jupiter.api.Test;
 
@@ -15,3 +15,5 @@ public class CollisionDetector {
         assertTrue(true);
     }
 }
+
+ */
