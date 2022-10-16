@@ -1,8 +1,7 @@
 package view;
-import Controller.MouseListener;
-import Model.CollisionDetector;
-import Model.Player;
-import Model.Obstacle;
+import Controller.PlayerKeyController;
+import Controller.PlayerMouseController;
+import Model.*;
 import Utilities.Constants;
 
 import javax.swing.*;
@@ -11,7 +10,7 @@ import java.awt.*;
 public class GameView extends JPanel{
 
 
-    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, MouseListener mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne) {
+    public GameView(Player player, Obstacle obstacle, PowerUp powerUp, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne) {
 
         BorderLayout borderLayout = new BorderLayout();
         this.addKeyListener(playerKeyController);

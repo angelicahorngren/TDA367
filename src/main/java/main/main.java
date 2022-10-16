@@ -1,8 +1,5 @@
 package main;
-import Controller.MenuButtonController;
-import Controller.MouseListener;
-import Controller.PlayAgainButtonController;
-import Controller.StartButtonController;
+import Controller.*;
 import Model.*;
 import Utilities.Constants;
 import view.*;
@@ -23,11 +20,11 @@ public class main {
         DrawPlayer dp = new DrawPlayer(player);
         ProgressIndicator progressIndicator = new ProgressIndicator();
         ProgressBar progressBar = new ProgressBar(progressIndicator);
-        MouseListener mouseListener = new MouseListener();
+        PlayerMouseController mouseListener = new PlayerMouseController(player);
         PlayerKeyController playerKeyController = new PlayerKeyController(player);
         LevelOne levelOne = new LevelOne(obstacle);
 
-        GameView gameView = new GameView(player, obstacle, progressBar, mouseListener, playerKeyController, levelOne, powerUp);
+        GameView gameView = new GameView(player, obstacle, powerUp, progressBar, mouseListener, playerKeyController, levelOne);
         GameLoop gameLoop = new GameLoop(player, obstacle,powerUp, gameView, progressBar, collisionDetector,mouseListener);
 
         StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop);
