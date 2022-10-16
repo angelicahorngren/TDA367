@@ -1,6 +1,6 @@
 package main;
 
-import Controller.MouseListener;
+import Controller.PlayerMouseController;
 import Model.CollisionDetector;
 import Model.Obstacle;
 import Model.Player;
@@ -18,17 +18,21 @@ public class GameLoop implements Runnable{
     Obstacle obstacle;
     GameView gameView;
     ProgressBar progressBar;
-    MouseListener mouseListener;
+    PlayerMouseController mouseListener;
     CollisionDetector collisionDetector;
+    ArrayList<Projectile> projectiles;
+    PowerUp powerUp;
 
 
-    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, MouseListener mouseListener, CollisionDetector collisionDetector) {
+    public GameLoop(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, GameView gameView, ProgressBar progressBar, PlayerMouseController mouseListener, CollisionDetector collisionDetector, PowerUp powerUp) {
     this.player = player;
     this.obstacle = obstacle;
     this.progressBar = progressBar;
     this.mouseListener = mouseListener;
     this.collisionDetector = collisionDetector;
     this.gameView = gameView;
+    this.projectiles = projectiles;
+    this.powerUp = powerUp;
 
 
     }
@@ -48,11 +52,11 @@ public class GameLoop implements Runnable{
                     }
                     obstacle.move();
 
-                    if (collisionDetector.detectCollision() == 1){
+                    /*if (collisionDetector.detectCollision() == 1){
 
                         Constants.Thread_argument_ms = 0;
 
-                    }
+                    }*/
                     powerUp.move();
                     collisionDetector.detectCollisionPowerUpObject();
                     if (powerUp.powerOn){
@@ -60,7 +64,13 @@ public class GameLoop implements Runnable{
                         powerUp.endPowerup();
                     }
                     if (!powerUp.powerOn) {
-                        collisionDetector.detectCollision();
+                        if (collisionDetector.detectCollision() == 1){
+
+                            Constants.Thread_argument_ms = 0;
+
+                        }
+
+
                     }
                     player.gravity();
                     //gameView.paintComponents(gameView.getGraphics());

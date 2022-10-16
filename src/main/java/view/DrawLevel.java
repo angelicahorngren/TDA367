@@ -20,7 +20,7 @@ public class DrawLevel /* extends JPanel?*/{
     }
 
 
-    public void drawLevelOne(Graphics g) {
+  /*  public void drawLevelOne(Graphics g) {
         Graphics2D gg = (Graphics2D) g;
 
         Collection<JComponent> x =  levelOne.GetList();
@@ -29,7 +29,7 @@ public class DrawLevel /* extends JPanel?*/{
             gg.fillRect(s.getX(), s.getY(), s.getWidth(), s.getHeight());
         }
 
-    }
+    }*/
 }
 /* om drawlevel är en jpanel så funkar detta
 

@@ -24,7 +24,9 @@ public class PlayerKeyController extends KeyAdapter {
 
     @Override
     public void keyPressed (KeyEvent e) {
+        System.out.println(e.getKeyCode());
         if (e.getKeyCode() == 32) {
+            System.out.println("hej");
             projectiles.add(new Projectile(20, 10, 10, true, player.getxPosition() + player.getPlayerWidth(), player.yPosition + player.playerHeight/2 - 5));
         }
     }

@@ -16,9 +16,10 @@ public class PaintingStuff extends JComponent {
     DrawCircView drawCirc;
     DrawLevel levelOne;
     DrawProjectile drawProjectile;
-    //Projectile p = new Projectile(10, 10, 10, 10, 10);
+   // Projectile p = new Projectile(10, 10, 10, true, 10, 10);
     Projectile projectile;
     ArrayList<Projectile> projectiles = new ArrayList<>();
+    DrawPowerUp drawPowerUp;
 
     public PaintingStuff(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, LevelOne levelOne, PowerUp powerUp){
         this.player = player;
@@ -28,9 +29,11 @@ public class PaintingStuff extends JComponent {
         this.levelOne = new DrawLevel(levelOne);
         this.projectiles = projectiles;
         this.drawProjectile = new DrawProjectile(projectile);
+        this.drawPowerUp = new DrawPowerUp(powerUp);
+        //projectiles.add(p);
     }
     DrawGameBackgroundView dbg = new DrawGameBackgroundView(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
-
+       // drawLevel.drawLevelOne(g);
 
     public void paintComponent(Graphics g){
         drawrect.drawRect(g);
@@ -38,6 +41,7 @@ public class PaintingStuff extends JComponent {
         drawCirc.drawCirc(g);
         drawPlayer.drawPlayer(g);
         drawProjectile(projectiles, g);
+        drawPowerUp.drawPowerup(g);
     }
 
     public void drawProjectile(ArrayList<Projectile> projectiles, Graphics g){

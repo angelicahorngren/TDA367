@@ -12,7 +12,7 @@ public class CollisionDetector {
 
 
 
-    public CollisionDetector(Player player, Obstacle obstacle, LevelOne levelOne, PowerUp powerUp){
+    public CollisionDetector(Player player, Obstacle obstacle,/* LevelOne levelOne*/ PowerUp powerUp){
         this.levelOne = levelOne;
         this.player = player;
         this.obstacle = obstacle;
@@ -43,7 +43,7 @@ public class CollisionDetector {
             player.alive = false;
 
             x = 1;
-            System.out.println("you lose");
+            //System.out.println("you lose");
         }
         return x;
     }
@@ -60,10 +60,11 @@ public class CollisionDetector {
         )
         {
             powerUp.isPowerOn();
-            System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
+            System.out.println("u got power");
+            /*System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
             System.out.println("powerUp x : " + powerUp.getxPosition() + " powerUp y : " + powerUp.getyPosition());
             System.out.println("alive status : " + player.alive);
-            System.out.println("powerOn status : " + powerUp.powerOn);
+            System.out.println("powerOn status : " + powerUp.powerOn);*/
 
 
         }

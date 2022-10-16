@@ -1,9 +1,7 @@
 package view;
 import Controller.PlayerKeyController;
-import Controller.MouseListener;
-import Model.LevelOne;
-import Model.Obstacle;
-import Model.Player;
+import Controller.PlayerMouseController;
+import Model.*;
 import Utilities.Constants;
 import java.util.ArrayList;
 
@@ -13,7 +11,7 @@ import java.awt.*;
 public class GameView extends JPanel{
 
 
-    public GameView(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, ProgressBar progressBar, MouseListener mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne, PowerUp powerUp) {
+    public GameView(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne, PowerUp powerUp) {
 
         this.addMouseListener(mouseListener);
 
