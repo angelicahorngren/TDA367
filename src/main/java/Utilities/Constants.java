@@ -23,7 +23,7 @@ public class Constants {
     public static final int OBSTACLE_START_Y = 250;
 
     //Timer
-    public static final int Thread_argument_ms = 10;
+    public static int Thread_argument_ms = 10;
 
     public static final double SEC_LV1 = 5000;
 

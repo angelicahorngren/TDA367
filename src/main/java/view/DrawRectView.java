@@ -11,8 +11,6 @@ public class DrawRectView extends JComponent {
     public DrawRectView(Obstacle obstacle) {
         this.obstacle = obstacle;
 
-        //this.obstacle = new Obstacle(h, w, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X);
-
 
     }
 

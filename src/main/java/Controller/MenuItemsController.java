@@ -1,21 +1,16 @@
 package Controller;
-import Model.Obstacle;
-import Model.Player;
-import Utilities.Constants;
-import main.GameLoop;
-import view.GameView;
-import view.MenuView;
 
+import Utilities.Constants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
 public class MenuItemsController extends MouseAdapter {
 
-    private int buttonPosX; //Constants.START_BTN_POSX
-    private int buttonPosY; //Constants.START_BTN_POSY
-    private int buttonWidth; //Constants.START_BTN_WIDTH
-    private int buttonHeight; //Constants.START_BTN_HEIGHT
+    public int buttonPosX; //Constants.START_BTN_POSX
+    public int buttonPosY; //Constants.START_BTN_POSY
+    public int buttonWidth; //Constants.START_BTN_WIDTH
+    public int buttonHeight; //Constants.START_BTN_HEIGHT
 
     public MenuItemsController(int buttonPosX, int buttonPosY, int buttonWidth, int buttonHeight) {
 
@@ -31,39 +26,37 @@ public class MenuItemsController extends MouseAdapter {
 
         int mousex = e.getX();
         int mousey = e.getY();
+        int x = 0;
 
         if (mousex >= buttonPosX && mousex <= buttonPosX + buttonWidth) {
 
             if (mousey >= buttonPosY && mousey <= buttonPosY + buttonHeight) {
 
+                x=1;
                 buttonPressed();
+
+                System.out.println(x);
 
             }
         }
     }
 
-    public boolean buttonPressed(){
+    public void buttonPressed(){
 
-        boolean button = false;
 
         if ( buttonPosX == Constants.START_BTN_POSX || buttonPosX == Constants.PLAY_AGAIN_BTN_POSX){
 
             System.out.println("yay");
-            button = true;
+
 
         }
 
         else if (buttonPosX == Constants.MENU_BTN_POSX){
 
             System.out.println("hoo");
-            button = true;
 
         }
-        return button;
 
     }
-
-
-
 
 }

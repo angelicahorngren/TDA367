@@ -7,29 +7,47 @@ import Model.Player;
 import view.GameView;
 import view.ProgressBar;
 import Utilities.Constants;
-import javax.swing.*;
-
-public class GameLoop {       //Have to extend JFrame for add()-functions to work, still working on this
-
-    Thread animationThread;
-
-    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, CollisionDetector collisionDetector){
 
 
-        this.animationThread = new Thread(new Runnable() {
-            public void run() {
+public class GameLoop implements Runnable{
+
+    Player player;
+    Obstacle obstacle;
+    GameView gameView;
+    ProgressBar progressBar;
+    MouseListener mouseListener;
+    CollisionDetector collisionDetector;
+
+
+    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, MouseListener mouseListener, CollisionDetector collisionDetector) {
+    this.player = player;
+    this.obstacle = obstacle;
+    this.progressBar = progressBar;
+    this.mouseListener = mouseListener;
+    this.collisionDetector = collisionDetector;
+    this.gameView = gameView;
+
+
+    }
+    @Override
+    public void run() {
+
                 while (true) {
-                /*if(mouseListener.mousePressed){
-                    player.jump(); //switch to controller
-                }
+                    if(mouseListener.mousePressed){
+                        player.jump(); //switch to controller
+                    }
 
-                if(player.yPosition == 250){
-                    mouseListener.mousePressed = false;
-                }*/
+                    if(player.yPosition == 250){
+                        mouseListener.mousePressed = false;
+                    }
                     obstacle.move();
-                    collisionDetector.detectCollision();
+                    if (collisionDetector.detectCollision() == 1){
+
+                        Constants.Thread_argument_ms = 0;
+
+                    }
                     player.gravity();
-                    gameView.paintComponents(gameView.getGraphics());
+                    //gameView.paintComponents(gameView.getGraphics());
                     gameView.repaint();
                     player.moveIntoFrame();
                     progressBar.setUpdatedCounter();
@@ -37,23 +55,19 @@ public class GameLoop {       //Have to extend JFrame for add()-functions to wor
                     try {
                         Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
-                } catch (Exception ex) {
-                }
+                    } catch (Exception ex) {
+                    }
 
-                progressBar.progressIndicator.updateTime();
-                progressBar.progressIndicator.increaseIfWholeNumber();
+                    progressBar.progressIndicator.updateTime();
+                    progressBar.progressIndicator.increaseIfWholeNumber();
+                    if (progressBar.progressIndicator.currentPercentage == 100){
+                        Constants.Thread_argument_ms = 0;
+                    }
 
 
                 }
             }
 
-        });
 
 
-}
-
-    public void startGame(){
-        animationThread.start();
     }
-
-}

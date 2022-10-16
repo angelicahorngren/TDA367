@@ -1,11 +1,12 @@
 package Controller;
 
-
 import Utilities.Constants;
+import java.awt.event.MouseEvent;
 
 public class MenuButtonController extends MenuItemsController{
 
-    private int buttonPosX;
+    public int buttonPosX;
+    public int x;
 
     public MenuButtonController(int x, int y, int width, int height){
 
@@ -14,18 +15,39 @@ public class MenuButtonController extends MenuItemsController{
         this.buttonPosX = x;
 
     }
-
     @Override
-    public boolean buttonPressed() {
-        boolean button = false;
+    public void mouseClicked(MouseEvent e) {
 
+        int mousex = e.getX();
+        int mousey = e.getY();
+        this.x = 0;
 
-        if (buttonPosX == Constants.MENU_BTN_POSX) {
+        if (mousex >= buttonPosX && mousex <= buttonPosX + buttonWidth) {
 
-            System.out.println("menu");
+            if (mousey >= buttonPosY && mousey <= buttonPosY + buttonHeight) {
 
+                this.x=4;
+                buttonPressed();
+
+                System.out.println(this.x);
+
+            }
         }
     }
 
 
+    @Override
+    public void buttonPressed() {
+
+        if (buttonPosX == Constants.MENU_BTN_POSX) {
+
+            System.out.println("back to menu");
+
+        }
+
+    }
+
+ public int getXvalueMenuBtn(){
+        return this.x;
+ }
 }

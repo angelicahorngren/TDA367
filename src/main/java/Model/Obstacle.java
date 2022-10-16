@@ -2,7 +2,7 @@ package Model;
 
 import Utilities.Constants;
 
-public class Obstacle {
+public class Obstacle implements IMovable{
     public int width;
     public int height;
     public int speed;
@@ -18,7 +18,6 @@ public class Obstacle {
         this.speed = speed;
         this.xPosition = startXpos;
         this.yPosition = yPosition;
-       // this.hitBox = new Shapes(startXpos, Constants.Y_POS, width, height);
 
     }
 
@@ -30,6 +29,10 @@ public class Obstacle {
             xPosition = -width;
         }
 
+    }
+
+    public void remove(){
+        this.yPosition = 900;
     }
 
     public int getWidth() {

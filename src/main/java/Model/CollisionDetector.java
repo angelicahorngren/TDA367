@@ -17,7 +17,8 @@ public class CollisionDetector {
     }
 
 
-    public void detectCollision(){
+    public int detectCollision(){
+        int x = 0;
         if(
             (player.getxPosition() + player.playerWidth >= obstacle.getxPosition()) &&
             (player.getxPosition() <= obstacle.getxPosition() + obstacle.width) &&
@@ -25,9 +26,14 @@ public class CollisionDetector {
             (player.getyPosition() <= obstacle.getyPosition() + obstacle.height)
         )
         {
-            System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
+           /* System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
             System.out.println("Obstacle x : " + obstacle.getxPosition() + " Obstacle y : " + obstacle.getyPosition());
+            */
+
+            x = 1;
+            System.out.println("you lose");
         }
+        return x;
     }
 
 }
