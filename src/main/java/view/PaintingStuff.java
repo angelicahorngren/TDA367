@@ -19,7 +19,7 @@ public class PaintingStuff extends JComponent {
     Projectile projectile;
     ArrayList<Projectile> projectiles = new ArrayList<>();
 
-    public PaintingStuff(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, LevelOne levelOne){
+    public PaintingStuff(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, LevelOne levelOne, PowerUp powerUp){
         this.player = player;
         this.drawrect = new DrawRectView(obstacle);
         this.drawPlayer = new DrawPlayer(player);

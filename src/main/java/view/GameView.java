@@ -1,10 +1,7 @@
 package view;
 import Controller.PlayerKeyController;
 import Controller.PlayerMouseController;
-import Model.CollisionDetector;
-import Model.LevelOne;
-import Model.Obstacle;
-import Model.Player;
+import Model.*;
 import Utilities.Constants;
 import java.util.ArrayList;
 

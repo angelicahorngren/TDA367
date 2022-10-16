@@ -16,7 +16,7 @@ public class main {
         Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, -100, true);
         PowerUp powerUp = new PowerUp(Constants.POWERUP_WIDTH, Constants.POWERUP_HEIGHT, Constants.POWERUP_SPEED, Constants.POWERUP_START_X, Constants.POWERUP_START_Y );
         Projectile projectile = new Projectile(20, 10, 10, true, player.getxPosition(), 265);
-        CollisionDetector collisionDetector = new CollisionDetector(player, obstacle, null, powerup);
+        CollisionDetector collisionDetector = new CollisionDetector(player, obstacle, null, powerUp);
         ProgressIndicator progressIndicator = new ProgressIndicator();
         ArrayList<Projectile> projectiles = new ArrayList<>();
         ProgressBar progressBar = new ProgressBar(progressIndicator);
