@@ -34,12 +34,19 @@ public class GameLoop implements Runnable{
     this.projectiles = projectiles;
     this.powerUp = powerUp;
 
-
     }
+
+    public void StopGame(){
+        if (!player.getaliveStatus() || progressBar.progressIndicator.getCurrentProcentage() == 100) {
+            Constants.Thread_argument_ms = 0;
+        }
+    }
+
+
     @Override
     public void run() {
 
-                while (true) {
+                while (Constants.Thread_argument_ms != 0) {
                     for(Projectile projectile : projectiles){
                         projectile.move();
                     }
@@ -50,46 +57,23 @@ public class GameLoop implements Runnable{
                     if(player.getyPosition() == 250){
                         mouseListener.setMousePressedfalse();
                     }
+
                     obstacle.move();
-
-                    /*if (collisionDetector.detectCollision() == 1){
-
-                        Constants.Thread_argument_ms = 0;
-
-                    }*/
                     powerUp.move();
                     collisionDetector.detectCollisionPowerUpObject();
-                    if (powerUp.getPowerUpStatus()){
-                        powerUp.startPowerUpTimer();
-                        powerUp.endPowerup();
-                    }
-                    if (!powerUp.getPowerUpStatus()) {
-                        if (collisionDetector.detectCollision() == 1){
-
-                            Constants.Thread_argument_ms = 0;
-
-                        }
-
-
-                    }
+                    powerUp.powerUpSystem();
+                    collisionDetector.detectCollision();
                     player.gravity();
-                    //gameView.paintComponents(gameView.getGraphics());
                     gameView.repaint();
                     player.moveIntoFrame();
-                    progressBar.setUpdatedCounter();
-                    progressBar.setProgressbarBounds();
                     try {
                         Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
                 } catch (Exception ex) {
                 }
 
-                    progressBar.updatePrgressBar();
-                    if (progressBar.progressIndicator.getCurrentProcentage() == 100){
-                        Constants.Thread_argument_ms = 0;
-                    }
-
-
+                    StopGame();
+                    progressBar.addProgressBarToGame();
                 }
             }
 

@@ -21,30 +21,28 @@ public class CollisionDetector {
     }
 
 
-    public int detectCollision(){
-        int x = 0;
+    public void detectCollision(){
         if(
             (player.getxPosition() + player.getPlayerWidth() >= obstacle.getxPosition()) &&
             (player.getxPosition() <= obstacle.getxPosition() + obstacle.width) &&
             (player.getyPosition() + player.getPlayerWidth() >= obstacle.getyPosition()) &&
             (player.getyPosition() <= obstacle.getyPosition() + obstacle.height)
+                    && !powerUp.getPowerUpStatus()
         )
         {
             player.setPlayerNotAlive();
-           /*System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
-            System.out.println("Obstacle x : " + obstacle.getxPosition() + " Obstacle y : " + obstacle.getyPosition());
-            System.out.println("alive status : " + player.alive);
+           //System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
+            //System.out.println("Obstacle x : " + obstacle.getxPosition() + " Obstacle y : " + obstacle.getyPosition());
+            //System.out.println("alive status : " + player.alive);
 
             /*if(obstacle.isDestroyable){
                 levelOne.remove(obstacle);
-            }
+            }*/
 
-             */
 
-            x = 1;
             //System.out.println("you lose");
         }
-        return x;
+
     }
 
 

@@ -87,6 +87,13 @@ public class PowerUp {
         }
     }
 
+    public void powerUpSystem(){
+        if (getPowerUpStatus()) {
+            startPowerUpTimer();
+            endPowerup();
+        }
+    }
+
 
 
 

@@ -30,9 +30,19 @@ public class ProgressBar extends JProgressBar {
         return currentProgressBarValue;
     }
 
+    public void createProgressBar(){
+        setUpdatedCounter();
+        setProgressbarBounds();
+    }
     public void updatePrgressBar(){
         progressIndicator.calculatePrecentageIncrease();
         progressIndicator.showIncreaseIfWholeNumber();
+    }
+
+    public void addProgressBarToGame(){
+        createProgressBar();
+        updatePrgressBar();
+
     }
 
 
