@@ -76,6 +76,10 @@ public class Player {
     }
 
 
+    public void runPlayerSystem(){
+        gravity();
+        moveIntoFrame();
+    }
 
 
 

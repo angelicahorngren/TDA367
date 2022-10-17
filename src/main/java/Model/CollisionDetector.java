@@ -62,9 +62,13 @@ public class CollisionDetector {
             System.out.println("powerUp x : " + powerUp.getxPosition() + " powerUp y : " + powerUp.getyPosition());
             System.out.println("alive status : " + player.alive);
             System.out.println("powerOn status : " + powerUp.powerOn);*/
-
-
         }
+    }
+
+
+    public void runCollisionDetectorSystem(){
+        detectCollision();
+        detectCollisionPowerUpObject();
     }
 
 }

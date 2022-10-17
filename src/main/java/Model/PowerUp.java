@@ -87,7 +87,8 @@ public class PowerUp {
         }
     }
 
-    public void powerUpSystem(){
+    public void runpowerUpSystem(){
+        move();
         if (getPowerUpStatus()) {
             startPowerUpTimer();
             endPowerup();

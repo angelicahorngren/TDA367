@@ -58,5 +58,10 @@ public class Obstacle implements IMovable{
 
 
 
+    public void runObstacleSystem(){
+        move();
+    }
+
+
 
 }

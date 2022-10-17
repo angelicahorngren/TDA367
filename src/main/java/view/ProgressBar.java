@@ -39,7 +39,7 @@ public class ProgressBar extends JProgressBar {
         progressIndicator.showIncreaseIfWholeNumber();
     }
 
-    public void addProgressBarToGame(){
+    public void runProgressBarSystem(){
         createProgressBar();
         updatePrgressBar();
 

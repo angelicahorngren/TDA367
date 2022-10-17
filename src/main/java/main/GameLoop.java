@@ -57,15 +57,11 @@ public class GameLoop implements Runnable{
                     if(player.getyPosition() == 250){
                         mouseListener.setMousePressedfalse();
                     }
-
-                    obstacle.move();
-                    powerUp.move();
-                    collisionDetector.detectCollisionPowerUpObject();
-                    powerUp.powerUpSystem();
-                    collisionDetector.detectCollision();
-                    player.gravity();
+                    player.runPlayerSystem();
+                    obstacle.runObstacleSystem();
+                    collisionDetector.runCollisionDetectorSystem();
+                    powerUp.runpowerUpSystem();
                     gameView.repaint();
-                    player.moveIntoFrame();
                     try {
                         Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
@@ -73,7 +69,7 @@ public class GameLoop implements Runnable{
                 }
 
                     StopGame();
-                    progressBar.addProgressBarToGame();
+                    progressBar.runProgressBarSystem();
                 }
             }
 
