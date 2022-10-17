@@ -30,8 +30,10 @@ public class ProgressBar extends JProgressBar {
         return currentProgressBarValue;
     }
 
-
-
+    public void updatePrgressBar(){
+        progressIndicator.calculatePrecentageIncrease();
+        progressIndicator.showIncreaseIfWholeNumber();
+    }
 
 
 

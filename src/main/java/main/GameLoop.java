@@ -84,8 +84,7 @@ public class GameLoop implements Runnable{
                 } catch (Exception ex) {
                 }
 
-                    progressBar.progressIndicator.updateTime();
-                    progressBar.progressIndicator.increaseIfWholeNumber();
+                    progressBar.updatePrgressBar();
                     if (progressBar.progressIndicator.getCurrentProcentage() == 100){
                         Constants.Thread_argument_ms = 0;
                     }

@@ -3,57 +3,38 @@ package Model;
 import Utilities.Constants;
 //
 public class ProgressIndicator {
-    private double currentIncrease = 0;               //currentIncrease is initialized to 0
-    private int currentPercentage = 0;                  //the percentage on the progressbar is initialized to 0%
-    private int fullPercentage = 100;
+    private double precentageIncrease = 0;               //currentIncrease is initialized to 0
+    private int visibleCurrentPercentage = 0;                  //the percentage on the progressbar is initialized to 0%
+    private int  fullPercentage = 100;
 
 
-    public double getIncreasedTime(double ms_perLevel) {
-        double inc_EveryThreadIteration = Constants.Thread_argument_ms * fullPercentage / ms_perLevel;  //decides the procentage increase "inc_EveryThreadIteration" every 10 millieseconds by multiplying 10 ms with 100 % and divding it with the amount of millie seconds that a level takes to clear ->
-        return inc_EveryThreadIteration;                                                                  //-> the current level pre-decided length
+    public double precantageInc_EveryThreadIteration(double ms_perLevel) {
+        double precantageInc_EveryThreadIteration = Constants.Thread_argument_ms * fullPercentage / ms_perLevel;  //decides the procentage increase "inc_EveryThreadIteration" every 10 millieseconds by multiplying 10 ms with 100 % and divding it with the amount of millie seconds that a level takes to clear ->
+        return precantageInc_EveryThreadIteration;                                                                  //-> the current level pre-decided length
     }
 
 
-    public void updateTime() {
-        while (currentIncrease % 1 != 0.0 || currentIncrease == 0.0) {                      //"if currentIncrease is not a whole number or if currentIncrease equals 0: enter the while loop"
-            currentIncrease = (currentIncrease + getIncreasedTime(Constants.SEC_LV1));      //updates the currentIncrease value by a specific value depending on the pre-decided ->
-            //-> length of level 1 (this value is calculated in getIncreasedTime)
-            currentIncrease = Math.round(currentIncrease * 1000000000d) / 1000000000d;      //rounds the number to a double with only 2 decimal places
-            //System.out.println(x);
-            break;                                              //break the loop to move on to "increaseIfWholeNumber"
+    public void calculatePrecentageIncrease() {
+        while (precentageIncrease % 1 != 0.0 || precentageIncrease == 0.0) {                      //"if currentIncrease is not a whole number or if currentIncrease equals 0: enter the while loop"
+            precentageIncrease = (precentageIncrease + precantageInc_EveryThreadIteration(Constants.SEC_LV1));      //updates the currentIncrease value by a specific value depending on the pre-decided ->
+                                                                                            //-> length of level 1 (this value is calculated in getIncreasedTime)
+            precentageIncrease = Math.round(precentageIncrease * 1000000000d) / 1000000000d;      //rounds the number to a double with only 2 decimal places
+            break;
         }
     }
 
-    public void increaseIfWholeNumber() {
-        if (currentIncrease % 1 == 0.0) {
+    public void showIncreaseIfWholeNumber() {
+        if (precentageIncrease % 1 == 0.0) {
             //if currentIncrease is a whole number with no decimals(in this case currentIncrease will only ever equal 1.0): increase the progressbar percentage by 1
-            currentPercentage += 1;
-            currentIncrease = 0;                  //reset currentIncrease to 0 so that the while-loop above will continue to be entered during the coming game-loop iterations
+            visibleCurrentPercentage += 1;
+            precentageIncrease = 0;                  //reset currentIncrease to 0 so that the while-loop above will continue to be entered during the coming game-loop iterations
         }
     }
 
 
     public int getCurrentProcentage(){
-        return currentPercentage;
+        return visibleCurrentPercentage;
     }
-
-    // i en while loop: if player alive = false {stopProgressbar, progressBarScore}
-    public void stopProgressbar(){
-
-        //Stop progressbar bgj
-        //Hitta vart progressbar stoppat och sätt s = det värdet
-        //uppdatera score: progressbarScore(s)
-    }
-/*
-    public void progressbarScore(int score){
-        oldHS = Model.Score.getHighScore();
-        if (score>oldHS){
-            Model.Score.updateHighScore(score);
-        else(){
-                Model.Score.updateCurrentScore(score);
-            }
-        }
-    */
 
 }
 
