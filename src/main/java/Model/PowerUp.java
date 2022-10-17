@@ -4,20 +4,20 @@ import Utilities.Constants;
 
 public class PowerUp {
 
-    CollisionDetector collisionDetector;
+    private CollisionDetector collisionDetector;
 
-    public boolean powerOn = false;
+    private boolean powerOn = false;
 
     //Timer
-    public int powerUpTimer = 0;
+    private int powerUpTimer = 0;
 
-    public int width;
-    public int height;
-    public int speed;
+    private int width;
+    private int height;
+    private int speed;
     //= Constants.OBSTACLE_START_X;
     //public Shapes hitBox;
-    public int xPosition;
-    public int yPosition;
+    private int xPosition;
+    private int yPosition;
 
     public PowerUp(int width, int height, int speed, int startXpos, int yPosition) {
         this.width = width;
@@ -56,12 +56,16 @@ public class PowerUp {
         return yPosition;
     }
 
+    public boolean getPowerUpStatus(){
+        return powerOn;
+    }
 
-    public void isPowerOn(){
+
+    public void setPowerUpOn(){
         powerOn = true;
     }
 
-    public void notPowerOn(){
+    public void setPowerUpoff(){
         powerOn = false;
     }
 
@@ -78,7 +82,7 @@ public class PowerUp {
 
     public void endPowerup(){
         if (powerUpTimer == 3000){
-            notPowerOn();
+            setPowerUpoff();
             resetTime();
         }
     }

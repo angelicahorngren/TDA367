@@ -7,10 +7,10 @@ import java.awt.event.MouseEvent;
 
 public class PlayerMouseController extends MouseAdapter {
 
-    public boolean mousePressed;
-    public int mouseButton;
-    public boolean mouseDragged;
-    Player player;
+    private boolean mousePressed;
+    private int mouseButton;
+    private boolean mouseDragged;
+    private Player player;
 
     public PlayerMouseController(Player player){
         this.player = player;
@@ -19,7 +19,7 @@ public class PlayerMouseController extends MouseAdapter {
 
     @Override
     public void mousePressed(MouseEvent mouseEvent){
-        if(mousePressed && player.yPosition == 250){
+        if(mousePressed && player.getyPosition() == 250){
             player.jump(); //switch to controller
         }
     }
@@ -31,6 +31,14 @@ public class PlayerMouseController extends MouseAdapter {
 
     @Override
     public void mouseReleased(MouseEvent e){
+    }
+
+    public boolean getMousePressed(){
+        return mousePressed;
+    }
+
+    public void setMousePressedfalse(){
+        mousePressed = false;
     }
 }
 

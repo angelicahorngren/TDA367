@@ -7,7 +7,7 @@ import java.awt.*;
 
 
 public class DrawPowerUp {
-    PowerUp powerUp;
+    private PowerUp powerUp;
 
     public DrawPowerUp(PowerUp powerUp){
         this.powerUp = powerUp;
@@ -19,7 +19,7 @@ public class DrawPowerUp {
 
 
         gg.setColor(Constants.POWERUP_COLOR);
-        gg.fillRect(powerUp.getxPosition(), Constants.Y_POS, powerUp.width, powerUp.height);      //här sätts även yposition
+        gg.fillRect(powerUp.getxPosition(), Constants.Y_POS, powerUp.getWidth(), powerUp.getHeight());      //här sätts även yposition
 
 
 

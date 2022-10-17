@@ -9,8 +9,8 @@ import java.util.Collection;
 import java.util.ArrayList;
 
 public class DrawLevel /* extends JPanel?*/{
-    LevelOne levelOne;
-    public ArrayList<Obstacle> testList;
+    private LevelOne levelOne;
+    private ArrayList<Obstacle> testList;
 
 
     public DrawLevel(LevelOne levelOne){

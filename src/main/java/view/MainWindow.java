@@ -11,12 +11,12 @@ import java.awt.*;
 
 
 public class MainWindow extends JFrame {
-    MenuView menuView;
-    LostRoundView lostRoundView;
-    GameView gameView;
-    StartButtonController startBtnC;
-    PlayAgainButtonController playBtnC;
-    MenuButtonController menuBtnC;
+    private MenuView menuView;
+    private LostRoundView lostRoundView;
+    private GameView gameView;
+    private StartButtonController startBtnC;
+    private PlayAgainButtonController playBtnC;
+    private MenuButtonController menuBtnC;
     public CardLayout card = new CardLayout();
     public JPanel container = new JPanel();
 

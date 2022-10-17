@@ -5,8 +5,8 @@ import java.awt.event.MouseEvent;
 
 public class MenuButtonController extends MenuItemsController{
 
-    public int buttonPosX;
-    public int x;
+    private int buttonPosX;
+    private int x;
 
     public MenuButtonController(int x, int y, int width, int height){
 

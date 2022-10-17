@@ -3,9 +3,9 @@ package Model;
 import Utilities.Constants;
 //
 public class ProgressIndicator {
-    public double currentIncrease = 0;               //currentIncrease is initialized to 0
-    public int currentPercentage = 0;                  //the percentage on the progressbar is initialized to 0%
-    int fullPercentage = 100;
+    private double currentIncrease = 0;               //currentIncrease is initialized to 0
+    private int currentPercentage = 0;                  //the percentage on the progressbar is initialized to 0%
+    private int fullPercentage = 100;
 
 
     public double getIncreasedTime(double ms_perLevel) {
@@ -32,9 +32,15 @@ public class ProgressIndicator {
         }
     }
 
+
+    public int getCurrentProcentage(){
+        return currentPercentage;
+    }
+
     // i en while loop: if player alive = false {stopProgressbar, progressBarScore}
     public void stopProgressbar(){
-        //Stop progressbar
+
+        //Stop progressbar bgj
         //Hitta vart progressbar stoppat och sätt s = det värdet
         //uppdatera score: progressbarScore(s)
     }

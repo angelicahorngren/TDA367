@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class DrawProjectile extends JPanel {
 
 
-    Projectile projectile;
+    private Projectile projectile;
 
     public DrawProjectile(Projectile projectile){
         this.projectile = projectile;
@@ -22,8 +22,8 @@ public class DrawProjectile extends JPanel {
         super.paintComponent(g);
         for(Projectile projectile : projectiles){
             g.setColor(new Color(85, 85, 85));
-            g.fillRect(projectile.xPosition, projectile.yPosition + player.playerHeight/2 - projectile.getHeight()/2, 20, 10);
-            System.out.println(projectile.getyPosition());
+            g.fillRect(projectile.getxPosition(), projectile.getyPosition() + player.getPlayerHeight()/2 - projectile.getHeight()/2, 20, 10);
+            //System.out.println(projectile.getyPosition());
         }
     }
 

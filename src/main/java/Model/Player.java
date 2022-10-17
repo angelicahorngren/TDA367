@@ -4,13 +4,13 @@ import Utilities.Constants;
 
 
 public class Player {
-    public int yPosition;
-    public int velY;
-    public int playerWidth;
-    public int playerHeight;
-    public int velReducer;
-    public int xPosition;
-    public boolean alive;
+    private int yPosition;
+    private int velY;
+    private int playerWidth;
+    private int playerHeight;
+    private int velReducer;
+    private int xPosition;
+    private boolean alive;
 
 
 
@@ -58,6 +58,10 @@ public class Player {
 
     public int getxPosition() {
         return xPosition;
+    }
+
+    public boolean getaliveStatus(){
+        return alive;
     }
 
     public void moveIntoFrame(){

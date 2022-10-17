@@ -13,7 +13,7 @@ public class LevelOne {
 
     /*Collection<JComponent> collection;
     Obstacle obstacle;*/
-    Collection<Obstacle> levelOne;
+    private Collection<Obstacle> levelOne;
 
 
     //public List list = new ArrayList();
@@ -21,7 +21,7 @@ public class LevelOne {
 
     public LevelOne(Obstacle obstacle) {
        // this.obstacle = obstacle;
-        Collection<JComponent> collection = new ArrayList<JComponent>(); //byt från string till obstacle eller liknande
+        Collection<JComponent> collection = new ArrayList<>(); //byt från string till obstacle eller liknande
         DrawRectView rectInList = new DrawRectView(obstacle);
         DrawCircView circleInList = new DrawCircView(obstacle);
         collection.add(rectInList);                                 //lägg till de olika hindren här

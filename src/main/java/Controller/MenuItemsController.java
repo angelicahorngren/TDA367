@@ -7,9 +7,9 @@ import java.awt.event.MouseEvent;
 
 public class MenuItemsController extends MouseAdapter {
 
-    public int buttonPosX; //Constants.START_BTN_POSX
-    public int buttonPosY; //Constants.START_BTN_POSY
-    public int buttonWidth; //Constants.START_BTN_WIDTH
+    private int buttonPosX; //Constants.START_BTN_POSX
+    protected int buttonPosY; //Constants.START_BTN_POSY
+    protected int buttonWidth; //Constants.START_BTN_WIDTH
     public int buttonHeight; //Constants.START_BTN_HEIGHT
 
     public MenuItemsController(int buttonPosX, int buttonPosY, int buttonWidth, int buttonHeight) {

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class LostRoundItems {
 
-    ArrayList<IMenuItems> lritems = new ArrayList<>();
+    private ArrayList<IMenuItems> lritems = new ArrayList<>();
 
     public LostRoundItems(){
 

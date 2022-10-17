@@ -43,12 +43,12 @@ public class GameLoop implements Runnable{
                     for(Projectile projectile : projectiles){
                         projectile.move();
                     }
-                    if(mouseListener.mousePressed){
+                    if(mouseListener.getMousePressed()){
                         player.jump(); //switch to controller
                     }
 
-                    if(player.yPosition == 250){
-                        mouseListener.mousePressed = false;
+                    if(player.getyPosition() == 250){
+                        mouseListener.setMousePressedfalse();
                     }
                     obstacle.move();
 
@@ -59,11 +59,11 @@ public class GameLoop implements Runnable{
                     }*/
                     powerUp.move();
                     collisionDetector.detectCollisionPowerUpObject();
-                    if (powerUp.powerOn){
+                    if (powerUp.getPowerUpStatus()){
                         powerUp.startPowerUpTimer();
                         powerUp.endPowerup();
                     }
-                    if (!powerUp.powerOn) {
+                    if (!powerUp.getPowerUpStatus()) {
                         if (collisionDetector.detectCollision() == 1){
 
                             Constants.Thread_argument_ms = 0;
@@ -86,7 +86,7 @@ public class GameLoop implements Runnable{
 
                     progressBar.progressIndicator.updateTime();
                     progressBar.progressIndicator.increaseIfWholeNumber();
-                    if (progressBar.progressIndicator.currentPercentage == 100){
+                    if (progressBar.progressIndicator.getCurrentProcentage() == 100){
                         Constants.Thread_argument_ms = 0;
                     }
 

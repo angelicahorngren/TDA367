@@ -2,18 +2,18 @@ package Model;
 
 public class CollisionDetector {
 
-    Player player;
-    Obstacle obstacle;
-    LevelOne levelOne;
-    PowerUp powerUp;
+    private Player player;
+    private Obstacle obstacle;
+    private LevelOne levelOne;
+    private PowerUp powerUp;
 
 
-    public Boolean collided;
+    private Boolean collided;
 
 
 
     public CollisionDetector(Player player, Obstacle obstacle,/* LevelOne levelOne*/ PowerUp powerUp){
-        this.levelOne = levelOne;
+        //this.levelOne = levelOne;
         this.player = player;
         this.obstacle = obstacle;
         this.powerUp = powerUp;
@@ -24,9 +24,9 @@ public class CollisionDetector {
     public int detectCollision(){
         int x = 0;
         if(
-            (player.getxPosition() + player.playerWidth >= obstacle.getxPosition()) &&
+            (player.getxPosition() + player.getPlayerWidth() >= obstacle.getxPosition()) &&
             (player.getxPosition() <= obstacle.getxPosition() + obstacle.width) &&
-            (player.getyPosition() + player.playerHeight >= obstacle.getyPosition()) &&
+            (player.getyPosition() + player.getPlayerWidth() >= obstacle.getyPosition()) &&
             (player.getyPosition() <= obstacle.getyPosition() + obstacle.height)
         )
         {
@@ -40,7 +40,6 @@ public class CollisionDetector {
             }
 
              */
-            player.alive = false;
 
             x = 1;
             //System.out.println("you lose");
@@ -53,13 +52,13 @@ public class CollisionDetector {
 
     public void detectCollisionPowerUpObject(){
         if(
-                (player.getxPosition() + player.playerWidth >= powerUp.getxPosition()) &&
-                        (player.getxPosition() <= powerUp.getxPosition() + powerUp.width) &&
-                        (player.getyPosition() + player.playerHeight >= powerUp.getyPosition()) &&
-                        (player.getyPosition() <= powerUp.getyPosition() + powerUp.height)
+                (player.getxPosition() + player.getPlayerWidth() >= powerUp.getxPosition()) &&
+                        (player.getxPosition() <= powerUp.getxPosition() + powerUp.getWidth()) &&
+                        (player.getyPosition() + player.getPlayerHeight() >= powerUp.getyPosition()) &&
+                        (player.getyPosition() <= powerUp.getyPosition() + powerUp.getHeight())
         )
         {
-            powerUp.isPowerOn();
+            powerUp.setPowerUpOn();
             System.out.println("u got power");
             /*System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
             System.out.println("powerUp x : " + powerUp.getxPosition() + " powerUp y : " + powerUp.getyPosition());

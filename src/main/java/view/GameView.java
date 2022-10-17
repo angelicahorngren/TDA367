@@ -25,6 +25,7 @@ public class GameView extends JPanel{
 
         this.add(progressBar);
         this.add(new PaintingStuff(player, projectiles, obstacle, levelOne, powerUp));
+        this.setFocusable(true);
 
         this.setVisible(true);
 
