@@ -2,6 +2,8 @@ package Model;
 
 import Utilities.Constants;
 
+import java.awt.*;
+
 
 public class Player {
     private int yPosition;
@@ -11,15 +13,18 @@ public class Player {
     private int velReducer;
     private int xPosition;
     private boolean alive;
+    private Color color = Color.MAGENTA;
+    private PowerUp powerUp;
 
 
 
-    public Player(int playerWidth, int playerHeight, int yPosition, int xPosition, boolean alive) {
+    public Player(int playerWidth, int playerHeight, int yPosition, int xPosition, boolean alive, PowerUp powerUp) {
         this.playerWidth = playerWidth;
         this.playerHeight = playerHeight;
         this.yPosition = yPosition;
         this.alive = alive;
         this.xPosition = xPosition;
+        this.powerUp = powerUp;
 
     }
 
@@ -62,6 +67,27 @@ public class Player {
         return alive;
     }
 
+    public Color getColor(){
+        return color;
+    }
+
+    public void setColorRed(){
+        color = Color.red;
+    }
+
+    public void setColorNormel(){
+        color = Color.MAGENTA;
+    }
+
+    public void setColorWhenPowerOn() {
+        if (powerUp.getPowerUpStatus()) {
+            setColorRed();
+        }
+        else setColorNormel();
+    }
+
+
+
     public void moveIntoFrame(){
         if(xPosition < 250){
             xPosition += 3;
@@ -77,6 +103,7 @@ public class Player {
     public void runPlayerSystem(){
         gravity();
         moveIntoFrame();
+        setColorWhenPowerOn();
     }
 
 
