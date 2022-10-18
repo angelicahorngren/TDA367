@@ -17,11 +17,11 @@ public class StartButtonController extends MenuItemsController{
     ProgressBar progressBar;
     CollisionDetector collisionDetector;*/
     GameLoop gameLoop;
+    GameView gameView;
 
     public StartButtonController(int x, int y, int width, int height, GameLoop gameLoop /* Player player, GameView gameView, ProgressBar progressBar, CollisionDetector collisionDetector*/){
 
         super(x, y, width, height);
-
         this.buttonPosX = x;
         this.gameLoop = gameLoop;
         /*this.player = player;

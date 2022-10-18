@@ -5,6 +5,7 @@ import Model.CollisionDetector;
 import Model.Obstacle;
 import Model.Player;
 import view.GameView;
+import view.MainWindow;
 import view.ProgressBar;
 import Utilities.Constants;
 import javax.swing.*;
@@ -12,24 +13,27 @@ import javax.swing.*;
 public class GameLoop {       //Have to extend JFrame for add()-functions to work, still working on this
 
     Thread animationThread;
+    GameView gameView;
 
-    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, CollisionDetector collisionDetector){
+    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, MouseListener mouseListener, CollisionDetector collisionDetector){
 
+
+        this.gameView = gameView;
 
         this.animationThread = new Thread(new Runnable() {
             public void run() {
                 while (true) {
-                /*if(mouseListener.mousePressed){
+                if(mouseListener.mousePressed){
                     player.jump(); //switch to controller
                 }
 
                 if(player.yPosition == 250){
                     mouseListener.mousePressed = false;
-                }*/
+                }
                     obstacle.move();
                     collisionDetector.detectCollision();
                     player.gravity();
-                    gameView.paintComponents(gameView.getGraphics());
+                    //gameView.paintComponents(gameView.getGraphics());
                     gameView.repaint();
                     player.moveIntoFrame();
                     progressBar.setUpdatedCounter();
@@ -54,6 +58,8 @@ public class GameLoop {       //Have to extend JFrame for add()-functions to wor
 
     public void startGame(){
         animationThread.start();
+
     }
+
 
 }

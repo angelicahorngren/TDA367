@@ -24,7 +24,9 @@ public class MainWindow extends JFrame {
         this.menuView = menuView;
         this.gameView = gameView;
         this.lostRoundView = lostRoundView;
-       // this.add(menuView)
+        this.add(menuView);
+        this.add(gameView);
+        this.add(lostRoundView);
 
 
         this.setTitle(Constants.SCREEN_TITLE);
@@ -38,20 +40,20 @@ public class MainWindow extends JFrame {
 
 
 
-    public void addMenuView(){
-        this.add(menuView);
+    public MenuView getMenuView(){
+        return this.menuView;
     }
 
-    public void addGameView(){
+    public GameView getGameView(){
 
-        this.add(gameView);
+        return this.gameView;
     }
 
-    public void addLostRoundView(){
-        this.add(lostRoundView);
+    public LostRoundView getLostRoundView(){
+        return this.lostRoundView;
     }
 
-    public void PanelToFront(){
+    /*public void PanelToFront(){
         if (startBtnC.buttonPressed() || playBtnC.buttonPressed()) {
         this.addGameView(); //toFront
     } else if (menuBtnC.buttonPressed()) {
@@ -59,5 +61,5 @@ public class MainWindow extends JFrame {
     }
 
     }
-
+*/
 }

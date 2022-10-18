@@ -26,7 +26,7 @@ public class main {
 
 
         GameView gameView = new GameView(player, obstacle, progressBar, mouseListener);
-        GameLoop gameLoop = new GameLoop(player, obstacle, gameView, progressBar, collisionDetector);
+        GameLoop gameLoop = new GameLoop(player, obstacle, gameView, progressBar, mouseListener, collisionDetector);
 
         StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop);
 
@@ -45,14 +45,15 @@ public class main {
 
         MainWindow mainWindow = new MainWindow(menuView, gameView, lostRoundView, startBtnC, playAgainBtnC, menuBtnC);
 
-        mainWindow.addMenuView();
+        mainWindow.setContentPane(gameView);
 
 
-        if (startBtnC.buttonPressed() || playAgainBtnC.buttonPressed()) {
-            mainWindow.addGameView(); //toFront
+      /*  if (startBtnC.buttonPressed() || playAgainBtnC.buttonPressed()) {
+
+            mainWindow.setContentPane(gameView); //toFront
         } else if (menuBtnC.buttonPressed()) {
-            mainWindow.addMenuView(); //toFront
-        }
+            mainWindow.setContentPane(menuView); //toFront
+        }*/
 
 
             //GameLoop gameLoop = new GameLoop(player, gameView, progressBar, collisionDetector);
