@@ -1,4 +1,4 @@
-package view;
+package View;
 import Model.Obstacle;
 import Utilities.Constants;
 import javax.swing.*;

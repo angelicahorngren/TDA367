@@ -1,11 +1,14 @@
 package main;
-import Controller.MenuButtonController;
-import Controller.MouseListener;
-import Controller.PlayAgainButtonController;
-import Controller.StartButtonController;
+import Controller.*;
+import MenusView.DrawLostRoundPageItems;
+import MenusView.DrawStartPageItems;
+import MenusView.LostRoundPageView;
+import MenusView.StartPageView;
 import Model.*;
 import Utilities.Constants;
-import view.*;
+import View.*;
+
+import java.util.ArrayList;
 
 
 public class main {
@@ -34,19 +37,19 @@ public class main {
 
         StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop, gameView);
 
-        MenuItemsView menuItemsView = new MenuItemsView(startBtnC);
+        DrawStartPageItems drawStartPageItems = new DrawStartPageItems(startBtnC);
 
-        MenuView menuView = new MenuView(menuItemsView);
+        StartPageView startPageView = new StartPageView(drawStartPageItems);
 
         MenuButtonController menuBtnC = new MenuButtonController(Constants.MENU_BTN_POSX, Constants.MENU_BTN_POSY, Constants.MENU_BTN_WIDTH, Constants.MENU_BTN_HEIGHT);
 
         PlayAgainButtonController playAgainBtnC = new PlayAgainButtonController(Constants.PLAY_AGAIN_BTN_POSX, Constants.PLAY_AGAIN_BTN_POSY, Constants.PLAY_AGAIN_BTN_WIDTH, Constants.PLAY_AGAIN_BTN_HEIGHT);
 
-        LostRoundItemsView lostRoundItemsView = new LostRoundItemsView(menuBtnC, playAgainBtnC);
+        DrawLostRoundPageItems drawLostRoundPageItems = new DrawLostRoundPageItems(menuBtnC, playAgainBtnC);
 
-        LostRoundView lostRoundView = new LostRoundView(lostRoundItemsView);
+        LostRoundPageView lostRoundPageView = new LostRoundPageView(drawLostRoundPageItems);
 
-        MainWindow mainWindow = new MainWindow(menuView, gameView, lostRoundView,startBtnC, playAgainBtnC, menuBtnC);
+        MainWindow mainWindow = new MainWindow(startPageView, gameView, lostRoundPageView,startBtnC, playAgainBtnC, menuBtnC);
 
 
         /*if (startBtnC.buttonPressed() || playAgainBtnC.buttonPressed()) {

@@ -1,11 +1,8 @@
-package view;
+package View;
 
 import Model.LevelOne;
 import Model.Obstacle;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.Collection;
 import java.util.ArrayList;
 
 public class DrawLevel /* extends JPanel?*/{

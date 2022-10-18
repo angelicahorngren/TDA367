@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Player;
 import Model.Projectile;
-import view.DrawProjectile;
 
 import java.awt.event.*;
 import java.util.ArrayList;

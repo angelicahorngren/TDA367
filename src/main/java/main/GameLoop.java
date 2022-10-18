@@ -1,13 +1,11 @@
 package main;
 
-import Controller.MouseListener;
-import Model.CollisionDetector;
-import Model.Obstacle;
-import Model.Player;
-import view.GameView;
-import view.ProgressBar;
+import Controller.PlayerMouseController;
+import Model.*;
+import View.GameView;
+import View.ProgressBar;
 import Utilities.Constants;
-import javax.swing.*;
+
 import java.util.ArrayList;
 
 public class GameLoop implements Runnable {       //Have to extend JFrame for add()-functions to work, still working on this

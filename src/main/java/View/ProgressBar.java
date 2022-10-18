@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import Model.ProgressIndicator;
 import java.awt.*;

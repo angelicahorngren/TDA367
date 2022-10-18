@@ -1,11 +1,8 @@
 package Controller;
 
-import Model.CollisionDetector;
-import Model.Player;
 import Utilities.Constants;
 import main.GameLoop;
-import view.GameView;
-import view.ProgressBar;
+import View.GameView;
 
 import java.awt.event.MouseEvent;
 

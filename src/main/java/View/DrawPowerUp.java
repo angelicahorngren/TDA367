@@ -1,5 +1,4 @@
-package view;
-import Model.Obstacle;
+package View;
 import Model.PowerUp;
 import Utilities.Constants;
 

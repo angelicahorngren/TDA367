@@ -1,17 +1,17 @@
-package view;
+package MenusView;
 
 import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
 
-public class MenuView extends JPanel{
+public class StartPageView extends JPanel{
 
-    public MenuView( MenuItemsView menuItemsView ) {
+    public StartPageView(DrawStartPageItems drawStartPageItems) {
 
         BorderLayout borderLayout = new BorderLayout();
 
         this.setLayout( borderLayout );
-        this.add( menuItemsView );
+        this.add(drawStartPageItems);
         this.setBackground(Color.WHITE);
         this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
         this.setVisible(true);

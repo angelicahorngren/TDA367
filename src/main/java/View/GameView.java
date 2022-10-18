@@ -1,18 +1,14 @@
-package view;
-import Controller.MouseListener;
-import Model.CollisionDetector;
-import Model.Player;
-import Model.Obstacle;
+package View;
+import Controller.PlayerKeyController;
+import Controller.PlayerMouseController;
+import Model.*;
 import Utilities.Constants;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GameView extends JPanel{
-
-    DrawPlayer drawPlayer;
-    DrawRectView drawrect;
-    DrawCircView drawcirc;
 
 
     public GameView(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne, PowerUp powerUp) {

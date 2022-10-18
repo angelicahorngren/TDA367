@@ -1,8 +1,8 @@
 package Model;
 
 import Utilities.Constants;
-import view.DrawCircView;
-import view.DrawRectView;
+import View.DrawCircView;
+import View.DrawRectView;
 
 import javax.swing.*;
 import java.util.ArrayList;
