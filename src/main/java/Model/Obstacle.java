@@ -1,13 +1,9 @@
 package Model;
 
-import Utilities.Constants;
-
 public class Obstacle implements IMovable{
     protected int width;
     protected int height;
     protected int speed;
-     //= Constants.OBSTACLE_START_X;
-    //public Shapes hitBox;
     protected int xPosition;
     protected int yPosition;
     protected boolean isDestroyable;
