@@ -38,9 +38,7 @@ public class Player {
     }
 
     public void jump() {
-        if(xPosition >= 250){
             yPosition -= 10;
-        }
     }
 
 
@@ -66,7 +64,7 @@ public class Player {
 
     public void moveIntoFrame(){
         if(xPosition < 250){
-            xPosition += 4;
+            xPosition += 3;
         }
 
     }

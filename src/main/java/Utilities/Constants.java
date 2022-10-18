@@ -11,7 +11,7 @@ public class Constants {
     //Game items
     public static final int RECT_WIDTH = 50;
     public static final int RECT_HEIGHT = 50;
-    public static final int PLAYER_START_X = 400;
+    public static final int PLAYER_START_X = -200;
     public static final int RECT_START_X = 1000;
     public static final Color RECT_COLOR = Color.RED;
     public static final int Y_POS = 250;

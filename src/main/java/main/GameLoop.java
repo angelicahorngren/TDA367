@@ -54,7 +54,6 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
                     player.runPlayerSystem();
                     for(Obstacle obstacle: levelOne){
                         obstacle.runObstacleSystem();
-                        System.out.println(obstacle.getxPosition());
                     }
                     collisionDetector.runCollisionDetectorSystem();
                     powerUp.runpowerUpSystem();

@@ -9,16 +9,11 @@ public class CollisionDetector {
     private PowerUp powerUp;
 
 
-    private Boolean collided;
 
-
-
-    public CollisionDetector(Player player, ArrayList<Obstacle> levelOne,/* LevelOne levelOne*/ PowerUp powerUp){
-        //this.levelOne = levelOne;
+    public CollisionDetector(Player player, ArrayList<Obstacle> levelOne, PowerUp powerUp){
         this.player = player;
         this.levelOne = levelOne;
         this.powerUp = powerUp;
-        this.collided = false;
     }
 
 

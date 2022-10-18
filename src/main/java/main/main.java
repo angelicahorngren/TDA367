@@ -21,7 +21,7 @@ public class main {
         ArrayList<Obstacle> obstacles = new ArrayList<>();
         LevelOne levelOne = new LevelOne(obstacles);
         levelOne.createLevel(obstacles);
-        Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, -100, true);
+        Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, Constants.PLAYER_START_X, true);
         PowerUp powerUp = new PowerUp(Constants.POWERUP_WIDTH, Constants.POWERUP_HEIGHT, Constants.POWERUP_SPEED, Constants.POWERUP_START_X, Constants.POWERUP_START_Y );
         Projectile projectile = new Projectile(20, 10, 10, true, player.getxPosition(), 265);
         CollisionDetector collisionDetector = new CollisionDetector(player, obstacles, powerUp);
