@@ -4,9 +4,9 @@ import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
 
-public class StartPageView extends JPanel{
+public class StartPageMenu extends JPanel{
 
-    public StartPageView(DrawStartPageItems drawStartPageItems) {
+    public StartPageMenu(DrawStartPageItems drawStartPageItems) {
 
         BorderLayout borderLayout = new BorderLayout();
 
