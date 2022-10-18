@@ -17,7 +17,7 @@ public class ProgressBar extends JProgressBar {
     }
 
     public void setUpdatedCounter(){
-        this.setValue(progressIndicator.currentPercentage);     //inserts the percentageOnBar -value in the progressbar class object
+        this.setValue(progressIndicator.getCurrentProcentage());     //inserts the percentageOnBar -value in the progressbar class object
     }
 
     public void setProgressbarBounds(){
@@ -28,7 +28,23 @@ public class ProgressBar extends JProgressBar {
         int currentProgressBarValue = this.getValue();
         System.out.print(currentProgressBarValue);
         return currentProgressBarValue;
+    }
+
+    public void createProgressBar(){
+        setUpdatedCounter();
+        setProgressbarBounds();
+    }
+    public void updatePrgressBar(){
+        progressIndicator.calculatePrecentageIncrease();
+        progressIndicator.showIncreaseIfWholeNumber();
+    }
+
+    public void runProgressBarSystem(){
+        createProgressBar();
+        updatePrgressBar();
 
     }
+
+
 
 }

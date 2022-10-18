@@ -6,31 +6,37 @@ import Controller.StartButtonController;
 import Utilities.Constants;
 
 import javax.swing.*;
+import java.awt.*;
 
 
 public class MainWindow extends JFrame {
-    MenuView menuView;
-    LostRoundView lostRoundView;
-    GameView gameView;
-    StartButtonController startBtnC;
-    PlayAgainButtonController playBtnC;
-    MenuButtonController menuBtnC;
+    private MenuView menuView;
+    private LostRoundView lostRoundView;
+    private GameView gameView;
+    private StartButtonController startBtnC;
+    private PlayAgainButtonController playBtnC;
+    private MenuButtonController menuBtnC;
+    public CardLayout card = new CardLayout();
+    public JPanel container = new JPanel();
 
 
-    public MainWindow(MenuView menuView, GameView gameView, LostRoundView lostRoundView, StartButtonController startBtnC, PlayAgainButtonController playBtnC, MenuButtonController menuBtnC){
+    public MainWindow(MenuView menuView, GameView gameView, LostRoundView lostRoundView, StartButtonController startBtnC, PlayAgainButtonController playBtnC, MenuButtonController menuBtnC) {
         this.startBtnC = startBtnC;
         this.playBtnC = playBtnC;
         this.menuBtnC = menuBtnC;
         this.menuView = menuView;
         this.gameView = gameView;
         this.lostRoundView = lostRoundView;
-        this.add(menuView);
-        this.add(gameView);
-        this.add(lostRoundView);
+        //container.setLayout(card);
+        //this.add(menuView)
+        //container.add(menuView);
+        //container.add(gameView);
+        //container.add(lostRoundView);
+        //this.add(container);
 
 
         this.setTitle(Constants.SCREEN_TITLE);
-        this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
+        this.setSize(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -38,9 +44,17 @@ public class MainWindow extends JFrame {
 
     }
 
+    public void setPanel() {
+        if (startBtnC.getXvalueStartBtn() == 2) {
+            this.removeAll();
+            this.setContentPane(gameView);
+            this.update(getGraphics());
+            this.repaint();
+            //startBtnC.buttonPressed();
+        }
+    }
 
-
-    public MenuView getMenuView(){
+    /*public MenuView getMenuView(){
         return this.menuView;
     }
 
@@ -51,15 +65,6 @@ public class MainWindow extends JFrame {
 
     public LostRoundView getLostRoundView(){
         return this.lostRoundView;
-    }
+    }*/
 
-    /*public void PanelToFront(){
-        if (startBtnC.buttonPressed() || playBtnC.buttonPressed()) {
-        this.addGameView(); //toFront
-    } else if (menuBtnC.buttonPressed()) {
-        this.addMenuView(); //toFront
-    }
-
-    }
-*/
 }

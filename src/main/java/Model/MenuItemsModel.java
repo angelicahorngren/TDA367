@@ -4,7 +4,6 @@ import Utilities.Constants;
 import java.util.ArrayList;
 
 public class MenuItemsModel {
-
     ArrayList<IMenuItems> items = new ArrayList<>();
 
     public MenuItemsModel(){

@@ -1,5 +1,6 @@
 package view;
 import Controller.MouseListener;
+import Model.CollisionDetector;
 import Model.Player;
 import Model.Obstacle;
 import Utilities.Constants;
@@ -14,43 +15,28 @@ public class GameView extends JPanel{
     DrawCircView drawcirc;
 
 
-    public GameView(Player player, Obstacle obstacle, ProgressBar progressBar, MouseListener mouseListener) {
+    public GameView(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne, PowerUp powerUp) {
+
+        this.addMouseListener(mouseListener);
 
         BorderLayout borderLayout = new BorderLayout();
-        /*this.drawrect = new DrawRectView(obstacle);
-        this.drawPlayer = new DrawPlayer(player);
-        this.drawcirc = new DrawCircView(obstacle);*/
 
         this.setLayout( borderLayout );
         this.setBackground(Color.WHITE);
+        this.addKeyListener(playerKeyController);
+        this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
+
         this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
 
         this.add(progressBar);
-        this.addMouseListener(mouseListener);
-
-        this.add(new PaintingStuff(player, obstacle));
+        this.add(new PaintingStuff(player, projectiles, obstacle, levelOne, powerUp));
+        this.setFocusable(true);
 
         this.setVisible(true);
 
 
     }
 
-    //DrawGameBackgroundView dbg = new DrawGameBackgroundView(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
-
-
-    /*public void paintComponent(Graphics g){
-
-
-        drawrect.drawRect(g);
-        dbg.draw2(g);
-        drawcirc.drawCirc(g);
-        drawPlayer.drawPlayer(g);
-
-
-    }*/
 
 }
-
-
-
 

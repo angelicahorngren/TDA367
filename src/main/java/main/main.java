@@ -10,25 +10,29 @@ import view.*;
 
 public class main {
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
 
         System.out.println("Hello, do you wanna jump and stuff?");
-
-        Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y);
+        Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED,false, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y);
         Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, -100, true);
-
-        CollisionDetector collisionDetector = new CollisionDetector(player, obstacle);
-        DrawPlayer dp = new DrawPlayer(player);
+        PowerUp powerUp = new PowerUp(Constants.POWERUP_WIDTH, Constants.POWERUP_HEIGHT, Constants.POWERUP_SPEED, Constants.POWERUP_START_X, Constants.POWERUP_START_Y );
+        Projectile projectile = new Projectile(20, 10, 10, true, player.getxPosition(), 265);
+        CollisionDetector collisionDetector = new CollisionDetector(player, obstacle, powerUp);
         ProgressIndicator progressIndicator = new ProgressIndicator();
+        ArrayList<Projectile> projectiles = new ArrayList<>();
         ProgressBar progressBar = new ProgressBar(progressIndicator);
-        MouseListener mouseListener = new MouseListener();
+        PlayerMouseController mouseListener = new PlayerMouseController(player);
+        PlayerKeyController playerKeyController = new PlayerKeyController(player, projectiles);
+
+        LevelOne levelOne = new LevelOne(obstacle);
+
+        GameView gameView = new GameView(player, projectiles, obstacle, progressBar, mouseListener, playerKeyController,levelOne, powerUp);
+        GameLoop gameLoop = new GameLoop(player, projectiles, obstacle, gameView, progressBar, mouseListener, collisionDetector, powerUp);
 
 
-        GameView gameView = new GameView(player, obstacle, progressBar, mouseListener);
-        GameLoop gameLoop = new GameLoop(player, obstacle, gameView, progressBar, mouseListener, collisionDetector);
 
-        StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop);
+        StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop, gameView);
 
         MenuItemsView menuItemsView = new MenuItemsView(startBtnC);
 
@@ -38,26 +42,21 @@ public class main {
 
         PlayAgainButtonController playAgainBtnC = new PlayAgainButtonController(Constants.PLAY_AGAIN_BTN_POSX, Constants.PLAY_AGAIN_BTN_POSY, Constants.PLAY_AGAIN_BTN_WIDTH, Constants.PLAY_AGAIN_BTN_HEIGHT);
 
-
         LostRoundItemsView lostRoundItemsView = new LostRoundItemsView(menuBtnC, playAgainBtnC);
 
         LostRoundView lostRoundView = new LostRoundView(lostRoundItemsView);
 
-        MainWindow mainWindow = new MainWindow(menuView, gameView, lostRoundView, startBtnC, playAgainBtnC, menuBtnC);
-
-        mainWindow.setContentPane(gameView);
+        MainWindow mainWindow = new MainWindow(menuView, gameView, lostRoundView,startBtnC, playAgainBtnC, menuBtnC);
 
 
-      /*  if (startBtnC.buttonPressed() || playAgainBtnC.buttonPressed()) {
-
-            mainWindow.setContentPane(gameView); //toFront
+        /*if (startBtnC.buttonPressed() || playAgainBtnC.buttonPressed()) {
+            mainWindow.addGameView(); //toFront
         } else if (menuBtnC.buttonPressed()) {
-            mainWindow.setContentPane(menuView); //toFront
+            mainWindow.addMenuView(); //toFront
         }*/
 
-
-            //GameLoop gameLoop = new GameLoop(player, gameView, progressBar, collisionDetector);
-
+        mainWindow.setContentPane(gameView);
+        startBtnC.buttonPressed();
 
         }
 

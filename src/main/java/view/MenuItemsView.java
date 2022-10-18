@@ -1,8 +1,6 @@
 package view;
 
 import Controller.MenuItemsController;
-import Model.Obstacle;
-import Model.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,7 +26,7 @@ public class MenuItemsView extends JComponent {
 
         for ( IMenuItems i: mi.getArrayList()){
 
-            i.draw(g);
+           i.draw(g);
 
         }
 

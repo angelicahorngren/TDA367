@@ -2,28 +2,29 @@ package Model;
 
 import Utilities.Constants;
 
-public class Obstacle {
-    public int width;
-    public int height;
-    public int speed;
+public class Obstacle implements IMovable{
+    protected int width;
+    protected int height;
+    protected int speed;
      //= Constants.OBSTACLE_START_X;
     //public Shapes hitBox;
-    public int xPosition;
-    public int yPosition;
+    protected int xPosition;
+    protected int yPosition;
+    protected boolean isDestroyable;
 
 
-    public Obstacle(int width, int height, int speed, int startXpos, int yPosition){
+    public Obstacle(int width, int height, int speed, boolean isDestroyable, int startXpos, int yPosition){
         this.width = width;
         this.height = height;
         this.speed = speed;
         this.xPosition = startXpos;
         this.yPosition = yPosition;
+        this.isDestroyable = isDestroyable;
        // this.hitBox = new Shapes(startXpos, Constants.Y_POS, width, height);
 
     }
 
     public void move() {
-        speed = -10;
         xPosition += speed;
 
         if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
@@ -32,6 +33,13 @@ public class Obstacle {
 
     }
 
+    public void remove(){
+        this.yPosition = 900;
+    }
+
+    public int getSpeed(){
+        return speed;
+    }
     public int getWidth() {
         return width;
     }
@@ -48,6 +56,11 @@ public class Obstacle {
         return yPosition;
     }
 
+
+
+    public void runObstacleSystem(){
+        move();
+    }
 
 
 

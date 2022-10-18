@@ -4,16 +4,14 @@ import Utilities.Constants;
 
 
 public class Player {
+    private int yPosition;
+    private int velY;
+    private int playerWidth;
+    private int playerHeight;
+    private int velReducer;
+    private int xPosition;
+    private boolean alive;
 
-
-    public int yPosition;
-    public int velY;
-    public int playerWidth;
-    public int playerHeight;
-    public int velReducer;
-    public int xPosition;
-    public boolean alive;
-    public Shapes hitBox;
 
 
     public Player(int playerWidth, int playerHeight, int yPosition, int xPosition, boolean alive) {
@@ -22,7 +20,6 @@ public class Player {
         this.yPosition = yPosition;
         this.alive = alive;
         this.xPosition = xPosition;
-        this.hitBox = new Shapes(xPosition, yPosition, playerWidth, playerHeight);
 
     }
 
@@ -63,6 +60,10 @@ public class Player {
         return xPosition;
     }
 
+    public boolean getaliveStatus(){
+        return alive;
+    }
+
     public void moveIntoFrame(){
         if(xPosition < 250){
             xPosition += 4;
@@ -75,6 +76,10 @@ public class Player {
     }
 
 
+    public void runPlayerSystem(){
+        gravity();
+        moveIntoFrame();
+    }
 
 
 

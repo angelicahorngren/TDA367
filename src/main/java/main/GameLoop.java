@@ -5,35 +5,59 @@ import Model.CollisionDetector;
 import Model.Obstacle;
 import Model.Player;
 import view.GameView;
-import view.MainWindow;
 import view.ProgressBar;
 import Utilities.Constants;
 import javax.swing.*;
+import java.util.ArrayList;
 
-public class GameLoop {       //Have to extend JFrame for add()-functions to work, still working on this
+public class GameLoop implements Runnable {       //Have to extend JFrame for add()-functions to work, still working on this
 
-    Thread animationThread;
+    Player player;
+    Obstacle obstacle;
     GameView gameView;
+    ProgressBar progressBar;
+    PlayerMouseController mouseListener;
+    CollisionDetector collisionDetector;
+    ArrayList<Projectile> projectiles;
+    PowerUp powerUp;
 
-    public GameLoop(Player player, Obstacle obstacle, GameView gameView, ProgressBar progressBar, MouseListener mouseListener, CollisionDetector collisionDetector){
+    public GameLoop(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, GameView gameView, ProgressBar progressBar, PlayerMouseController mouseListener, CollisionDetector collisionDetector, PowerUp powerUp){
 
-
+        this.player = player;
+        this.obstacle = obstacle;
+        this.progressBar = progressBar;
+        this.mouseListener = mouseListener;
+        this.collisionDetector = collisionDetector;
         this.gameView = gameView;
+        this.projectiles = projectiles;
+        this.powerUp = powerUp;
+    }
 
-        this.animationThread = new Thread(new Runnable() {
-            public void run() {
-                while (true) {
-                if(mouseListener.mousePressed){
-                    player.jump(); //switch to controller
-                }
+    public void StopGame(){
+        if (!player.getaliveStatus() || progressBar.progressIndicator.getCurrentProcentage() == 100) {
+            Constants.Thread_argument_ms = 0;
+        }
+    }
 
-                if(player.yPosition == 250){
-                    mouseListener.mousePressed = false;
-                }
-                    obstacle.move();
-                    collisionDetector.detectCollision();
-                    player.gravity();
-                    //gameView.paintComponents(gameView.getGraphics());
+
+    @Override
+    public void run() {
+
+                while (Constants.Thread_argument_ms != 0) {
+                    for(Projectile projectile : projectiles){
+                        projectile.move();
+                    }
+                    if(mouseListener.getMousePressed()){
+                        player.jump(); //switch to controller
+                    }
+
+                    if(player.getyPosition() == 250){
+                        mouseListener.setMousePressedfalse();
+                    }
+                    player.runPlayerSystem();
+                    obstacle.runObstacleSystem();
+                    collisionDetector.runCollisionDetectorSystem();
+                    powerUp.runpowerUpSystem();
                     gameView.repaint();
                     player.moveIntoFrame();
                     progressBar.setUpdatedCounter();
@@ -44,22 +68,10 @@ public class GameLoop {       //Have to extend JFrame for add()-functions to wor
                 } catch (Exception ex) {
                 }
 
-                progressBar.progressIndicator.updateTime();
-                progressBar.progressIndicator.increaseIfWholeNumber();
-
-
+                    StopGame();
+                    progressBar.runProgressBarSystem();
                 }
             }
 
-        });
-
-
 }
 
-    public void startGame(){
-        animationThread.start();
-
-    }
-
-
-}
