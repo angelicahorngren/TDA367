@@ -2,7 +2,8 @@ package Controller;
 
 import Utilities.Constants;
 import main.GameLoop;
-import view.GameView;
+import View.GameView;
+
 import java.awt.event.MouseEvent;
 
 public class StartButtonController extends MenuItemsController{

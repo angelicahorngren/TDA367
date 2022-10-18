@@ -6,8 +6,8 @@ import java.awt.event.MouseEvent;
 
 public class PlayAgainButtonController extends MenuItemsController{
 
-    public int buttonPosX;
-    int x;
+    private int buttonPosX;
+    private int x;
 
     public PlayAgainButtonController(int x, int y, int width, int height){
         super(x, y, width, height);

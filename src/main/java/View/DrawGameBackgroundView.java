@@ -1,4 +1,4 @@
-package view;
+package View;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.*;
@@ -7,8 +7,8 @@ public class DrawGameBackgroundView extends JComponent {
 
     private int width;
     private int height;
-    Object cloudPart1;
-    Object cloudPart2;
+    private Object cloudPart1;
+    private Object cloudPart2;
 
     public DrawGameBackgroundView(int w, int h){
         width = w;

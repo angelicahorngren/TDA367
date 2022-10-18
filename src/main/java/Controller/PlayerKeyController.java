@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Player;
 import Model.Projectile;
-import view.DrawProjectile;
 
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -12,8 +11,8 @@ public class PlayerKeyController extends KeyAdapter {
 
 
     private boolean keyPressed; // which keyboard keys currently are being pressed, 128 ascii character set
-    Player player;
     ArrayList<Projectile> projectiles;
+    private Player player;
 
 
     public PlayerKeyController(Player player, ArrayList<Projectile> projectiles){
@@ -24,7 +23,7 @@ public class PlayerKeyController extends KeyAdapter {
     @Override
     public void keyPressed (KeyEvent e) {
         if (e.getKeyCode() == 32 && projectiles.size() <= 10) {
-            projectiles.add(new Projectile(20, 10, 10, true, player.getxPosition() + player.getPlayerWidth(), player.yPosition + player.playerHeight/2 - 5));
+            projectiles.add(new Projectile(20, 10, 10, true, player.getxPosition() + player.getPlayerWidth(), player.getyPosition() + player.getPlayerHeight()/2 - 5));
         }
         else {
             System.out.println("no more ammo!");

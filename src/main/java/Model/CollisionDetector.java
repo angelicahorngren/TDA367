@@ -1,51 +1,50 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class CollisionDetector {
 
-    Player player;
-    Obstacle obstacle;
-    LevelOne levelOne;
-    PowerUp powerUp;
+    private Player player;
+    private ArrayList<Obstacle> levelOne;
+    private PowerUp powerUp;
 
 
-    public Boolean collided;
+    private Boolean collided;
 
 
 
-    public CollisionDetector(Player player, Obstacle obstacle,/* LevelOne levelOne*/ PowerUp powerUp){
-        this.levelOne = levelOne;
+    public CollisionDetector(Player player, ArrayList<Obstacle> levelOne,/* LevelOne levelOne*/ PowerUp powerUp){
+        //this.levelOne = levelOne;
         this.player = player;
-        this.obstacle = obstacle;
+        this.levelOne = levelOne;
         this.powerUp = powerUp;
         this.collided = false;
     }
 
 
-    public int detectCollision(){
-        int x = 0;
+    public void detectCollision(){
+        for(Obstacle obstacle : levelOne)
         if(
-            (player.getxPosition() + player.playerWidth >= obstacle.getxPosition()) &&
+            (player.getxPosition() + player.getPlayerWidth() >= obstacle.getxPosition()) &&
             (player.getxPosition() <= obstacle.getxPosition() + obstacle.width) &&
-            (player.getyPosition() + player.playerHeight >= obstacle.getyPosition()) &&
+            (player.getyPosition() + player.getPlayerWidth() >= obstacle.getyPosition()) &&
             (player.getyPosition() <= obstacle.getyPosition() + obstacle.height)
+                    && !powerUp.getPowerUpStatus()
         )
         {
             player.setPlayerNotAlive();
-           /*System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
-            System.out.println("Obstacle x : " + obstacle.getxPosition() + " Obstacle y : " + obstacle.getyPosition());
-            System.out.println("alive status : " + player.alive);
+           //System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
+            //System.out.println("Obstacle x : " + obstacle.getxPosition() + " Obstacle y : " + obstacle.getyPosition());
+            //System.out.println("alive status : " + player.alive);
 
             /*if(obstacle.isDestroyable){
                 levelOne.remove(obstacle);
-            }
+            }*/
 
-             */
-            player.alive = false;
 
-            x = 1;
             //System.out.println("you lose");
         }
-        return x;
+
     }
 
 
@@ -53,21 +52,25 @@ public class CollisionDetector {
 
     public void detectCollisionPowerUpObject(){
         if(
-                (player.getxPosition() + player.playerWidth >= powerUp.getxPosition()) &&
-                        (player.getxPosition() <= powerUp.getxPosition() + powerUp.width) &&
-                        (player.getyPosition() + player.playerHeight >= powerUp.getyPosition()) &&
-                        (player.getyPosition() <= powerUp.getyPosition() + powerUp.height)
+                (player.getxPosition() + player.getPlayerWidth() >= powerUp.getxPosition()) &&
+                        (player.getxPosition() <= powerUp.getxPosition() + powerUp.getWidth()) &&
+                        (player.getyPosition() + player.getPlayerHeight() >= powerUp.getyPosition()) &&
+                        (player.getyPosition() <= powerUp.getyPosition() + powerUp.getHeight())
         )
         {
-            powerUp.isPowerOn();
+            powerUp.setPowerUpOn();
             System.out.println("u got power");
             /*System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
             System.out.println("powerUp x : " + powerUp.getxPosition() + " powerUp y : " + powerUp.getyPosition());
             System.out.println("alive status : " + player.alive);
             System.out.println("powerOn status : " + powerUp.powerOn);*/
-
-
         }
+    }
+
+
+    public void runCollisionDetectorSystem(){
+        detectCollision();
+        detectCollisionPowerUpObject();
     }
 
 }

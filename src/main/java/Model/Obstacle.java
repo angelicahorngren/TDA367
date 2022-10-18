@@ -3,14 +3,14 @@ package Model;
 import Utilities.Constants;
 
 public class Obstacle implements IMovable{
-    public int width;
-    public int height;
-    public int speed;
+    protected int width;
+    protected int height;
+    protected int speed;
      //= Constants.OBSTACLE_START_X;
     //public Shapes hitBox;
-    public int xPosition;
-    public int yPosition;
-    public boolean isDestroyable;
+    protected int xPosition;
+    protected int yPosition;
+    protected boolean isDestroyable;
 
 
     public Obstacle(int width, int height, int speed, boolean isDestroyable, int startXpos, int yPosition){
@@ -27,9 +27,11 @@ public class Obstacle implements IMovable{
     public void move() {
         xPosition += speed;
 
-        if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
+        /*if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
             xPosition = -width;
         }
+
+         */
 
     }
 
@@ -37,6 +39,9 @@ public class Obstacle implements IMovable{
         this.yPosition = 900;
     }
 
+    public int getSpeed(){
+        return speed;
+    }
     public int getWidth() {
         return width;
     }
@@ -53,6 +58,11 @@ public class Obstacle implements IMovable{
         return yPosition;
     }
 
+
+
+    public void runObstacleSystem(){
+        move();
+    }
 
 
 

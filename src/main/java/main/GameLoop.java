@@ -1,18 +1,14 @@
 package main;
 
 import Controller.PlayerMouseController;
-import Model.CollisionDetector;
-import Model.Obstacle;
-import Model.Player;
-import Model.Projectile;
-import Model.PowerUp;
-import view.GameView;
-import view.ProgressBar;
+import Model.*;
+import View.GameView;
+import View.ProgressBar;
 import Utilities.Constants;
-import javax.swing.*;
+
 import java.util.ArrayList;
 
-public class GameLoop implements Runnable{
+public class GameLoop implements Runnable {       //Have to extend JFrame for add()-functions to work, still working on this
 
     Player player;
     Obstacle obstacle;
@@ -22,58 +18,46 @@ public class GameLoop implements Runnable{
     CollisionDetector collisionDetector;
     ArrayList<Projectile> projectiles;
     PowerUp powerUp;
+    ArrayList<Obstacle> levelOne;
 
-
-    public GameLoop(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, GameView gameView, ProgressBar progressBar, PlayerMouseController mouseListener, CollisionDetector collisionDetector, PowerUp powerUp) {
-    this.player = player;
-    this.obstacle = obstacle;
-    this.progressBar = progressBar;
-    this.mouseListener = mouseListener;
-    this.collisionDetector = collisionDetector;
-    this.gameView = gameView;
-    this.projectiles = projectiles;
-    this.powerUp = powerUp;
-
-
+    public GameLoop(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, GameView gameView, ProgressBar progressBar, PlayerMouseController mouseListener, CollisionDetector collisionDetector, PowerUp powerUp){
+        this.player = player;
+        this.levelOne = levelOne;
+        this.progressBar = progressBar;
+        this.mouseListener = mouseListener;
+        this.collisionDetector = collisionDetector;
+        this.gameView = gameView;
+        this.projectiles = projectiles;
+        this.powerUp = powerUp;
     }
+
+    public void StopGame(){
+        if (!player.getaliveStatus() || progressBar.progressIndicator.getCurrentProcentage() == 100) {
+            Constants.Thread_argument_ms = 0;
+        }
+    }
+
+
     @Override
     public void run() {
-
-                while (true) {
+                while (Constants.Thread_argument_ms != 0) {
                     for(Projectile projectile : projectiles){
                         projectile.move();
                     }
-                    if(mouseListener.mousePressed){
+                    if(mouseListener.getMousePressed()){
                         player.jump(); //switch to controller
                     }
 
-                    if(player.yPosition == 250){
-                        mouseListener.mousePressed = false;
+                    if(player.getyPosition() == 250){
+                        mouseListener.setMousePressedfalse();
                     }
-                    obstacle.move();
-
-                    /*if (collisionDetector.detectCollision() == 1){
-
-                        Constants.Thread_argument_ms = 0;
-
-                    }*/
-                    powerUp.move();
-                    collisionDetector.detectCollisionPowerUpObject();
-                    if (powerUp.powerOn){
-                        powerUp.startPowerUpTimer();
-                        powerUp.endPowerup();
+                    player.runPlayerSystem();
+                    for(Obstacle obstacle: levelOne){
+                        obstacle.runObstacleSystem();
+                        System.out.println(obstacle.getxPosition());
                     }
-                    if (!powerUp.powerOn) {
-                        if (collisionDetector.detectCollision() == 1){
-
-                            Constants.Thread_argument_ms = 0;
-
-                        }
-
-
-                    }
-                    player.gravity();
-                    //gameView.paintComponents(gameView.getGraphics());
+                    collisionDetector.runCollisionDetectorSystem();
+                    powerUp.runpowerUpSystem();
                     gameView.repaint();
                     player.moveIntoFrame();
                     progressBar.setUpdatedCounter();
@@ -84,14 +68,10 @@ public class GameLoop implements Runnable{
                 } catch (Exception ex) {
                 }
 
-                    progressBar.progressIndicator.updateTime();
-                    progressBar.progressIndicator.increaseIfWholeNumber();
-                    if (progressBar.progressIndicator.currentPercentage == 100){
-                        Constants.Thread_argument_ms = 0;
-                    }
-
-
+                    StopGame();
+                    progressBar.runProgressBarSystem();
                 }
             }
 
-    }
+}
+

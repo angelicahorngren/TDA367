@@ -1,9 +1,10 @@
-package view;
+package View;
 
 import Controller.MenuButtonController;
-import Controller.MenuItemsController;
 import Controller.PlayAgainButtonController;
 import Controller.StartButtonController;
+import MenusView.LostRoundPageView;
+import MenusView.StartPageView;
 import Utilities.Constants;
 
 import javax.swing.*;
@@ -11,23 +12,23 @@ import java.awt.*;
 
 
 public class MainWindow extends JFrame {
-    MenuView menuView;
-    LostRoundView lostRoundView;
-    GameView gameView;
-    StartButtonController startBtnC;
-    PlayAgainButtonController playBtnC;
-    MenuButtonController menuBtnC;
+    private StartPageView startPageView;
+    private LostRoundPageView lostRoundPageView;
+    private GameView gameView;
+    private StartButtonController startBtnC;
+    private PlayAgainButtonController playBtnC;
+    private MenuButtonController menuBtnC;
     public CardLayout card = new CardLayout();
     public JPanel container = new JPanel();
 
 
-    public MainWindow(MenuView menuView, GameView gameView, LostRoundView lostRoundView, StartButtonController startBtnC, PlayAgainButtonController playBtnC, MenuButtonController menuBtnC) {
+    public MainWindow(StartPageView startPageView, GameView gameView, LostRoundPageView lostRoundPageView, StartButtonController startBtnC, PlayAgainButtonController playBtnC, MenuButtonController menuBtnC) {
         this.startBtnC = startBtnC;
         this.playBtnC = playBtnC;
         this.menuBtnC = menuBtnC;
-        this.menuView = menuView;
+        this.startPageView = startPageView;
         this.gameView = gameView;
-        this.lostRoundView = lostRoundView;
+        this.lostRoundPageView = lostRoundPageView;
         //container.setLayout(card);
         //this.add(menuView)
         //container.add(menuView);
@@ -54,4 +55,18 @@ public class MainWindow extends JFrame {
             //startBtnC.buttonPressed();
         }
     }
+
+    /*public MenuView getMenuView(){
+        return this.menuView;
+    }
+
+    public GameView getGameView(){
+
+        return this.gameView;
+    }
+
+    public LostRoundView getLostRoundView(){
+        return this.lostRoundView;
+    }*/
+
 }

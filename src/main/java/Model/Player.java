@@ -4,13 +4,13 @@ import Utilities.Constants;
 
 
 public class Player {
-    public int yPosition;
-    public int velY;
-    public int playerWidth;
-    public int playerHeight;
-    public int velReducer;
-    public int xPosition;
-    public boolean alive;
+    private int yPosition;
+    private int velY;
+    private final int playerWidth;
+    private final int playerHeight;
+    private int velReducer;
+    private int xPosition;
+    private boolean alive;
 
 
 
@@ -60,6 +60,10 @@ public class Player {
         return xPosition;
     }
 
+    public boolean getaliveStatus(){
+        return alive;
+    }
+
     public void moveIntoFrame(){
         if(xPosition < 250){
             xPosition += 4;
@@ -72,6 +76,10 @@ public class Player {
     }
 
 
+    public void runPlayerSystem(){
+        gravity();
+        moveIntoFrame();
+    }
 
 
 

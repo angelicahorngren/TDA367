@@ -1,4 +1,4 @@
-package view;
+package View;
 import Controller.PlayerKeyController;
 import Controller.PlayerMouseController;
 import Model.*;
@@ -11,7 +11,7 @@ import java.awt.*;
 public class GameView extends JPanel{
 
 
-    public GameView(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, LevelOne levelOne, PowerUp powerUp) {
+    public GameView(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, PowerUp powerUp) {
         this.addMouseListener(mouseListener);
 
         BorderLayout borderLayout = new BorderLayout();
@@ -23,7 +23,7 @@ public class GameView extends JPanel{
         this.setFocusable(true);
         this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
         this.add(progressBar);
-        this.add(new PaintingStuff(player, projectiles, obstacle, levelOne, powerUp));
+        this.add(new PaintingStuff(player, projectiles, levelOne, powerUp));
         this.setVisible(true);
 
 

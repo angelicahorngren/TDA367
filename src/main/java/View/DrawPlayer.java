@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import Model.Player;
 
@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class DrawPlayer {
 
-    Player player;
+    private Player player;
 
     public DrawPlayer(Player player) {
         this.player = player;
@@ -15,7 +15,7 @@ public class DrawPlayer {
     public void drawPlayer(Graphics g) {
         Graphics2D gg = (Graphics2D) g;
         gg.setColor(Color.MAGENTA);
-        gg.fillRect(player.getxPosition(), player.getyPosition(), player.playerWidth, player.playerHeight);      //här sätts även yposition
+        gg.fillRect(player.getxPosition(), player.getyPosition(), player.getPlayerWidth(), player.getPlayerHeight());      //här sätts även yposition
     }
 
 }
