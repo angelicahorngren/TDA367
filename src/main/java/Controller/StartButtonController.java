@@ -1,6 +1,7 @@
 package Controller;
 
 import Utilities.Constants;
+import View.MainWindow;
 import main.GameLoop;
 import View.GameView;
 

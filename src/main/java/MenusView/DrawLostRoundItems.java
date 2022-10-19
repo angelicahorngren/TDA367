@@ -12,7 +12,7 @@ public class DrawLostRoundItems extends JComponent {
 
     public DrawLostRoundItems(MenuItemsController menuBtnC, MenuItemsController playAgainBtnC, Score score){
 
-        lostRoundPageItemsList = new LostRoundItemsList(score);
+        lostRoundItemsList = new LostRoundItemsList(score);
 
         this.addMouseListener(menuBtnC);
         this.addMouseListener(playAgainBtnC);
@@ -23,7 +23,7 @@ public class DrawLostRoundItems extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
 
-        for (IDrawMenuItems lostRoundPageItems: lostRoundPageItemsList.getLostRoundPageItemsArrayList()){
+        for (IDrawMenuItems lostRoundPageItems: lostRoundItemsList.getLostRoundPageItemsArrayList()){
 
             lostRoundPageItems.draw(g);
         }

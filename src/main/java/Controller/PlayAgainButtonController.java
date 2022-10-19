@@ -39,6 +39,7 @@ public class PlayAgainButtonController extends MenuItemsController{
     @Override
     public void buttonPressed() {
 
+
         if (buttonPosX == Constants.START_BTN_POSX || buttonPosX == Constants.PLAY_AGAIN_BTN_POSX) {
 
             System.out.println("play again");

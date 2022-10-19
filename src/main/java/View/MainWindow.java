@@ -19,7 +19,6 @@ public class MainWindow extends JFrame {
     private PlayAgainButtonController playBtnC;
     private MenuButtonController menuBtnC;
     public CardLayout card = new CardLayout();
-    public JPanel container = new JPanel();
 
 
     public MainWindow(StartPageMenu startPageMenu, GameView gameView, LostRoundMenu lostRoundMenu, StartButtonController startBtnC, PlayAgainButtonController playBtnC, MenuButtonController menuBtnC) {
@@ -36,7 +35,6 @@ public class MainWindow extends JFrame {
         //container.add(lostRoundView);
         //this.add(container);
 
-
         this.setTitle(Constants.SCREEN_TITLE);
         this.setSize(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
         this.setResizable(false);
@@ -47,26 +45,27 @@ public class MainWindow extends JFrame {
     }
 
     public void setPanel() {
-        if (startBtnC.getXvalueStartBtn() == 2) {
-            this.removeAll();
+        if (startBtnC.getXvalueStartBtn() == 2 || playBtnC.getXvaluePlayBtn() == 2) {
+            //this.removeAll();
             this.setContentPane(gameView);
-            this.update(getGraphics());
-            this.repaint();
-            //startBtnC.buttonPressed();
+        } else if (menuBtnC.getXvalueMenuBtn() == 2) {
+            this.setContentPane(startPageMenu);
         }
     }
+            //this.update(getGraphics());
+            //this.repaint();
+            //startBtnC.buttonPressed();*/
 
-    /*public MenuView getMenuView(){
-        return this.menuView;
-    }
 
-    public GameView getGameView(){
+        //if ((startBtnC.buttonPressed() && playBtnC.buttonPressed() && menuBtnC.buttonPressed()) == false) {
+            //this.setContentPane(startPageMenu);
 
-        return this.gameView;
-    }
+         /*if (startBtnC.buttonPressed() || playBtnC.buttonPressed()) {
+            //this.setContentPane(gameView); //toFront
 
-    public LostRoundView getLostRoundView(){
-        return this.lostRoundView;
-    }*/
-
+        } else if (menuBtnC.buttonPressed()) {
+           // this.setContentPane(startPageMenu); //toFront*/
 }
+
+
+

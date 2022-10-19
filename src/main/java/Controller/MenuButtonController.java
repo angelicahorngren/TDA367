@@ -42,9 +42,7 @@ public class MenuButtonController extends MenuItemsController{
         if (buttonPosX == Constants.MENU_BTN_POSX) {
 
             System.out.println("back to menu");
-
         }
-
     }
 
  public int getXvalueMenuBtn(){

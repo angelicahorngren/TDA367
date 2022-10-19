@@ -48,13 +48,11 @@ public class MenuItemsController extends MouseAdapter {
 
             System.out.println("yay");
 
-
         }
 
         else if (buttonPosX == Constants.MENU_BTN_POSX){
 
             System.out.println("hoo");
-
         }
 
     }
