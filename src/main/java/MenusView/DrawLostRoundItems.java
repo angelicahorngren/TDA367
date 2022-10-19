@@ -1,16 +1,18 @@
 package MenusView;
 
-
+import Model.Score;
 import Controller.MenuItemsController;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class DrawLostRoundPageItems extends JComponent {
+public class DrawLostRoundItems extends JComponent {
 
-    private LostRoundPageItemsList lostRoundPageItemsList = new LostRoundPageItemsList();
+    private LostRoundItemsList lostRoundItemsList;
 
-    public DrawLostRoundPageItems(MenuItemsController menuBtnC, MenuItemsController playAgainBtnC){
+    public DrawLostRoundItems(MenuItemsController menuBtnC, MenuItemsController playAgainBtnC, Score score){
+
+        lostRoundPageItemsList = new LostRoundItemsList(score);
 
         this.addMouseListener(menuBtnC);
         this.addMouseListener(playAgainBtnC);

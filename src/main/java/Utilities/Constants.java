@@ -11,7 +11,7 @@ public class Constants {
     //Game items
     public static final int RECT_WIDTH = 50;
     public static final int RECT_HEIGHT = 50;
-    public static final int PLAYER_START_X = 400;
+    public static final int PLAYER_START_X = -200;
     public static final int RECT_START_X = 1000;
     public static final Color RECT_COLOR = Color.RED;
     public static final int Y_POS = 250;
@@ -39,7 +39,7 @@ public class Constants {
     //Timer
     public static int Thread_argument_ms = 10;
 
-    public static final double SEC_LV1 = 5000;
+    public static final double SEC_LV1 = 50000;
 
     //Lost round jframe
     public static final int LOST_ROUND_VIEW_WIDTH = (SCREEN_WIDTH / 2);

@@ -1,9 +1,9 @@
 package main;
 import Controller.*;
-import MenusView.DrawLostRoundPageItems;
+import MenusView.DrawLostRoundItems;
 import MenusView.DrawStartPageItems;
-import MenusView.LostRoundPageView;
-import MenusView.StartPageView;
+import MenusView.LostRoundMenu;
+import MenusView.StartPageMenu;
 import Model.*;
 import Utilities.Constants;
 import View.*;
@@ -18,38 +18,39 @@ public class main {
 
         System.out.println("Hello, do you wanna jump and stuff?");
         Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED,false, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y);
-        Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, -100, true);
+        ArrayList<Obstacle> obstacles = new ArrayList<>();
+        LevelOne levelOne = new LevelOne(obstacles);
+        levelOne.createLevel(obstacles);
         PowerUp powerUp = new PowerUp(Constants.POWERUP_WIDTH, Constants.POWERUP_HEIGHT, Constants.POWERUP_SPEED, Constants.POWERUP_START_X, Constants.POWERUP_START_Y );
+        Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, Constants.PLAYER_START_X, true, powerUp);
         Projectile projectile = new Projectile(20, 10, 10, true, player.getxPosition(), 265);
-        CollisionDetector collisionDetector = new CollisionDetector(player, obstacle, powerUp);
+        CollisionDetector collisionDetector = new CollisionDetector(player, obstacles, powerUp);
         ProgressIndicator progressIndicator = new ProgressIndicator();
         ArrayList<Projectile> projectiles = new ArrayList<>();
         ProgressBar progressBar = new ProgressBar(progressIndicator);
         PlayerMouseController mouseListener = new PlayerMouseController(player);
         PlayerKeyController playerKeyController = new PlayerKeyController(player, projectiles);
+        Score score = new Score(0,0);
 
-        LevelOne levelOne = new LevelOne(obstacle);
-
-        GameView gameView = new GameView(player, projectiles, obstacle, progressBar, mouseListener, playerKeyController,levelOne, powerUp);
-        GameLoop gameLoop = new GameLoop(player, projectiles, obstacle, gameView, progressBar, mouseListener, collisionDetector, powerUp);
-
+        GameView gameView = new GameView(player, projectiles, obstacles, progressBar, mouseListener, playerKeyController, powerUp);
+        GameLoop gameLoop = new GameLoop(player, projectiles, obstacles, gameView, progressBar,score,  mouseListener, collisionDetector, powerUp);
 
 
         StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop, gameView);
 
-        DrawStartPageItems drawStartPageItems = new DrawStartPageItems(startBtnC);
+        DrawStartPageItems drawStartPageItems = new DrawStartPageItems(startBtnC, score);
 
-        StartPageView startPageView = new StartPageView(drawStartPageItems);
+        StartPageMenu startPageMenu = new StartPageMenu(drawStartPageItems);
 
         MenuButtonController menuBtnC = new MenuButtonController(Constants.MENU_BTN_POSX, Constants.MENU_BTN_POSY, Constants.MENU_BTN_WIDTH, Constants.MENU_BTN_HEIGHT);
 
         PlayAgainButtonController playAgainBtnC = new PlayAgainButtonController(Constants.PLAY_AGAIN_BTN_POSX, Constants.PLAY_AGAIN_BTN_POSY, Constants.PLAY_AGAIN_BTN_WIDTH, Constants.PLAY_AGAIN_BTN_HEIGHT);
 
-        DrawLostRoundPageItems drawLostRoundPageItems = new DrawLostRoundPageItems(menuBtnC, playAgainBtnC);
+        DrawLostRoundItems drawLostRoundItems = new DrawLostRoundItems(menuBtnC, playAgainBtnC, score);
 
-        LostRoundPageView lostRoundPageView = new LostRoundPageView(drawLostRoundPageItems);
+        LostRoundMenu lostRoundMenu = new LostRoundMenu(drawLostRoundItems);
 
-        MainWindow mainWindow = new MainWindow(startPageView, gameView, lostRoundPageView,startBtnC, playAgainBtnC, menuBtnC);
+        MainWindow mainWindow = new MainWindow(startPageMenu, gameView, lostRoundMenu,startBtnC, playAgainBtnC, menuBtnC);
 
 
         /*if (startBtnC.buttonPressed() || playAgainBtnC.buttonPressed()) {

@@ -14,16 +14,18 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
     Obstacle obstacle;
     GameView gameView;
     ProgressBar progressBar;
+    Score score;
     PlayerMouseController mouseListener;
     CollisionDetector collisionDetector;
     ArrayList<Projectile> projectiles;
     PowerUp powerUp;
+    ArrayList<Obstacle> levelOne;
 
-    public GameLoop(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, GameView gameView, ProgressBar progressBar, PlayerMouseController mouseListener, CollisionDetector collisionDetector, PowerUp powerUp){
-
+    public GameLoop(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, GameView gameView, ProgressBar progressBar, Score score, PlayerMouseController mouseListener, CollisionDetector collisionDetector, PowerUp powerUp){
         this.player = player;
-        this.obstacle = obstacle;
+        this.levelOne = levelOne;
         this.progressBar = progressBar;
+        this.score = score;
         this.mouseListener = mouseListener;
         this.collisionDetector = collisionDetector;
         this.gameView = gameView;
@@ -33,6 +35,7 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
 
     public void StopGame(){
         if (!player.getaliveStatus() || progressBar.progressIndicator.getCurrentProcentage() == 100) {
+            score.updateScore(progressBar.progressIndicator.getCurrentProcentage());
             Constants.Thread_argument_ms = 0;
         }
     }
@@ -40,7 +43,6 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
 
     @Override
     public void run() {
-
                 while (Constants.Thread_argument_ms != 0) {
                     for(Projectile projectile : projectiles){
                         projectile.move();
@@ -53,7 +55,9 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
                         mouseListener.setMousePressedfalse();
                     }
                     player.runPlayerSystem();
-                    obstacle.runObstacleSystem();
+                    for(Obstacle obstacle: levelOne){
+                        obstacle.runObstacleSystem();
+                    }
                     collisionDetector.runCollisionDetectorSystem();
                     powerUp.runpowerUpSystem();
                     gameView.repaint();

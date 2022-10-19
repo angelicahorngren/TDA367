@@ -10,7 +10,6 @@ import Utilities.Constants;
 
 public class DrawGameView extends JComponent {
 
-
     private DrawPlayer drawPlayer;
     private DrawRectView drawrect;
     private DrawCircView drawCirc;
@@ -21,25 +20,25 @@ public class DrawGameView extends JComponent {
     private DrawPowerUp drawPowerUp;
     private ArrayList<Obstacle> obstacles = new ArrayList<>();
     private ArrayList<DrawRectView> drawRectViews = new ArrayList<>();
+    private DrawLevel drawLevel;
 
 
 
-    public DrawGameView(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, LevelOne levelOne, PowerUp powerUp){
-        this.drawrect = new DrawRectView(obstacle);
+    public DrawGameView(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, PowerUp powerUp){
+        /*this.drawrect = new DrawRectView(obstacle);*/
         this.drawPlayer = new DrawPlayer(player);
-        this.drawCirc = new DrawCircView(obstacle);
-        this.levelOne = new DrawLevel(levelOne);
+        /*this.drawCirc = new DrawCircView(obstacle);
+        this.levelOne = new DrawLevel(levelOne);*/
         this.projectiles = projectiles;
         this.drawProjectile = new DrawProjectile(projectile);
         this.drawPowerUp = new DrawPowerUp(powerUp);
-
+        this.drawLevel = new DrawLevel(levelOne);
     }
     DrawGameBackgroundView dbg = new DrawGameBackgroundView(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
 
 
 
     public void drawProjectile(ArrayList<Projectile> projectiles, Graphics g){
-        this.projectiles = projectiles;
         super.paintComponent(g);
         if(projectiles.size() != 0){
             for(Projectile projectile : projectiles){
@@ -52,12 +51,13 @@ public class DrawGameView extends JComponent {
 
 
     public void paintComponent(Graphics g){
-        drawrect.drawRect(g);
+        //drawrect.drawRect(g);
         dbg.draw2(g);
-        drawCirc.drawCirc(g);
+        //drawCirc.drawCirc(g);
         drawPlayer.drawPlayer(g);
         drawProjectile(projectiles, g);
         drawPowerUp.drawPowerup(g);
 
+        drawLevel.drawLevel(g);
     }
 }

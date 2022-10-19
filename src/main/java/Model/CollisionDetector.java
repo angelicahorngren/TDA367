@@ -1,27 +1,24 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class CollisionDetector {
 
     private Player player;
-    private Obstacle obstacle;
-    private LevelOne levelOne;
+    private ArrayList<Obstacle> levelOne;
     private PowerUp powerUp;
 
 
-    private Boolean collided;
 
-
-
-    public CollisionDetector(Player player, Obstacle obstacle,/* LevelOne levelOne*/ PowerUp powerUp){
-        //this.levelOne = levelOne;
+    public CollisionDetector(Player player, ArrayList<Obstacle> levelOne, PowerUp powerUp){
         this.player = player;
-        this.obstacle = obstacle;
+        this.levelOne = levelOne;
         this.powerUp = powerUp;
-        this.collided = false;
     }
 
 
     public void detectCollision(){
+        for(Obstacle obstacle : levelOne)
         if(
             (player.getxPosition() + player.getPlayerWidth() >= obstacle.getxPosition()) &&
             (player.getxPosition() <= obstacle.getxPosition() + obstacle.width) &&

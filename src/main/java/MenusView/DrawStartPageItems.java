@@ -1,6 +1,7 @@
 package MenusView;
 
 import Controller.MenuItemsController;
+import Model.Score;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,9 +9,11 @@ import java.awt.*;
 
 public class DrawStartPageItems extends JComponent {
 
-    private StartPageItemsList startPageItemsList = new StartPageItemsList();
+    private StartPageItemsList startPageItemsList;
 
-    public DrawStartPageItems(MenuItemsController startBtn) {
+    public DrawStartPageItems(MenuItemsController startBtn, Score score) {
+
+        startPageItemsList = new StartPageItemsList(score);
 
         this.addMouseListener(startBtn);
 

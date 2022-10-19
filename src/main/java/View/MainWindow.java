@@ -3,8 +3,8 @@ package View;
 import Controller.MenuButtonController;
 import Controller.PlayAgainButtonController;
 import Controller.StartButtonController;
-import MenusView.LostRoundPageView;
-import MenusView.StartPageView;
+import MenusView.LostRoundMenu;
+import MenusView.StartPageMenu;
 import Utilities.Constants;
 
 import javax.swing.*;
@@ -12,8 +12,8 @@ import java.awt.*;
 
 
 public class MainWindow extends JFrame {
-    private StartPageView startPageView;
-    private LostRoundPageView lostRoundPageView;
+    private StartPageMenu startPageMenu;
+    private LostRoundMenu lostRoundMenu;
     private GameView gameView;
     private StartButtonController startBtnC;
     private PlayAgainButtonController playBtnC;
@@ -22,13 +22,13 @@ public class MainWindow extends JFrame {
     public JPanel container = new JPanel();
 
 
-    public MainWindow(StartPageView startPageView, GameView gameView, LostRoundPageView lostRoundPageView, StartButtonController startBtnC, PlayAgainButtonController playBtnC, MenuButtonController menuBtnC) {
+    public MainWindow(StartPageMenu startPageMenu, GameView gameView, LostRoundMenu lostRoundMenu, StartButtonController startBtnC, PlayAgainButtonController playBtnC, MenuButtonController menuBtnC) {
         this.startBtnC = startBtnC;
         this.playBtnC = playBtnC;
         this.menuBtnC = menuBtnC;
-        this.startPageView = startPageView;
+        this.startPageMenu = startPageMenu;
         this.gameView = gameView;
-        this.lostRoundPageView = lostRoundPageView;
+        this.lostRoundMenu = lostRoundMenu;
         //container.setLayout(card);
         //this.add(menuView)
         //container.add(menuView);
