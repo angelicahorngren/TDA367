@@ -30,16 +30,14 @@ public class LevelOne {
         obstacles.add(new Obstacle(Constants.RECT_WIDTH, 2*Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, true, Constants.OBSTACLE_START_X + 4000, Constants.OBSTACLE_START_Y-Constants.RECT_HEIGHT));
         obstacles.add(new Obstacle(Constants.RECT_WIDTH, 2*Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, true, Constants.OBSTACLE_START_X + 4500, Constants.OBSTACLE_START_Y-Constants.RECT_HEIGHT));
         obstacles.add(new Obstacle(Constants.RECT_WIDTH, 2*Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, true, Constants.OBSTACLE_START_X + 4800, Constants.OBSTACLE_START_Y-Constants.RECT_HEIGHT));
-
     }
-        /*public void remove (Obstacle obstacle){
-            levelOne.remove(obstacle);
+
+        public void remove (Obstacle obstacle){
+            obstacles.remove(obstacle);
         }
-        public Obstacle getThisObstacle(){
+        public Obstacle getThisObstacle(Obstacle obstacle){
             return obstacle;
         }
-
-         */
 
 
     }
