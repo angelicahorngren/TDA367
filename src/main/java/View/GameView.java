@@ -25,7 +25,7 @@ public class GameView extends JPanel{
         this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
 
         this.add(progressBar);
-        this.add(new PaintingStuff(player, projectiles, obstacle, levelOne, powerUp));
+        this.add(new DrawGameView(player, projectiles, obstacle, levelOne, powerUp));
         this.setFocusable(true);
 
         this.setVisible(true);

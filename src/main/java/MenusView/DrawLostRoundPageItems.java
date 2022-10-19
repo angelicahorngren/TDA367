@@ -8,11 +8,9 @@ import java.awt.*;
 
 public class DrawLostRoundPageItems extends JComponent {
 
-    private LostRoundPageItemsList lostRoundPageItemsList;
+    private LostRoundPageItemsList lostRoundPageItemsList = new LostRoundPageItemsList();
 
     public DrawLostRoundPageItems(MenuItemsController menuBtnC, MenuItemsController playAgainBtnC){
-
-        lostRoundPageItemsList = new LostRoundPageItemsList();
 
         this.addMouseListener(menuBtnC);
         this.addMouseListener(playAgainBtnC);

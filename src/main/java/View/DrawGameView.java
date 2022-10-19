@@ -8,9 +8,9 @@ import Model.*;
 import Model.Obstacle;
 import Utilities.Constants;
 
-public class PaintingStuff extends JComponent {
+public class DrawGameView extends JComponent {
 
-    private Player player;
+
     private DrawPlayer drawPlayer;
     private DrawRectView drawrect;
     private DrawCircView drawCirc;
@@ -24,8 +24,7 @@ public class PaintingStuff extends JComponent {
 
 
 
-    public PaintingStuff(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, LevelOne levelOne, PowerUp powerUp){
-        this.player = player;
+    public DrawGameView(Player player, ArrayList<Projectile> projectiles, Obstacle obstacle, LevelOne levelOne, PowerUp powerUp){
         this.drawrect = new DrawRectView(obstacle);
         this.drawPlayer = new DrawPlayer(player);
         this.drawCirc = new DrawCircView(obstacle);
@@ -33,14 +32,9 @@ public class PaintingStuff extends JComponent {
         this.projectiles = projectiles;
         this.drawProjectile = new DrawProjectile(projectile);
         this.drawPowerUp = new DrawPowerUp(powerUp);
-        /*
-        makeObsticales();
-        makedrawrec();
-        moveObsticals(drawRectViews);
-         */
+
     }
     DrawGameBackgroundView dbg = new DrawGameBackgroundView(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
-       // drawLevel.drawLevelOne(g);
 
 
 
@@ -57,44 +51,6 @@ public class PaintingStuff extends JComponent {
 
 
 
-    /*
-
-    public void makeObsticales(){
-        for (int i = 0; i < 5; i++ ){
-            Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED,false, Constants.OBSTACLE_START_X + i * 2, Constants.OBSTACLE_START_Y);
-            obstacles.add(obstacle);
-        }
-    }
-
-    public void makedrawrec(){
-        for (int i = 0; i < 5; i++ ){
-            DrawRectView drawRectView = new DrawRectView(obstacles.get(i));
-            drawRectViews.add(drawRectView);
-        }
-    }
-
-
-    public void drawobsticals(ArrayList<DrawRectView> drawRectViews, Graphics g) {
-        this.drawRectViews = drawRectViews;
-        super.paintComponent(g);
-        if (projectiles.size() != 0) {
-            for (DrawRectView drawRectView : drawRectViews) {
-                g.setColor(new Color(85, 85, 85));
-                g.fillRect(drawRectView.obstacle.getxPosition(), Constants.Y_POS, Constants.RECT_WIDTH, Constants.RECT_HEIGHT);
-                System.out.println("blabla");
-            }
-        }
-    }
-
-    public void moveObsticals(ArrayList<DrawRectView> drawRectViews){
-        this.drawRectViews = drawRectViews;
-        for (DrawRectView drawRectView: drawRectViews){
-            drawRectView.obstacle.move();
-        }
-
-    }*/
-
-
     public void paintComponent(Graphics g){
         drawrect.drawRect(g);
         dbg.draw2(g);
@@ -102,7 +58,6 @@ public class PaintingStuff extends JComponent {
         drawPlayer.drawPlayer(g);
         drawProjectile(projectiles, g);
         drawPowerUp.drawPowerup(g);
-        //drawobsticals(drawRectViews, g);
 
     }
 }

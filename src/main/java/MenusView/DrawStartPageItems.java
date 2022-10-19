@@ -8,11 +8,9 @@ import java.awt.*;
 
 public class DrawStartPageItems extends JComponent {
 
-    private StartPageItemsList startPageItemsList;
+    private StartPageItemsList startPageItemsList = new StartPageItemsList();
 
     public DrawStartPageItems(MenuItemsController startBtn) {
-
-        startPageItemsList = new StartPageItemsList();
 
         this.addMouseListener(startBtn);
 
