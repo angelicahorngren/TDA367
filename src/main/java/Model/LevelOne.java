@@ -27,17 +27,14 @@ public class LevelOne {
         obstacles.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, false, Constants.OBSTACLE_START_X + 2500 + Constants.RECT_WIDTH - 1, Constants.OBSTACLE_START_Y));
         obstacles.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, false, Constants.OBSTACLE_START_X + 2500 + Constants.RECT_WIDTH*2 - 1, Constants.OBSTACLE_START_Y));
         obstacles.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, false, Constants.OBSTACLE_START_X + 3000, Constants.OBSTACLE_START_Y));
-        obstacles.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, false, Constants.OBSTACLE_START_X + 4000, Constants.OBSTACLE_START_Y));
-
     }
-        /*public void remove (Obstacle obstacle){
-            levelOne.remove(obstacle);
+
+        public void remove (Obstacle obstacle){
+            obstacles.remove(obstacle);
         }
-        public Obstacle getThisObstacle(){
+        public Obstacle getThisObstacle(Obstacle obstacle){
             return obstacle;
         }
-
-         */
 
 
     }
