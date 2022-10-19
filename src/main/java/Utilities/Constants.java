@@ -39,7 +39,7 @@ public class Constants {
     //Timer
     public static int Thread_argument_ms = 10;
 
-    public static final double SEC_LV1 = 50000;
+    public static final double SEC_LV1 = 10000;
 
     //Lost round jframe
     public static final int LOST_ROUND_VIEW_WIDTH = (SCREEN_WIDTH / 2);
