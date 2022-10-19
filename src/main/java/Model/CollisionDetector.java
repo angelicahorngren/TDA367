@@ -1,23 +1,26 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CollisionDetector {
 
     private Player player;
     private ArrayList<Obstacle> levelOne;
     private PowerUp powerUp;
+    private ArrayList<Projectile> projectiles;
 
 
 
-    public CollisionDetector(Player player, ArrayList<Obstacle> levelOne, PowerUp powerUp){
+    public CollisionDetector(Player player, ArrayList<Obstacle> levelOne, ArrayList<Projectile> projectiles, PowerUp powerUp){
         this.player = player;
         this.levelOne = levelOne;
         this.powerUp = powerUp;
+        this.projectiles = projectiles;
     }
 
 
-    public void detectCollision(){
+    private void detectPlayerObstacleCollision(){
         for(Obstacle obstacle : levelOne)
         if(
             (player.getxPosition() + player.getPlayerWidth() >= obstacle.getxPosition()) &&
@@ -28,24 +31,38 @@ public class CollisionDetector {
         )
         {
             player.setPlayerNotAlive();
-           //System.out.println("Player x : " + player.getxPosition() + " Player y : " + player.getyPosition());
-            //System.out.println("Obstacle x : " + obstacle.getxPosition() + " Obstacle y : " + obstacle.getyPosition());
-            //System.out.println("alive status : " + player.alive);
-
-            /*if(obstacle.isDestroyable){
-                levelOne.remove(obstacle);
-            }*/
 
 
-            //System.out.println("you lose");
+
         }
 
+    }
+
+    private void detectProjectileObstacleCollision() {
+        Iterator<Obstacle> iterationObstacle = levelOne.iterator();
+        Iterator<Projectile> iterationProjectile = projectiles.iterator();
+        while (iterationObstacle.hasNext() && iterationProjectile.hasNext()) {
+            Obstacle obstacle = iterationObstacle.next();
+            Projectile projectile = iterationProjectile.next();
+            if(
+                    (projectile.getxPosition() + projectile.getWidth() >= obstacle.getxPosition()) &&
+                            (projectile.getxPosition() <= obstacle.getxPosition() + obstacle.width) &&
+                            (projectile.getyPosition() + projectile.getWidth() >= obstacle.getyPosition()) &&
+                            (projectile.getyPosition() <= obstacle.getyPosition() + obstacle.height)
+            )
+            {
+                iterationObstacle.remove();
+                iterationProjectile.remove();
+            }
+               
+        }
     }
 
 
 
 
-    public void detectCollisionPowerUpObject(){
+
+    private void detectCollisionPowerUpObject(){
         if(
                 (player.getxPosition() + player.getPlayerWidth() >= powerUp.getxPosition()) &&
                         (player.getxPosition() <= powerUp.getxPosition() + powerUp.getWidth()) &&
@@ -64,8 +81,11 @@ public class CollisionDetector {
 
 
     public void runCollisionDetectorSystem(){
-        detectCollision();
+        detectPlayerObstacleCollision();
+        detectProjectileObstacleCollision();
         detectCollisionPowerUpObject();
     }
+
+
 
 }

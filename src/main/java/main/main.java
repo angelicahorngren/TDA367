@@ -1,9 +1,9 @@
 package main;
 import Controller.*;
-import MenusView.DrawLostRoundItems;
-import MenusView.DrawStartPageItems;
-import MenusView.LostRoundMenu;
-import MenusView.StartPageMenu;
+import MenuView.DrawLostRoundItems;
+import MenuView.DrawStartPageItems;
+import MenuView.LostRoundMenu;
+import MenuView.StartPageMenu;
 import Model.*;
 import Utilities.Constants;
 import View.*;
@@ -23,10 +23,9 @@ public class main {
         levelOne.createLevel(obstacles);
         PowerUp powerUp = new PowerUp(Constants.POWERUP_WIDTH, Constants.POWERUP_HEIGHT, Constants.POWERUP_SPEED, Constants.POWERUP_START_X, Constants.POWERUP_START_Y );
         Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, Constants.PLAYER_START_X, true, powerUp);
-        Projectile projectile = new Projectile(20, 10, 10, true, player.getxPosition(), 265);
-        CollisionDetector collisionDetector = new CollisionDetector(player, obstacles, powerUp);
-        ProgressIndicator progressIndicator = new ProgressIndicator();
         ArrayList<Projectile> projectiles = new ArrayList<>();
+        CollisionDetector collisionDetector = new CollisionDetector(player, obstacles, projectiles, powerUp);
+        ProgressIndicator progressIndicator = new ProgressIndicator();
         ProgressBar progressBar = new ProgressBar(progressIndicator);
         PlayerMouseController mouseListener = new PlayerMouseController(player);
         PlayerKeyController playerKeyController = new PlayerKeyController(player, projectiles);
@@ -44,13 +43,14 @@ public class main {
 
         MenuButtonController menuBtnC = new MenuButtonController(Constants.MENU_BTN_POSX, Constants.MENU_BTN_POSY, Constants.MENU_BTN_WIDTH, Constants.MENU_BTN_HEIGHT);
 
-        PlayAgainButtonController playAgainBtnC = new PlayAgainButtonController(Constants.PLAY_AGAIN_BTN_POSX, Constants.PLAY_AGAIN_BTN_POSY, Constants.PLAY_AGAIN_BTN_WIDTH, Constants.PLAY_AGAIN_BTN_HEIGHT);
+        //PlayAgainButtonController playAgainBtnC = new PlayAgainButtonController(Constants.PLAY_AGAIN_BTN_POSX, Constants.PLAY_AGAIN_BTN_POSY, Constants.PLAY_AGAIN_BTN_WIDTH, Constants.PLAY_AGAIN_BTN_HEIGHT, gameLoop);
 
-        DrawLostRoundItems drawLostRoundItems = new DrawLostRoundItems(menuBtnC, playAgainBtnC, score);
+        DrawLostRoundItems drawLostRoundItems = new DrawLostRoundItems(score);
 
         LostRoundMenu lostRoundMenu = new LostRoundMenu(drawLostRoundItems);
 
-        MainWindow mainWindow = new MainWindow(startPageMenu, gameView, lostRoundMenu,startBtnC, playAgainBtnC, menuBtnC);
+        WindowLayout windowLayout = new WindowLayout(startPageMenu, lostRoundMenu, gameView, startBtnC);
+
 
 
         /*if (startBtnC.buttonPressed() || playAgainBtnC.buttonPressed()) {
@@ -59,8 +59,8 @@ public class main {
             mainWindow.addMenuView(); //toFront
         }*/
 
-        mainWindow.setContentPane(gameView);
-        startBtnC.buttonPressed();
+        //windowLayout.setContentPane(gameView);
+        //startBtnC.buttonPressed();
 
         }
 

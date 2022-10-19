@@ -20,7 +20,7 @@ public class DrawLevel {
         if(levelOne.size() != 0){
             for(Obstacle obstacle : levelOne){
                 g.setColor(new Color(0, 0, 0));
-                g.fillRect(obstacle.getxPosition(), obstacle.getyPosition(), obstacle.getHeight(), obstacle.getWidth());
+                g.fillRect(obstacle.getxPosition(), obstacle.getyPosition(), obstacle.getWidth(), obstacle.getHeight());
             }
         }
     }

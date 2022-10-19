@@ -1,4 +1,4 @@
-package MenusView;
+package MenuView;
 
 import Utilities.Constants;
 import Model.Shapes;

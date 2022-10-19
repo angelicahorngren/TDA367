@@ -14,6 +14,8 @@ public class GameView extends JPanel{
     public GameView(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, ProgressBar progressBar, PlayerMouseController mouseListener, PlayerKeyController playerKeyController, PowerUp powerUp) {
 
         this.addMouseListener(mouseListener);
+        this.setFocusable(true);
+
 
         BorderLayout borderLayout = new BorderLayout();
 
@@ -21,7 +23,6 @@ public class GameView extends JPanel{
         this.setBackground(Color.WHITE);
         this.addKeyListener(playerKeyController);
         this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
-        this.setFocusable(true);
         this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
         this.add(progressBar);
         this.add(new DrawGameView(player, projectiles, levelOne, powerUp));

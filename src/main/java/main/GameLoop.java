@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class GameLoop implements Runnable {       //Have to extend JFrame for add()-functions to work, still working on this
 
     Player player;
-    Obstacle obstacle;
     GameView gameView;
     ProgressBar progressBar;
     Score score;
@@ -37,6 +36,7 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
         if (!player.getaliveStatus() || progressBar.progressIndicator.getCurrentProcentage() == 100) {
             score.updateScore(progressBar.progressIndicator.getCurrentProcentage());
             Constants.Thread_argument_ms = 0;
+            //byt vy
         }
     }
 
@@ -48,9 +48,8 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
                         projectile.move();
                     }
                     if(mouseListener.getMousePressed()){
-                        player.jump(); //switch to controller
+                        player.jump(); //should be in controller
                     }
-
                     if(player.getyPosition() == 250){
                         mouseListener.setMousePressedfalse();
                     }
