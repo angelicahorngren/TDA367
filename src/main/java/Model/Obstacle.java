@@ -1,6 +1,5 @@
 package Model;
 
-
 public class Obstacle implements IMovable{
     protected int width;
     protected int height;
@@ -17,11 +16,18 @@ public class Obstacle implements IMovable{
         this.xPosition = startXpos;
         this.yPosition = yPosition;
         this.isDestroyable = isDestroyable;
+       // this.hitBox = new Shapes(startXpos, Constants.Y_POS, width, height);
 
     }
 
     public void move() {
         xPosition += speed;
+
+        /*if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
+            xPosition = -width;
+        }
+
+         */
 
     }
 
@@ -47,6 +53,7 @@ public class Obstacle implements IMovable{
     public int getyPosition() {
         return yPosition;
     }
+
 
 
     public void runObstacleSystem(){
