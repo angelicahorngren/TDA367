@@ -48,7 +48,7 @@ public class WindowLayout extends JFrame {   //CardLayout?
         container.add(startPageMenu, "1");
         container.add(lostRoundMenu, "2");
         container.add(gameView, "3");
-        cl.show(container,"2");
+        cl.show(container,"1"); //Chooses witch screen it starts on
 
 
         startButton.addActionListener(new ActionListener(){
