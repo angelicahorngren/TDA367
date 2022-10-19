@@ -19,9 +19,7 @@ public class PlayerMouseController extends MouseAdapter {
 
     @Override
     public void mousePressed(MouseEvent mouseEvent){
-        if(mousePressed && player.getyPosition() == 250){
-            player.jump(); //switch to controller
-        }
+        mousePressed = true;
     }
 
     @Override

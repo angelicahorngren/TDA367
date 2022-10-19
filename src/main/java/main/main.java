@@ -30,11 +30,11 @@ public class main {
         ProgressBar progressBar = new ProgressBar(progressIndicator);
         PlayerMouseController mouseListener = new PlayerMouseController(player);
         PlayerKeyController playerKeyController = new PlayerKeyController(player, projectiles);
-
-        GameView gameView = new GameView(player, projectiles, obstacles, progressBar, mouseListener, playerKeyController, powerUp);
-        GameLoop gameLoop = new GameLoop(player, projectiles, obstacles, gameView, progressBar, mouseListener, collisionDetector, powerUp);
-
         Score score = new Score(0,0);
+        GameView gameView = new GameView(player, projectiles, obstacles, progressBar, mouseListener, playerKeyController, powerUp);
+        GameLoop gameLoop = new GameLoop(player, projectiles, obstacles, gameView, progressBar, score, mouseListener, collisionDetector, powerUp);
+
+
 
         StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop, gameView);
 
