@@ -27,7 +27,7 @@ public class main {
         CollisionDetector collisionDetector = new CollisionDetector(player, obstacles, projectiles, powerUp);
         ProgressIndicator progressIndicator = new ProgressIndicator();
         ProgressBar progressBar = new ProgressBar(progressIndicator);
-        PlayerMouseController mouseListener = new PlayerMouseController(player);
+        PlayerMouseController mouseListener = new PlayerMouseController(player, projectiles);
         PlayerKeyController playerKeyController = new PlayerKeyController(player, projectiles);
         Score score = new Score(0,0);
 
@@ -43,7 +43,7 @@ public class main {
 
         MenuButtonController menuBtnC = new MenuButtonController(Constants.MENU_BTN_POSX, Constants.MENU_BTN_POSY, Constants.MENU_BTN_WIDTH, Constants.MENU_BTN_HEIGHT);
 
-        //PlayAgainButtonController playAgainBtnC = new PlayAgainButtonController(Constants.PLAY_AGAIN_BTN_POSX, Constants.PLAY_AGAIN_BTN_POSY, Constants.PLAY_AGAIN_BTN_WIDTH, Constants.PLAY_AGAIN_BTN_HEIGHT, gameLoop);
+        PlayAgainButtonController playAgainBtnC = new PlayAgainButtonController(Constants.PLAY_AGAIN_BTN_POSX, Constants.PLAY_AGAIN_BTN_POSY, Constants.PLAY_AGAIN_BTN_WIDTH, Constants.PLAY_AGAIN_BTN_HEIGHT, gameLoop);
 
         DrawLostRoundItems drawLostRoundItems = new DrawLostRoundItems(score);
 
@@ -53,11 +53,8 @@ public class main {
 
 
 
-        /*if (startBtnC.buttonPressed() || playAgainBtnC.buttonPressed()) {
-            mainWindow.addGameView(); //toFront
-        } else if (menuBtnC.buttonPressed()) {
-            mainWindow.addMenuView(); //toFront
-        }*/
+
+        //mainWindow.setPanel();
 
         //windowLayout.setContentPane(gameView);
         //startBtnC.buttonPressed();

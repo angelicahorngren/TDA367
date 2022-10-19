@@ -10,10 +10,8 @@ import Utilities.Constants;
 
 public class DrawGameView extends JComponent {
 
+    private Player player;
     private DrawPlayer drawPlayer;
-    private DrawRectView drawrect;
-    private DrawCircView drawCirc;
-    private DrawLevel levelOne;
     private DrawProjectile drawProjectile;
     private Projectile projectile;
     private ArrayList<Projectile> projectiles;
@@ -25,10 +23,8 @@ public class DrawGameView extends JComponent {
 
 
     public DrawGameView(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, PowerUp powerUp){
-        /*this.drawrect = new DrawRectView(obstacle);*/
+        this.player = player;
         this.drawPlayer = new DrawPlayer(player);
-        /*this.drawCirc = new DrawCircView(obstacle);
-        this.levelOne = new DrawLevel(levelOne);*/
         this.projectiles = projectiles;
         this.drawProjectile = new DrawProjectile(projectile);
         this.drawPowerUp = new DrawPowerUp(powerUp);
@@ -38,7 +34,7 @@ public class DrawGameView extends JComponent {
 
 
 
-    public void drawProjectile(ArrayList<Projectile> projectiles, Graphics g){
+    /*public void drawProjectile(ArrayList<Projectile> projectiles, Graphics g){
         super.paintComponent(g);
         if(projectiles.size() != 0){
             for(Projectile projectile : projectiles){
@@ -46,18 +42,15 @@ public class DrawGameView extends JComponent {
                 g.fillRect(projectile.getxPosition(), projectile.getyPosition(), 20, 10);
             }
         }
-    }
+    }*/
 
 
 
     public void paintComponent(Graphics g){
-        //drawrect.drawRect(g);
         dbg.draw2(g);
-        //drawCirc.drawCirc(g);
         drawPlayer.drawPlayer(g);
-        drawProjectile(projectiles, g);
+        drawProjectile.drawProjectile(g, player, projectiles);
         drawPowerUp.drawPowerup(g);
-
         drawLevel.drawLevel(g);
     }
 }

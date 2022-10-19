@@ -21,7 +21,7 @@ public class GameView extends JPanel{
 
         this.setLayout(borderLayout);
         this.setBackground(Color.WHITE);
-        this.addKeyListener(playerKeyController);
+        super.addKeyListener(playerKeyController);
         this.setSize(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
         this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
         this.add(progressBar);

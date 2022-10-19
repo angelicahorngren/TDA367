@@ -15,9 +15,9 @@ public class WindowLayout extends JFrame {   //CardLayout?
     JFrame frame = new JFrame("Jump and Stuff");
     JPanel container = new JPanel();
 
-    public StartPageMenu startPageMenu;
-    public LostRoundMenu lostRoundMenu;
-    public GameView gameView;
+    private StartPageMenu startPageMenu;
+    private LostRoundMenu lostRoundMenu;
+    private GameView gameView;
     StartButtonController startButtonPressed;
 
     JButton startButton = new JButton("Start");

@@ -1,4 +1,4 @@
-/* package Controller;
+package Controller;
 
 import Utilities.Constants;
 import main.GameLoop;
@@ -8,11 +8,13 @@ public class PlayAgainButtonController extends MenuItemsController{
 
     private int buttonPosX;
     private int x;
+    GameLoop gameLoop;
 
     public PlayAgainButtonController(int x, int y, int width, int height, GameLoop gameLoop){
         super(x, y, width, height);
 
         this.buttonPosX = x;
+        this.gameLoop = gameLoop;
 
     }
     @Override
@@ -53,4 +55,4 @@ public class PlayAgainButtonController extends MenuItemsController{
     public int getXvaluePlayBtn(){
         return this.x;
     }
-} */
+}
