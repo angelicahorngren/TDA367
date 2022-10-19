@@ -1,6 +1,7 @@
 package Controller;
 
 import Utilities.Constants;
+import View.WindowLayout;
 import main.GameLoop;
 import View.GameView;
 
@@ -14,7 +15,6 @@ public class StartButtonController extends MenuItemsController{
     public int x;
     GameView gameView;
 
-
     public StartButtonController(int x, int y, int width, int height, GameLoop gameLoop, GameView gameView){
 
         super(x, y, width, height);
@@ -23,7 +23,6 @@ public class StartButtonController extends MenuItemsController{
         this.buttonPosX = x;
         this.gameLoop = gameLoop;
         this.gameView = gameView;
-
 
     }
     @Override

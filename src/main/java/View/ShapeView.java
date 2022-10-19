@@ -1,7 +1,7 @@
 package View;
 
 //
-import MenusView.IDrawMenuItems;
+import MenuView.IDrawMenuItems;
 
 import java.awt.*;
 

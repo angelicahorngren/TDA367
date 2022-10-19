@@ -37,6 +37,7 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
         if (!player.getaliveStatus() || progressBar.progressIndicator.getCurrentProcentage() == 100) {
             score.updateScore(progressBar.progressIndicator.getCurrentProcentage());
             Constants.Thread_argument_ms = 0;
+            //byt vy
         }
     }
 

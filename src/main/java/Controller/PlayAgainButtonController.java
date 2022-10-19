@@ -1,4 +1,4 @@
-package Controller;
+/* package Controller;
 
 import Utilities.Constants;
 import main.GameLoop;
@@ -9,7 +9,7 @@ public class PlayAgainButtonController extends MenuItemsController{
     private int buttonPosX;
     private int x;
 
-    public PlayAgainButtonController(int x, int y, int width, int height){
+    public PlayAgainButtonController(int x, int y, int width, int height, GameLoop gameLoop){
         super(x, y, width, height);
 
         this.buttonPosX = x;
@@ -41,6 +41,9 @@ public class PlayAgainButtonController extends MenuItemsController{
 
         if (buttonPosX == Constants.START_BTN_POSX || buttonPosX == Constants.PLAY_AGAIN_BTN_POSX) {
 
+            Thread thread = new Thread(gameLoop);
+            thread.start();
+
             System.out.println("play again");
 
         }
@@ -49,4 +52,4 @@ public class PlayAgainButtonController extends MenuItemsController{
     public int getXvaluePlayBtn(){
         return this.x;
     }
-}
+} */

@@ -1,4 +1,4 @@
-package MenusView;
+package MenuView;
 
 import Controller.MenuItemsController;
 import Model.Score;
@@ -14,6 +14,7 @@ public class DrawStartPageItems extends JComponent {
     public DrawStartPageItems(MenuItemsController startBtn, Score score) {
 
         startPageItemsList = new StartPageItemsList(score);
+
 
         this.addMouseListener(startBtn);
 

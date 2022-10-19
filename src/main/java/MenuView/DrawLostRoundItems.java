@@ -1,4 +1,4 @@
-package MenusView;
+package MenuView;
 
 import Model.Score;
 import Controller.MenuItemsController;
@@ -10,12 +10,9 @@ public class DrawLostRoundItems extends JComponent {
 
     private LostRoundItemsList lostRoundPageItemsList;
 
-    public DrawLostRoundItems(MenuItemsController menuBtnC, MenuItemsController playAgainBtnC, Score score){
+    public DrawLostRoundItems(Score score){
 
         lostRoundPageItemsList = new LostRoundItemsList(score);
-
-        this.addMouseListener(menuBtnC);
-        this.addMouseListener(playAgainBtnC);
 
 
     }
