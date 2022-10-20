@@ -4,6 +4,8 @@ import Controller.MenuButtonController;
 import Controller.StartButtonController;
 import MenuView.LostRoundMenu;
 import MenuView.StartPageMenu;
+import main.GameLoop;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -26,7 +28,7 @@ public class WindowLayout extends JFrame {   //CardLayout?
 
     CardLayout cl = new CardLayout();
 
-    public WindowLayout(StartPageMenu SPM, LostRoundMenu LRM, GameView gv, StartButtonController startBtnC){
+    public WindowLayout(StartPageMenu SPM, LostRoundMenu LRM, GameView gv, StartButtonController startBtnC, GameLoop gameLoop){
         this.startPageMenu = SPM;
         this.lostRoundMenu = LRM;
         this.gameView = gv;
@@ -55,7 +57,8 @@ public class WindowLayout extends JFrame {   //CardLayout?
             @Override
             public void actionPerformed(ActionEvent e) {
                 startGame();
-                startButtonPressed.buttonPressed();
+                Thread thread = new Thread(gameLoop);
+                thread.start();
             }
         });
 
@@ -63,7 +66,8 @@ public class WindowLayout extends JFrame {   //CardLayout?
             @Override
             public void actionPerformed(ActionEvent e) {
                 startGame();
-                startButtonPressed.buttonPressed();
+                Thread thread = new Thread(gameLoop);
+                thread.start();
             }
         });
 
@@ -84,6 +88,9 @@ public class WindowLayout extends JFrame {   //CardLayout?
 
     public void startGame(){
         cl.show(container, "3");
+
+        gameView.setFocusable(true);
+        gameView.requestFocusInWindow();
     }
 
     public void goToStartPage(){

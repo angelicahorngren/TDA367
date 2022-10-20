@@ -1,7 +1,6 @@
 package View;
 
 import Model.Player;
-
 import java.awt.*;
 
 public class DrawPlayer {
@@ -19,3 +18,9 @@ public class DrawPlayer {
     }
 
 }
+
+
+
+
+
+

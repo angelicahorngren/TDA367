@@ -34,18 +34,6 @@ public class DrawGameView extends JComponent {
 
 
 
-    /*public void drawProjectile(ArrayList<Projectile> projectiles, Graphics g){
-        super.paintComponent(g);
-        if(projectiles.size() != 0){
-            for(Projectile projectile : projectiles){
-                g.setColor(new Color(85, 85, 85));
-                g.fillRect(projectile.getxPosition(), projectile.getyPosition(), 20, 10);
-            }
-        }
-    }*/
-
-
-
     public void paintComponent(Graphics g){
         dbg.draw2(g);
         drawPlayer.drawPlayer(g);

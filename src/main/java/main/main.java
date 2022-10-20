@@ -27,12 +27,12 @@ public class main {
         CollisionDetector collisionDetector = new CollisionDetector(player, obstacles, projectiles, powerUp);
         ProgressIndicator progressIndicator = new ProgressIndicator();
         ProgressBar progressBar = new ProgressBar(progressIndicator);
-        PlayerMouseController mouseListener = new PlayerMouseController(player, projectiles);
+        PlayerMouseController mouseListener = new PlayerMouseController(player);
         PlayerKeyController playerKeyController = new PlayerKeyController(player, projectiles);
         Score score = new Score(0,0);
-
         GameView gameView = new GameView(player, projectiles, obstacles, progressBar, mouseListener, playerKeyController, powerUp);
-        GameLoop gameLoop = new GameLoop(player, projectiles, obstacles, gameView, progressBar,score,  mouseListener, collisionDetector, powerUp);
+        GameLoop gameLoop = new GameLoop(player, projectiles, obstacles, gameView, progressBar, score, mouseListener, collisionDetector, powerUp);
+
 
 
         StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop, gameView);
@@ -49,15 +49,15 @@ public class main {
 
         LostRoundMenu lostRoundMenu = new LostRoundMenu(drawLostRoundItems);
 
-        WindowLayout windowLayout = new WindowLayout(startPageMenu, lostRoundMenu, gameView, startBtnC);
+        WindowLayout mainWindow = new WindowLayout(startPageMenu, lostRoundMenu, gameView, startBtnC, gameLoop);
+       // WindowLayout windowLayout = new WindowLayout(startPageMenu, lostRoundMenu, gameView, startBtnC);
 
+/*
+       MainWindow mainWindow = new MainWindow(startPageMenu, gameView, lostRoundMenu,startBtnC, playAgainBtnC, menuBtnC);
+        mainWindow.setContentPane(gameView);
+        startBtnC.buttonPressed();
+*/
 
-
-
-        //mainWindow.setPanel();
-
-        //windowLayout.setContentPane(gameView);
-        //startBtnC.buttonPressed();
 
         }
 

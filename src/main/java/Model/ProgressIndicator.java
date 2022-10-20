@@ -16,8 +16,7 @@ public class ProgressIndicator {
 
     public void calculatePrecentageIncrease() {
         while (precentageIncrease % 1 != 0.0 || precentageIncrease == 0.0) {                      //"if currentIncrease is not a whole number or if currentIncrease equals 0: enter the while loop"
-            precentageIncrease = (precentageIncrease + precantageInc_EveryThreadIteration(Constants.SEC_LV1));      //updates the currentIncrease value by a specific value depending on the pre-decided ->
-                                                                                            //-> length of level 1 (this value is calculated in getIncreasedTime)
+            precentageIncrease = (precentageIncrease + precantageInc_EveryThreadIteration(Constants.SEC_LV1));      //updates the currentIncrease value by a specific value depending on the pre-decided length of level 1 (this value is calculated in getIncreasedTime)
             precentageIncrease = Math.round(precentageIncrease * 1000000000d) / 1000000000d;      //rounds the number to a double with only 2 decimal places
             break;
         }

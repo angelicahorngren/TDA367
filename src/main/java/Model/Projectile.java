@@ -1,6 +1,5 @@
 package Model;
 
-import java.awt.*;
 
 
 public class Projectile extends Obstacle{

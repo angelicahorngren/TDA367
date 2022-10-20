@@ -1,6 +1,7 @@
 package Model;
 
 import Utilities.Constants;
+import java.awt.*;
 
 import java.awt.*;
 
@@ -43,7 +44,7 @@ public class Player {
     }
 
     public void jump() {
-            yPosition -= 10;
+        yPosition -= 10;
     }
 
 

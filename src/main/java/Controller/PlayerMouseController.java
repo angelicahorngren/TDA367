@@ -13,11 +13,11 @@ public class PlayerMouseController extends MouseAdapter {
     private int mouseButton;
     private boolean mouseDragged;
     private Player player;
-    private ArrayList<Projectile> projectile;
+   // private ArrayList<Projectile> projectile;
 
-    public PlayerMouseController(Player player, ArrayList<Projectile> projectiles){
+    public PlayerMouseController(Player player/*, ArrayList<Projectile> projectiles*/){
         this.player = player;
-        this.projectile = projectiles;
+        //this.projectile = projectiles;
     }
 
 
@@ -34,7 +34,7 @@ public class PlayerMouseController extends MouseAdapter {
     @Override
     public void mouseReleased(MouseEvent e){
         mouseDragged = true;
-        projectile.add(new Projectile(20, 10, 10, true, player.getxPosition() + player.getPlayerWidth(), player.getyPosition() + player.getPlayerHeight()/2 - 5));
+     //   projectile.add(new Projectile(20, 10, 10, true, player.getxPosition() + player.getPlayerWidth(), player.getyPosition() + player.getPlayerHeight()/2 - 5));
 
     }
 
