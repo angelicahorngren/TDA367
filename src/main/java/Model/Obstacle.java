@@ -16,24 +16,14 @@ public class Obstacle implements IMovable{
         this.xPosition = startXpos;
         this.yPosition = yPosition;
         this.isDestroyable = isDestroyable;
-       // this.hitBox = new Shapes(startXpos, Constants.Y_POS, width, height);
 
     }
 
     public void move() {
         xPosition += speed;
 
-        /*if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
-            xPosition = -width;
-        }
-
-         */
-
     }
 
-    public void remove(){
-        this.yPosition = 900;
-    }
 
     public int getSpeed(){
         return speed;
@@ -54,11 +44,11 @@ public class Obstacle implements IMovable{
         return yPosition;
     }
 
-
-
-    public void runObstacleSystem(){
-        move();
+    public boolean getIsDestroyable(){
+        return isDestroyable;
     }
+
+
 
 
 
