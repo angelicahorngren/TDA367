@@ -1,12 +1,9 @@
 package Model;
 
 import Utilities.Constants;
-import java.awt.*;
-
-import java.awt.*;
 
 
-public class Player {
+public class Player /*implements IMovable*/{
     private int yPosition;
     private int velY;
     private final int playerWidth;
@@ -14,8 +11,8 @@ public class Player {
     private int velReducer;
     private int xPosition;
     private boolean alive;
-    private Color color = Color.MAGENTA;
     private PowerUp powerUp;
+    private Boolean isPoweredUp;
 
 
 
@@ -68,25 +65,9 @@ public class Player {
         return alive;
     }
 
-    public Color getColor(){
-        return color;
+    public boolean getPoweredUpStatus(){
+        return isPoweredUp;
     }
-
-    public void setColorRed(){
-        color = Color.red;
-    }
-
-    public void setColorNormel(){
-        color = Color.MAGENTA;
-    }
-
-    public void setColorWhenPowerOn() {
-        if (powerUp.getPowerUpStatus()) {
-            setColorRed();
-        }
-        else setColorNormel();
-    }
-
 
 
     public void moveIntoFrame(){
@@ -100,15 +81,18 @@ public class Player {
         alive = false;
     }
 
+    public void setIsPoweredUp() {
+        if (powerUp.getPowerUpStatus()) {
+            isPoweredUp = true;
+        }
+        else isPoweredUp = false;
+    }
 
     public void runPlayerSystem(){
         gravity();
         moveIntoFrame();
-        setColorWhenPowerOn();
+        setIsPoweredUp();
     }
-
-
-
 
 }
 

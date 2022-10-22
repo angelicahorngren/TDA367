@@ -1,16 +1,16 @@
-/*import Model.Player;
+import Model.Player;
+import Model.PowerUp;
 import Utilities.Constants;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PlayerTest {
+public class PlayerJUnitTest {
 
     @Test
     void playerJumpTest() {
-        Player playerJumpTest = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, 250, true);
+        PowerUp powerUpTest = new PowerUp(1,1,1,1,1);
+        Player playerJumpTest = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, 250, true, powerUpTest);
         playerJumpTest.jump();
         assertEquals(250 - 10, playerJumpTest.getyPosition());
     }
@@ -18,17 +18,20 @@ public class PlayerTest {
 
     @Test
     void playerGravityTest() {
-        Player playerGravityTest = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS - 10, 250, true);
+        PowerUp powerUpTest = new PowerUp(1,1,1,1,1);
+        Player playerGravityTest = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, 250, true, powerUpTest);
+        playerGravityTest.runPlayerSystem();
+        playerGravityTest.jump();
         playerGravityTest.gravity();
         playerGravityTest.gravity();
-        System.out.println(playerGravityTest.getyPosition());
         assertEquals(Constants.Y_POS - 10 + 1, playerGravityTest.getyPosition());
     }
 
 
     @Test
     void playerJumpAndFallTest() {
-        Player playerJumpAndFalling = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, 250, true);
+        PowerUp powerUpTest = new PowerUp(1,1,1,1,1);
+        Player playerJumpAndFalling = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, 250, true, powerUpTest);
         playerJumpAndFalling.jump();
         playerJumpAndFalling.gravity();
         playerJumpAndFalling.gravity();
@@ -38,8 +41,9 @@ public class PlayerTest {
 
     @Test
     void moveIntoFrameTest() {
-        Player playerMovingIntoFrame = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, 0, true);
-        while(playerMovingIntoFrame.xPosition < 250){
+        PowerUp powerUpTest = new PowerUp(1,1,1,1,1);
+        Player playerMovingIntoFrame = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, 0, true, powerUpTest);
+        while(playerMovingIntoFrame.getxPosition() < 250){
             playerMovingIntoFrame.moveIntoFrame();
         }
         System.out.println(playerMovingIntoFrame.getxPosition());
@@ -50,6 +54,3 @@ public class PlayerTest {
 
 
 }
-
- */
-

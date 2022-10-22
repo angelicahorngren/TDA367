@@ -1,4 +1,4 @@
-/* import Model.Score;
+/*import Model.Score;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -39,4 +39,4 @@ public class ScoreTest {
 }
 
 
- */
+*/
