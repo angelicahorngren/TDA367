@@ -30,7 +30,7 @@ public class PowerUp {
 
 
     public void move() {
-        speed = -10;
+       // speed = -10;
         xPosition += speed;
 
         if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
@@ -65,23 +65,27 @@ public class PowerUp {
         powerOn = true;
     }
 
-    public void setPowerUpoff(){
+    public void setPowerUpTimer(int timerValue){
+        powerUpTimer = timerValue;
+    }
+
+    private void setPowerUpoff(){
         powerOn = false;
     }
 
 
-    public void startPowerUpTimer() {
+    private void startPowerUpTimer() {
         powerUpTimer = powerUpTimer  + Constants.Thread_argument_ms;
     }
 
 
-    public void resetTime(){
+    private void resetTime(){
         powerUpTimer = 0;
     }
 
 
-    public void endPowerup(){
-        if (powerUpTimer == 3000){
+    private void endPowerup(){
+        if (powerUpTimer >= 3000){
             setPowerUpoff();
             resetTime();
         }

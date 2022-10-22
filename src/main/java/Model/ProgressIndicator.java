@@ -1,7 +1,9 @@
+//FLYTTA DENNA KLASSEN TILL VIEW DÅ PROGRESSBAR I VIEW CALLAR PÅ EN FUNKTION HÄRIFRÅN
+
 package Model;
 
 import Utilities.Constants;
-//
+
 public class ProgressIndicator {
     private double precentageIncrease = 0;               //currentIncrease is initialized to 0
     private int visibleCurrentPercentage = 0;                  //the percentage on the progressbar is initialized to 0%
