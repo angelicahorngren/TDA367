@@ -1,13 +1,12 @@
 package MenuView;
 
 import Model.Score;
-import Utilities.Constants;
 
 import java.util.ArrayList;
 
 public class LostRoundItemsList {
 
-    private ArrayList<IDrawMenuItems> lostRoundItems = new ArrayList<>();
+    private ArrayList<IDraw> lostRoundItems = new ArrayList<>();
 
     public LostRoundItemsList(Score score){
 
@@ -18,7 +17,7 @@ public class LostRoundItemsList {
         lostRoundItems.add(new DrawScore(score.getCurrentScore(), 20, 485, 150));
     }
 
-    public ArrayList<IDrawMenuItems> getLostRoundPageItemsArrayList(){
+    public ArrayList<IDraw> getLostRoundPageItemsArrayList(){
 
         return lostRoundItems;
 

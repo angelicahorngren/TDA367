@@ -60,7 +60,7 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
                     collisionDetector.runCollisionDetectorSystem();
                     powerUp.runpowerUpSystem();
                     gameView.repaint();
-                    player.moveIntoFrame();
+                    player.move();
                     progressBar.setUpdatedCounter();
                     progressBar.setProgressbarBounds();
                     try {

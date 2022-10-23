@@ -17,17 +17,13 @@ public class Score {
         return hs;
     }
 
-    private void updateCurrentScore(int currentScore) {
-        cs = currentScore;
-    }
 
     private void updateHighScore(int highScore) {
         hs = highScore;
     }
 
     public void updateScore(int score) {
-        //score to current score(percentage on progress indicator)
-        updateCurrentScore(score); //updates current score
+        cs = score;
         if(score > hs){ // Checks if current score is bigger than high score
             updateHighScore(score); //Updates high score
         }

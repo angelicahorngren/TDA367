@@ -1,7 +1,6 @@
 package MenuView;
 
 import Model.Score;
-import Controller.MenuItemsController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +19,7 @@ public class DrawLostRoundItems extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
 
-        for (IDrawMenuItems lostRoundPageItems: lostRoundItemsList.getLostRoundPageItemsArrayList()){
+        for (IDraw lostRoundPageItems: lostRoundItemsList.getLostRoundPageItemsArrayList()){
 
             lostRoundPageItems.draw(g);
         }

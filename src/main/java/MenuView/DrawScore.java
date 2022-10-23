@@ -2,7 +2,7 @@ package MenuView;
 
 import java.awt.*;
 
-public class DrawScore implements IDrawMenuItems {
+public class DrawScore implements IDraw {
 
     private int st;
     private int s;

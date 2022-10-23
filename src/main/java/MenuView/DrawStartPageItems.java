@@ -25,7 +25,7 @@ public class DrawStartPageItems extends JComponent {
     @Override
     protected void paintComponent(Graphics g){
 
-        for ( IDrawMenuItems startPageItems: startPageItemsList.getStartPageItemsArrayList()){
+        for ( IDraw startPageItems: startPageItemsList.getStartPageItemsArrayList()){
 
            startPageItems.draw(g);
 

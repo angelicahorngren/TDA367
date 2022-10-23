@@ -2,12 +2,11 @@ package MenuView;
 import Model.Score;
 import Utilities.Constants;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class StartPageItemsList {
 
-    private ArrayList<IDrawMenuItems> startPageItems = new ArrayList<>();
+    private ArrayList<IDraw> startPageItems = new ArrayList<>();
 
     public StartPageItemsList(Score score){
 
@@ -18,7 +17,7 @@ public class StartPageItemsList {
 
     }
 
-    public ArrayList<IDrawMenuItems> getStartPageItemsArrayList(){
+    public ArrayList<IDraw> getStartPageItemsArrayList(){
 
         return startPageItems;
 

@@ -1,9 +1,10 @@
 package View;
 
+import MenuView.IDraw;
 import Model.Player;
 import java.awt.*;
 
-public class DrawPlayer {
+public class DrawPlayer implements IDraw {
 
     private Player player;
     private Color color;
@@ -23,7 +24,7 @@ public class DrawPlayer {
         }
     }
 
-    public void drawPlayer(Graphics g) {
+    public void draw(Graphics g) {
         updatePlayerViewColor();
         Graphics2D gg = (Graphics2D) g;
 

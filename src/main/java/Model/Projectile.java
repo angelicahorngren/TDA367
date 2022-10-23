@@ -1,8 +1,8 @@
 package Model;
 
 
+public class Projectile extends Obstacle implements IMovable{
 
-public class Projectile extends Obstacle{
 
 
     public Projectile(int width, int height, int speed, boolean isDestroyable, int startXpos, int yPosition) {
@@ -19,7 +19,5 @@ public class Projectile extends Obstacle{
     public void move() {
         xPosition += speed;
     }
-
-
 
 }

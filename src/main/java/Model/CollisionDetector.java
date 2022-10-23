@@ -32,8 +32,6 @@ public class CollisionDetector {
         {
             player.setPlayerNotAlive();
 
-
-
         }
 
     }
@@ -59,9 +57,6 @@ public class CollisionDetector {
     }
 
 
-
-
-
     private void detectCollisionPowerUpObject(){
         if(
                 (player.getxPosition() + player.getPlayerWidth() >= powerUp.getxPosition()) &&
@@ -71,7 +66,6 @@ public class CollisionDetector {
         )
         {
             powerUp.setPowerUpOn();
-            //System.out.println("u got power");
         }
     }
 
@@ -81,7 +75,5 @@ public class CollisionDetector {
         detectProjectileObstacleCollision();
         detectCollisionPowerUpObject();
     }
-
-
 
 }

@@ -3,7 +3,7 @@ package Model;
 import Utilities.Constants;
 
 
-public class Player /*implements IMovable*/{
+public class Player implements IMovable{
     private int yPosition;
     private int velY;
     private final int playerWidth;
@@ -70,7 +70,7 @@ public class Player /*implements IMovable*/{
     }
 
 
-    public void moveIntoFrame(){
+    public void move(){
         if(xPosition < 250){
             xPosition += 3;
         }
@@ -90,7 +90,7 @@ public class Player /*implements IMovable*/{
 
     public void runPlayerSystem(){
         gravity();
-        moveIntoFrame();
+        move();
         setIsPoweredUp();
     }
 

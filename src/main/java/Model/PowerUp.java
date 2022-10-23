@@ -2,9 +2,7 @@ package Model;
 
 import Utilities.Constants;
 
-public class PowerUp {
-
-    private CollisionDetector collisionDetector;
+public class PowerUp implements IMovable {
 
     private boolean powerOn = false;
 
@@ -14,8 +12,6 @@ public class PowerUp {
     private int width;
     private int height;
     private int speed;
-    //= Constants.OBSTACLE_START_X;
-    //public Shapes hitBox;
     private int xPosition;
     private int yPosition;
 
@@ -27,8 +23,6 @@ public class PowerUp {
         this.yPosition = yPosition;
     }
 
-
-
     public void move() {
        // speed = -10;
         xPosition += speed;
@@ -36,9 +30,7 @@ public class PowerUp {
         if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
             xPosition = -width;
         }
-
     }
-
 
     public int getWidth() {
         return width;
@@ -98,9 +90,5 @@ public class PowerUp {
             endPowerup();
         }
     }
-
-
-
-
 
 }

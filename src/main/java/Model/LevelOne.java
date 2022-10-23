@@ -24,13 +24,6 @@ public class LevelOne {
         obstacles.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, false, Constants.OBSTACLE_START_X + 3000, Constants.OBSTACLE_START_Y));
     }
 
-      /*  public void remove (Obstacle obstacle){
-            obstacles.remove(obstacle);
-        }
-        public Obstacle getThisObstacle(Obstacle obstacle){
-            return obstacle;
-        }
-*/
     public ArrayList<Obstacle> getObstacleList(){
         return obstacles;
     }

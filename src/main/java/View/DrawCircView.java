@@ -1,10 +1,11 @@
 package View;
+import MenuView.IDraw;
 import Model.Obstacle;
 import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
 
-public class DrawCircView extends JComponent {
+public class DrawCircView extends JComponent implements IDraw {
 
     Obstacle obstacle;
     public DrawCircView(Obstacle obstacle) {
@@ -12,7 +13,7 @@ public class DrawCircView extends JComponent {
 
     }
 
-    public void drawCirc(Graphics g) {
+    public void draw(Graphics g) {
 
         Graphics2D gg = (Graphics2D) g;
 

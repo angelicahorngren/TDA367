@@ -2,7 +2,7 @@ package MenuView;
 
 import java.awt.*;
 
-public interface IDrawMenuItems {
+public interface IDraw {
 
     void draw(Graphics g);
 }

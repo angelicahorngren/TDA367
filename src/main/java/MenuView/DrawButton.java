@@ -5,7 +5,7 @@ import Model.Shapes;
 
 import java.awt.*;
 
-public class DrawButton extends Shapes implements IDrawMenuItems {
+public class DrawButton extends Shapes implements IDraw {
 
 
     private int buttonTextPosX;
