@@ -4,9 +4,7 @@ import Controller.PlayerMouseController;
 import Model.*;
 import View.GameView;
 import View.ProgressBar;
-import Utilities.Constants;
 import View.ViewContainer;
-
 import java.util.ArrayList;
 
 public class GameLoop implements Runnable {       //Have to extend JFrame for add()-functions to work, still working on this
@@ -22,6 +20,7 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
     ArrayList<Obstacle> levelOne;
     ViewContainer viewContainer;
     public static int Thread_argument_ms = 10;
+
 
     public GameLoop(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, GameView gameView, ProgressBar progressBar, Score score, PlayerMouseController mouseListener, CollisionDetector collisionDetector, PowerUp powerUp, ViewContainer viewContainer){
         this.player = player;
