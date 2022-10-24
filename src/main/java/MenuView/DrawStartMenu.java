@@ -15,10 +15,9 @@ public class DrawStartMenu extends JComponent {
 
     public DrawStartMenu(Score score) {
 
-        startMenuItems.add(new DrawText("JumpNStuff", 50, (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 200)/2));
-        startMenuItems.add(new DrawText("High Score : ", 40, (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 35) / 2));
-        startMenuItems.add(new DrawScore(score, true, 40, 500, (Constants.SCREEN_HEIGHT - 35) / 2));
-
+        startMenuItems.add(new DrawText(Constants.START_MENU_TITLE_TEXT, Constants.START_MENU_TITLE_SIZE, Constants.START_MENU_TITLE_POS_X, Constants.START_MENU_TITLE_POS_Y));
+        startMenuItems.add(new DrawText(Constants.START_HIGH_SCORE_TEXT, Constants.START_MENU_HIGH_SCORE_SIZE, Constants.START_MENU_HIGH_SCORE_POS_X, Constants.START_MENU_HIGH_SCORE_POS_Y));
+        startMenuItems.add(new DrawScore(score, true, Constants.START_MENU_SCORE_SIZE, Constants.START_MENU_SCORE_POS_X, Constants.START_MENU_SCORE_POS_Y));
 
     }
 
