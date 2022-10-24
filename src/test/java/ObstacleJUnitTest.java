@@ -1,4 +1,5 @@
 import Model.Obstacle;
+import Utilities.Constants;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,6 +21,19 @@ public class ObstacleJUnitTest {
         Obstacle testObstacle2 = new Obstacle(1,1,5,true,0,20);
         int xPositionBefore = testObstacle2.getxPosition();
         testObstacle2.move();
-        assertFalse(xPositionBefore == testObstacle2.getyPosition());
+        assertFalse(xPositionBefore == testObstacle2.getxPosition());
+    }
+
+    @Test
+    public void obstacleCanReset(){
+        Obstacle testObstacle3 = new Obstacle(1,1,5,true, Constants.OBSTACLE_START_X,Constants.OBSTACLE_START_Y);
+        int xPositionBefore = testObstacle3.getxPosition();
+        testObstacle3.move();
+        assertFalse(xPositionBefore == testObstacle3.getxPosition());
+        testObstacle3.resetObstacle();
+        assertEquals(xPositionBefore,testObstacle3.getxPosition());
+
+
+
     }
 }

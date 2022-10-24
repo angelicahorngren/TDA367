@@ -44,9 +44,6 @@ public class Obstacle implements IMovable{
         yPosition = startYPosition;
     }
 
-    public void removeObstacle(){
-        yPosition = 500;
-    }
 
     /**
      * Gets the speed of the obstacle.

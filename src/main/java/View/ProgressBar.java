@@ -1,6 +1,5 @@
 package View;
 
-import Model.ProgressIndicator;
 import java.awt.*;
 import javax.swing.*;
 
@@ -56,7 +55,7 @@ public class ProgressBar extends JProgressBar {
      * This method is used to update the progressbar depending on the thread iteration of the game
      */
     public void updatePrgressBar(){
-        progressIndicator.calculatePrecentageIncrease();
+        progressIndicator.calculatePercentageIncrease();
         progressIndicator.showIncreaseIfWholeNumber();
     }
 

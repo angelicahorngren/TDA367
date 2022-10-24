@@ -22,7 +22,7 @@ public class Window extends JFrame {
     JButton playAgainButton = new JButton("Play again");
     JButton goToStartMenuButton = new JButton("Go to Start page");
 
-    public Window(StartMenu SPM, GameOverMenu GOM, GameView GV, GameLoop gameLoop, ViewContainer viewContainer){
+    public Window(StartMenu SPM, GameOverMenu GOM, GameView GV ,GameLoop gameLoop, ViewContainer viewContainer){
         this.startMenu = SPM;
         this.gameOverMenu = GOM;
         this.gameView = GV;

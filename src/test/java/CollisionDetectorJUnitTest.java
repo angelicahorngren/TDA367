@@ -54,14 +54,17 @@ public class CollisionDetectorJUnitTest {
     void projectileCollidesWithObstacleTest() {
         PowerUp powerUpTest = new PowerUp(1,1,1,1,1);
         ArrayList<Projectile> projectilesTest4 = new ArrayList<>();
-        projectilesTest4.add(new Projectile(1, 1, 1, true, 0,250));
+        Projectile projectile = new Projectile(1, 1, 1, true, 0,250);
+        projectilesTest4.add(projectile);
         ArrayList<Obstacle> obstaclesTest4 = new ArrayList<>();
         Obstacle obstacleCollisionTest4 = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, 0, true, 0, Constants.Y_POS);
         obstaclesTest4.add(obstacleCollisionTest4);
         Player playerCollisionTest = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS + Constants.RECT_HEIGHT + 1, 10, true, powerUpTest);
         CollisionDetector collisionDetector4 = new Model.CollisionDetector(playerCollisionTest, obstaclesTest4, projectilesTest4, powerUpTest);
         collisionDetector4.runCollisionDetectorSystem();
-        assertEquals(0, projectilesTest4.size());
-        assertEquals(0, obstaclesTest4.size());
+        assertEquals(1000, projectile.getyPosition());
+        assertEquals(1000, obstacleCollisionTest4.getyPosition());
+       // assertEquals(0, projectilesTest4.size());
+        //assertEquals(0, obstaclesTest4.size());
     }
 }

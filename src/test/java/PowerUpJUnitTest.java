@@ -30,4 +30,14 @@ public class PowerUpJUnitTest {
         powerUpTest.move();
         assertEquals(-1, powerUpTest.getxPosition());
     }
+
+    @Test
+    public void powerUpLocationCanReset(){
+        PowerUp powerUpTest = new PowerUp(1,1,5, 3006, Constants.Y_POS);
+        int xPositionBefore = powerUpTest.getxPosition();
+        powerUpTest.move();
+        assertFalse(xPositionBefore == powerUpTest.getxPosition());
+        powerUpTest.resetPowerUp();
+        assertEquals(xPositionBefore, powerUpTest.getxPosition());
+    }
 }

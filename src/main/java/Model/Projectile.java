@@ -31,5 +31,7 @@ public class Projectile extends Obstacle implements IMovable{
     }
 
 
-
+    public int getyPosition() {
+        return this.yPosition;
+    }
 }
