@@ -1,6 +1,7 @@
 package MenuView;
 
 import Model.Score;
+import Utilities.Constants;
 import View.IDraw;
 
 import javax.swing.*;
@@ -15,9 +16,9 @@ public class DrawLostRoundMenuItems extends JComponent {
     public DrawLostRoundMenuItems(Score score){
 
         //lostRoundItemsList = new LostRoundItemsList(score);
-        lostRoundItems.add(new DrawText("Oops, You lost", 50, 230, 100));
-        lostRoundItems.add(new DrawText("score this round: ", 20, 300, 150));
-        lostRoundItems.add(new DrawScore(score, false,20, 485, 150));
+        lostRoundItems.add(new DrawText(Constants.GAME_OVER_MENU_TITLE_TEXT, Constants.GAME_OVER_MENU_TITLE_SIZE, Constants.GAME_OVER_MENU_TITLE_POS_X, Constants.GAME_OVER_MENU_TITLE_POS_Y));
+        lostRoundItems.add(new DrawText(Constants.GAME_OVER_THIS_ROUND_TEXT, Constants.GAME_OVER_MENU_THIS_ROUND_SIZE, Constants.GAME_OVER_MENU_THIS_ROUND_POS_X, Constants.GAME_OVER_MENU_THIS_ROUND_POS_Y));
+        lostRoundItems.add(new DrawScore(score, false,Constants.GAME_OVER_MENU_SCORE_SIZE, Constants.GAME_OVER_MENU_SCORE_POS_X, Constants.GAME_OVER_MENU_SCORE_POS_Y));
 
 
     }
