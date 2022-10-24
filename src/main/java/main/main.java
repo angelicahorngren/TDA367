@@ -24,7 +24,7 @@ public class main {
         Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, Constants.PLAYER_START_X, true, powerUp);
         ArrayList<Projectile> projectiles = new ArrayList<>();
         ProgressBar progressBar = new ProgressBar(new ProgressIndicator());
-        PlayerMouseController mouseListener = new PlayerMouseController(player);
+        PlayerMouseController mouseListener = new PlayerMouseController();
         Score score = new Score(0,0);
 
         GameView gameView = new GameView(player, projectiles, obstacles, progressBar, mouseListener, new PlayerKeyController(player, projectiles), powerUp);

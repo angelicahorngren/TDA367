@@ -5,7 +5,7 @@ package Model;
  */
 public interface IMovable {
     /**
-     * A method to move the object in unspecified way.
+     * A method to move the object in an unspecified way.
      */
     void move();
 
