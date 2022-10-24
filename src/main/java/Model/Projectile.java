@@ -30,4 +30,6 @@ public class Projectile extends Obstacle implements IMovable{
         xPosition += speed;
     }
 
+
+
 }

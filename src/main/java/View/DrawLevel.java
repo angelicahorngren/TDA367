@@ -16,7 +16,12 @@ public class DrawLevel implements IDraw{
     public void draw(Graphics g){
         if(levelOne.size() != 0){
             for(Obstacle obstacle : levelOne){
-                g.setColor(new Color(0, 0, 0));
+                if(obstacle.getIsDestroyable()){
+                    g.setColor(new Color(60, 200, 180));
+                }
+                else{
+                    g.setColor(new Color(0, 0, 0));
+                }
                 g.fillRect(obstacle.getxPosition(), obstacle.getyPosition(), obstacle.getWidth(), obstacle.getHeight());
             }
         }
