@@ -16,8 +16,9 @@ public class ProgressBar extends JProgressBar {
         this.setBackground(Color.WHITE); // set the background color of the bar
     }
 
+
     public void setUpdatedCounter(){
-        this.setValue(progressIndicator.getCurrentProcentage());     //inserts the percentageOnBar -value in the progressbar class object
+        this.setValue(progressIndicator.getCurrentPercentage());     //inserts the percentageOnBar -value in the progressbar class object
     }
 
     public void setProgressbarBounds(){
@@ -34,14 +35,14 @@ public class ProgressBar extends JProgressBar {
         setUpdatedCounter();
         setProgressbarBounds();
     }
-    public void updatePrgressBar(){
-        progressIndicator.calculatePrecentageIncrease();
+    public void updateProgressBar(){
+        progressIndicator.calculatePercentageIncrease();
         progressIndicator.showIncreaseIfWholeNumber();
     }
 
     public void runProgressBarSystem(){
         createProgressBar();
-        updatePrgressBar();
+        updateProgressBar();
 
     }
 

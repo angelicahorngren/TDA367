@@ -21,6 +21,8 @@ public class PlayButtonController extends MenuController {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        GameLoop.Thread_argument_ms = 10;
+
         Thread thread = new Thread(gameLoop);
         viewContainer.startGame();
         thread.start();

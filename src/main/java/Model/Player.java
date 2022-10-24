@@ -122,6 +122,10 @@ public class Player implements IMovable{
         alive = false;
     }
 
+    private void setPlayerAlive(){
+        alive = true;
+    }
+
     /**
      * Sets the powered up status to true or false depending on if the power of the powerup is on or not.
      */
@@ -139,6 +143,11 @@ public class Player implements IMovable{
         gravity();
         move();
         setIsPoweredUp();
+    }
+
+    public void resetPlayer(){
+        xPosition = Constants.PLAYER_START_X;
+        setPlayerAlive();
     }
 
 }

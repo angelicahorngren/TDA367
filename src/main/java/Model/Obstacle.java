@@ -5,6 +5,7 @@ public class Obstacle implements IMovable{
     protected int height;
     protected int speed;
     protected int xPosition;
+    protected int startXPosition;
     protected int yPosition;
     protected boolean isDestroyable;
 
@@ -23,6 +24,7 @@ public class Obstacle implements IMovable{
         this.height = height;
         this.speed = speed;
         this.xPosition = startXpos;
+        this.startXPosition = startXpos;
         this.yPosition = yPosition;
         this.isDestroyable = isDestroyable;
 
@@ -34,6 +36,10 @@ public class Obstacle implements IMovable{
     public void move() {
         xPosition += speed;
 
+    }
+
+    public void resetObstacle(){
+        xPosition = startXPosition;
     }
 
     /**

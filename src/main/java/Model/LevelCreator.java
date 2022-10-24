@@ -32,6 +32,8 @@ public class LevelCreator {
         obstacles.add(new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED, false, Constants.OBSTACLE_START_X + 3000, Constants.OBSTACLE_START_Y));
     }
 
+
+
     /**
      * Gets the list of obstacles for level one.
      * @return the list of obstacles representing level one.
