@@ -1,21 +1,19 @@
 package MenuView;
-
-import Controller.PlayButtonController;
 import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
 
-public class StartMenu extends JPanel{
+public class GameOverMenu extends JPanel {
 
-    public StartMenu(DrawStartMenu drawStartMenu) {
 
+    public GameOverMenu(DrawGameOverMenu drawGameOverMenu){
         BorderLayout borderLayout = new BorderLayout();
 
-
-        this.setLayout( borderLayout );
-        this.add(drawStartMenu);
         this.setBackground(Color.WHITE);
+        this.setLayout(borderLayout);
+        this.add(drawGameOverMenu);
         this.setVisible(true);
+
 
     }
 

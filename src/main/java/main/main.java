@@ -1,13 +1,14 @@
 package main;
 import Controller.*;
-import MenuView.DrawLostRoundMenuItems;
-import MenuView.DrawStartMenuItems;
-import MenuView.LostRoundMenu;
+import MenuView.DrawGameOverMenu;
+import MenuView.DrawStartMenu;
+import MenuView.GameOverMenu;
 import MenuView.StartMenu;
 import Model.*;
 import Utilities.Constants;
 import View.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 
@@ -17,41 +18,27 @@ public class main {
 
 
         System.out.println("Hello, do you wanna jump and stuff?");
-        Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED,false, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y);
         ArrayList<Obstacle> obstacles = new ArrayList<>();
-        LevelOne levelOne = new LevelOne(obstacles);
-        levelOne.createLevel();
+        LevelCreator levelCreator = new LevelCreator(obstacles);
+        levelCreator.createLevel();
         PowerUp powerUp = new PowerUp(Constants.POWERUP_WIDTH, Constants.POWERUP_HEIGHT, Constants.POWERUP_SPEED, Constants.POWERUP_START_X, Constants.POWERUP_START_Y );
         Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, Constants.PLAYER_START_X, true, powerUp);
         ArrayList<Projectile> projectiles = new ArrayList<>();
-        CollisionDetector collisionDetector = new CollisionDetector(player, obstacles, projectiles, powerUp);
-        ProgressIndicator progressIndicator = new ProgressIndicator();
-        ProgressBar progressBar = new ProgressBar(progressIndicator);
+        ProgressBar progressBar = new ProgressBar(new ProgressIndicator());
         PlayerMouseController mouseListener = new PlayerMouseController(player);
-        PlayerKeyController playerKeyController = new PlayerKeyController(player, projectiles);
         Score score = new Score(0,0);
 
-        DrawLostRoundMenuItems drawLostRoundItems = new DrawLostRoundMenuItems(score);
-        LostRoundMenu lostRoundMenu = new LostRoundMenu(drawLostRoundItems);
-
-        DrawStartMenuItems drawStartPageItems = new DrawStartMenuItems( score);
-        StartMenu startPageMenu = new StartMenu(drawStartPageItems);
-
-        GameView gameView = new GameView(player, projectiles, obstacles, progressBar, mouseListener, playerKeyController, powerUp);
-
-        ViewContainer viewContainer = new ViewContainer(startPageMenu, lostRoundMenu, gameView);
-
-        GameLoop gameLoop = new GameLoop(player, projectiles, obstacles, gameView, progressBar, score, mouseListener, collisionDetector, powerUp, viewContainer);
+        GameView gameView = new GameView(player, projectiles, obstacles, progressBar, mouseListener, new PlayerKeyController(player, projectiles), powerUp);
 
 
+        GameOverMenu gameOverMenu = new GameOverMenu(new DrawGameOverMenu(score));
+        StartMenu startMenu = new StartMenu(new DrawStartMenu(score));
 
-        StartButtonController startBtnC = new StartButtonController(Constants.START_BTN_POSX, Constants.START_BTN_POSY, Constants.START_BTN_WIDTH, Constants.START_BTN_HEIGHT, gameLoop, gameView);
+        ViewContainer viewContainer = new ViewContainer(startMenu, gameOverMenu, gameView);
+        GameLoop gameLoop = new GameLoop(player, projectiles, obstacles, gameView, progressBar, score, mouseListener, new CollisionDetector(player, obstacles, projectiles, powerUp), powerUp, viewContainer);
 
-        MenuButtonController menuBtnC = new MenuButtonController(Constants.MENU_BTN_POSX, Constants.MENU_BTN_POSY, Constants.MENU_BTN_WIDTH, Constants.MENU_BTN_HEIGHT);
 
-      //  ViewContainer viewContainer = new ViewContainer(startPageMenu, lostRoundMenu, gameView);
-
-        WindowLayout mainWindow = new WindowLayout(startPageMenu, lostRoundMenu, gameView, startBtnC, gameLoop, viewContainer);
+        new Window(startMenu, gameOverMenu, gameView, gameLoop, viewContainer);
 
 
 

@@ -4,14 +4,17 @@ package Model;
 
 import Utilities.Constants;
 
+import static main.GameLoop.Thread_argument_ms;
+
 public class ProgressIndicator {
     private double precentageIncrease = 0;               //currentIncrease is initialized to 0
     private int visibleCurrentPercentage = 0;                  //the percentage on the progressbar is initialized to 0%
     private int  fullPercentage = 100;
+    //public static int Thread_argument_ms = 10;
 
 
     public double precantageInc_EveryThreadIteration(double ms_perLevel) {
-        double precantageInc_EveryThreadIteration = Constants.Thread_argument_ms * fullPercentage / ms_perLevel;  //calculate the procentage increase every 10 millieseconds by multiplying 10 ms with 100 % and divding it with the amount of millie seconds that a level takes to clear ->
+        double precantageInc_EveryThreadIteration = Thread_argument_ms * fullPercentage / ms_perLevel;  //calculate the procentage increase every 10 millieseconds by multiplying 10 ms with 100 % and divding it with the amount of millie seconds that a level takes to clear ->
         return precantageInc_EveryThreadIteration;                                                                  //-> the current level pre-decided length
     }
 

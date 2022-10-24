@@ -2,6 +2,8 @@ package Model;
 
 import Utilities.Constants;
 
+import static main.GameLoop.Thread_argument_ms;
+
 public class PowerUp implements IMovable {
 
     private boolean powerOn = false;
@@ -106,7 +108,7 @@ public class PowerUp implements IMovable {
 
 
     private void startPowerUpTimer() {
-        powerUpTimer = powerUpTimer  + Constants.Thread_argument_ms;
+        powerUpTimer = powerUpTimer  + Thread_argument_ms;
     }
 
 

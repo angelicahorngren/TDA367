@@ -21,6 +21,7 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
     PowerUp powerUp;
     ArrayList<Obstacle> levelOne;
     ViewContainer viewContainer;
+    public static int Thread_argument_ms = 10;
 
     public GameLoop(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, GameView gameView, ProgressBar progressBar, Score score, PlayerMouseController mouseListener, CollisionDetector collisionDetector, PowerUp powerUp, ViewContainer viewContainer){
         this.player = player;
@@ -38,7 +39,7 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
     public void StopGame(){
         if (!player.getaliveStatus() || progressBar.progressIndicator.getCurrentProcentage() == 100) {
             score.updateScore(progressBar.progressIndicator.getCurrentProcentage());
-            Constants.Thread_argument_ms = 0;
+            Thread_argument_ms = 0;
             viewContainer.gameOver();
             //byt vy
         }
@@ -47,7 +48,7 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
 
     @Override
     public void run() {
-                while (Constants.Thread_argument_ms != 0) {
+                while (Thread_argument_ms != 0) {
                     for(Projectile projectile : projectiles){
                         projectile.move();
                     }
@@ -68,7 +69,7 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
                     progressBar.setUpdatedCounter();
                     progressBar.setProgressbarBounds();
                     try {
-                        Thread.sleep(Constants.Thread_argument_ms);           //repaints the game view every 10 milliseconds
+                        Thread.sleep(Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
                 } catch (Exception ex) {
                 }
