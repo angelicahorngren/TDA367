@@ -38,6 +38,8 @@ public class LevelCreator {
 
     }
 
+
+
     /**
      * Gets the list of obstacles for level one.
      * @return the list of obstacles representing level one.

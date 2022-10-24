@@ -37,13 +37,27 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
     }
 
     public void StopGame(){
-        if (!player.getaliveStatus() || progressBar.progressIndicator.getCurrentProcentage() == 100) {
-            score.updateScore(progressBar.progressIndicator.getCurrentProcentage());
+        if (!player.getaliveStatus() || progressBar.progressIndicator.getCurrentPercentage() == 100) {
+            score.updateScore(progressBar.progressIndicator.getCurrentPercentage());
             Thread_argument_ms = 0;
-            viewContainer.gameOver();
-            //byt vy
+
+            if(!player.getaliveStatus()){
+                viewContainer.gameOver();
+            }
+            else {
+                viewContainer.goToStartPage();
+            }
+
+            player.resetPlayer();
+            for(Obstacle obstacle: levelOne){
+                obstacle.resetObstacle();
+            }
+            progressBar.progressIndicator.resetProgressIndicator();
+            powerUp.resetPowerUp();
+
         }
     }
+
 
 
     @Override

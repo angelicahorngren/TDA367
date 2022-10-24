@@ -16,6 +16,7 @@ public class PowerUp implements IMovable {
     private int speed;
     private int xPosition;
     private int yPosition;
+    private int startXpos;
 
     /**
      * The constructor for the PowerUp.
@@ -32,6 +33,7 @@ public class PowerUp implements IMovable {
         this.speed = speed;
         this.xPosition = startXpos;
         this.yPosition = yPosition;
+        this.startXpos = startXpos;
     }
 
     /**
@@ -133,6 +135,10 @@ public class PowerUp implements IMovable {
             startPowerUpTimer();
             endPowerup();
         }
+    }
+
+    public void resetPowerUp(){
+        xPosition = startXpos;
     }
 
 }
