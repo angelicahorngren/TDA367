@@ -9,16 +9,14 @@ import java.util.ArrayList;
 
 public class DrawGameOverMenu extends JComponent {
 
-   // private LostRoundItemsList lostRoundItemsList;
-    private ArrayList<IDraw> lostRoundItems = new ArrayList<>();
+    private ArrayList<IDraw> gameOverMenuItems = new ArrayList<>();
 
 
     public DrawGameOverMenu(Score score){
 
-        //lostRoundItemsList = new LostRoundItemsList(score);
-        lostRoundItems.add(new DrawText("Oops, You lost", 50, 230, 100));
-        lostRoundItems.add(new DrawText("score this round: ", 20, 300, 150));
-        lostRoundItems.add(new DrawScore(score.getCurrentScore(), 20, 485, 150));
+        gameOverMenuItems.add(new DrawText("Oops, You lost", 50, 230, 100));
+        gameOverMenuItems.add(new DrawText("score this round: ", 20, 300, 150));
+        gameOverMenuItems.add(new DrawScore(score.getCurrentScore(), 20, 485, 150));
 
 
     }
@@ -26,9 +24,9 @@ public class DrawGameOverMenu extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
 
-        for (IDraw lostRoundPageItems: lostRoundItems){
+        for (IDraw gameOverMenuItems: gameOverMenuItems){
 
-            lostRoundPageItems.draw(g);
+            gameOverMenuItems.draw(g);
         }
 
     }

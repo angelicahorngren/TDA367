@@ -11,14 +11,13 @@ import java.util.ArrayList;
 
 public class DrawStartMenu extends JComponent {
 
-    private ArrayList<IDraw> startPageItems = new ArrayList<>();
+    private ArrayList<IDraw> startMenuItems = new ArrayList<>();
 
     public DrawStartMenu(Score score) {
 
-
-        startPageItems.add(new DrawText("JumpNStuff", 50, (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 200)/2));
-        startPageItems.add(new DrawText("High Score : ", 40, (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 35) / 2));
-        startPageItems.add(new DrawScore(score.getHighScore(), 40, 500, (Constants.SCREEN_HEIGHT - 35) / 2));
+        startMenuItems.add(new DrawText("JumpNStuff", 50, (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 200)/2));
+        startMenuItems.add(new DrawText("High Score : ", 40, (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 35) / 2));
+        startMenuItems.add(new DrawScore(score.getHighScore(), 40, 500, (Constants.SCREEN_HEIGHT - 35) / 2));
 
 
     }
@@ -27,9 +26,10 @@ public class DrawStartMenu extends JComponent {
     @Override
     protected void paintComponent(Graphics g){
 
-        for ( IDraw startPageItems: startPageItems){
+        for ( IDraw startMenuItems: startMenuItems){
 
-           startPageItems.draw(g);
+           startMenuItems.draw(g);
+
 
         }
 

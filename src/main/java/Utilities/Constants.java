@@ -41,28 +41,6 @@ public class Constants {
 
     public static final double SEC_LV1 = 10000;
 
-    //Lost round jframe
-    public static final int LOST_ROUND_VIEW_WIDTH = (SCREEN_WIDTH / 2);
-    public static final int LOST_ROUND_VIEW_HEIGHT = (SCREEN_HEIGHT / 2);
-
-
-    //Menu items
-    public static final int BORDER_THICKNESS = 2;
-
-    public static final int START_BTN_WIDTH = 150;
-    public static final int START_BTN_HEIGHT = 50;
-    public static final int START_BTN_POSX = (SCREEN_WIDTH - 150) / 2;
-    public static final int START_BTN_POSY = (SCREEN_HEIGHT - 170);
-
-    public static final int MENU_BTN_WIDTH = 50;
-    public static final int MENU_BTN_HEIGHT = 50;
-    public static final int MENU_BTN_POSX = (LOST_ROUND_VIEW_WIDTH / 2) - 120;
-    public static final int MENU_BTN_POSY = (LOST_ROUND_VIEW_HEIGHT - 80);
-
-    public static final int PLAY_AGAIN_BTN_WIDTH = 50;
-    public static final int PLAY_AGAIN_BTN_HEIGHT = 50;
-    public static final int PLAY_AGAIN_BTN_POSX = (LOST_ROUND_VIEW_WIDTH / 2) + 70;
-    public static final int PLAY_AGAIN_BTN_POSY = (LOST_ROUND_VIEW_HEIGHT - 80);
 
 
 }

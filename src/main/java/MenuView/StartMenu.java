@@ -1,5 +1,6 @@
 package MenuView;
 
+import Controller.PlayButtonController;
 import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
@@ -10,10 +11,10 @@ public class StartMenu extends JPanel{
 
         BorderLayout borderLayout = new BorderLayout();
 
+
         this.setLayout( borderLayout );
         this.add(drawStartMenu);
         this.setBackground(Color.WHITE);
-        this.setPreferredSize( new Dimension(Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
         this.setVisible(true);
 
     }
