@@ -1,4 +1,4 @@
-/*import Model.Score;
+import Model.Score;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,4 +23,4 @@ public class ScoreTest {
         assertEquals(10, updateScoreShouldNotUpdateTest.getHighScore()); //Old high score was 10 and should therefore not update
         assertEquals(7, updateScoreShouldNotUpdateTest.getCurrentScore()); //current score still updates even though it's lower than old high score
     }
-} */
+}

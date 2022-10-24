@@ -63,36 +63,36 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
 
     @Override
     public void run() {
-                while (Thread_argument_ms != 0) {
-                    for(Projectile projectile : projectiles){
-                        projectile.move();
-                    }
-                    if(mouseListener.getMousePressed()){
-                        player.jump(); //should be in controller
-                    }
-                    if(player.getyPosition() == 250){
-                        mouseListener.setMousePressedfalse();
-                    }
-                    player.runPlayerSystem();
-                    for(Obstacle obstacle: levelOne){
-                        obstacle.move();
-                    }
-                    collisionDetector.runCollisionDetectorSystem();
-                    powerUp.runpowerUpSystem();
-                    gameView.repaint();
-                    player.move();
-                    progressBar.setUpdatedCounter();
-                    progressBar.setProgressbarBounds();
-                    try {
-                        Thread.sleep(Thread_argument_ms);           //repaints the game view every 10 milliseconds
-
-                } catch (Exception ex) {
+        while (Thread_argument_ms != 0) {
+            for(Projectile projectile : projectiles){
+                projectile.move();
+            }
+            if(mouseListener.getMousePressed()){
+                player.jump(); //should be in controller
+            }
+            if(player.getyPosition() == 250){
+                mouseListener.setMousePressedfalse();
+            }
+            player.runPlayerSystem();
+            for(Obstacle obstacle: levelOne){
+                obstacle.move();
                 }
 
-                    StopGame();
-                    progressBar.runProgressBarSystem();
-                }
+            collisionDetector.runCollisionDetectorSystem();
+            powerUp.runpowerUpSystem();
+            gameView.repaint();
+            player.move();
+            progressBar.setUpdatedCounter();
+            progressBar.setProgressbarBounds();
+            try {
+                Thread.sleep(Thread_argument_ms);           //repaints the game view every 10 milliseconds
+
+            } catch (Exception ex) {
             }
 
-}
+            StopGame();
+            progressBar.runProgressBarSystem();
+        }
+    }
 
+}

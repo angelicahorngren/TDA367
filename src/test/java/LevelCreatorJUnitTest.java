@@ -11,6 +11,6 @@ public class LevelCreatorJUnitTest {
     public void checkObstacleExistence(){
         LevelCreator testLevelCreator = new LevelCreator(new ArrayList<Obstacle>());
         testLevelCreator.createLevel();
-        assertEquals(9, testLevelCreator.getObstacleList().size()); //kollar så antalet objekt stämmer överens med antalet objekt i Model
+        assertEquals(12, testLevelCreator.getObstacleList().size()); //kollar så antalet objekt stämmer överens med antalet objekt i Model
     }
 }

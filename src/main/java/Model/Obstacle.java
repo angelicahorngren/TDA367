@@ -44,6 +44,7 @@ public class Obstacle implements IMovable{
         yPosition = startYPosition;
     }
 
+
     /**
      * Gets the speed of the obstacle.
      * @return speed of obstacle.

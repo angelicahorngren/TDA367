@@ -4,6 +4,7 @@ import Utilities.Constants;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class PlayerJUnitTest {
 
@@ -50,7 +51,20 @@ public class PlayerJUnitTest {
         assertEquals(252, playerMovingIntoFrame.getxPosition());
     }
 
+    @Test
+    void canSetPlayerAlive(){
+        PowerUp powerUpTest = new PowerUp(1,1,1,1,1);
+        Player playerIsAlive = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, Constants.PLAYER_START_X, true, powerUpTest);
+        int xPositionBefore = playerIsAlive.getxPosition();
+        playerIsAlive.move();
+        assertFalse(xPositionBefore == playerIsAlive.getxPosition());
+        playerIsAlive.resetPlayer();
+        assertEquals(xPositionBefore, playerIsAlive.getxPosition());
 
+
+
+
+    }
 
 
 }

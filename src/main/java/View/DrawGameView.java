@@ -19,6 +19,13 @@ public class DrawGameView extends JComponent {
     private DrawLevel drawLevel;
 
 
+    /**
+     * The constructor for DrawGameView
+     * @param player used to draw the player object on the Jpanel
+     * @param projectiles used to draw the projectiles on the Jpanel
+     * @param levelOne used to draw the obsticals in level one
+     * @param powerUp used to draw the power up object on the Jpanel
+     */
 
     public DrawGameView(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, PowerUp powerUp){
         this.player = player;
@@ -31,6 +38,10 @@ public class DrawGameView extends JComponent {
     DrawGameBackgroundView dbg = new DrawGameBackgroundView(Constants.SCREEN_WIDTH,Constants.SCREEN_HEIGHT);
 
 
+    /**
+     * method that add all the drawn object to the jpanel
+     * @param g  a neccasery parameter used to draw on a Jpanel
+     */
 
     public void paintComponent(Graphics g){
         dbg.draw(g);

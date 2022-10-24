@@ -1,6 +1,6 @@
 //FLYTTA DENNA KLASSEN TILL VIEW DÅ PROGRESSBAR I VIEW CALLAR PÅ EN FUNKTION HÄRIFRÅN
 
-package Model;
+package View;
 
 import Utilities.Constants;
 

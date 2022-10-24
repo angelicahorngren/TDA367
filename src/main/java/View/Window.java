@@ -54,9 +54,9 @@ public class Window extends JFrame {
         goToStartMenuButton.setPreferredSize(new Dimension(0, 40));
         goToStartMenuButton.setFont(new Font("Comic Sans", Font.BOLD, 20));
 
-        this.startMenu.add(startButton, BorderLayout.SOUTH);
-        this.gameOverMenu.add(playAgainButton, BorderLayout.SOUTH);
-        this.gameOverMenu.add(goToStartMenuButton, BorderLayout.NORTH);
+        startMenu.add(startButton, BorderLayout.SOUTH);
+        gameOverMenu.add(playAgainButton, BorderLayout.SOUTH);
+        gameOverMenu.add(goToStartMenuButton, BorderLayout.NORTH);
 
 
         frame.add(viewContainer);
