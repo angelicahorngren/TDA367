@@ -44,24 +44,23 @@ public class CollisionDetector {
     }
 
     private void detectProjectileObstacleCollision() {
-        Iterator<Obstacle> iterationObstacle = levelOne.iterator();
-        Iterator<Projectile> iterationProjectile = projectiles.iterator();
-        while (iterationObstacle.hasNext() && iterationProjectile.hasNext()) {
-            Obstacle obstacle = iterationObstacle.next();
-            Projectile projectile = iterationProjectile.next();
-            if(
-                    (projectile.getxPosition() + projectile.getWidth() >= obstacle.getxPosition()) &&
-                            (projectile.getxPosition() <= obstacle.getxPosition() + obstacle.width) &&
-                            (projectile.getyPosition() + projectile.getWidth() >= obstacle.getyPosition()) &&
-                            (projectile.getyPosition() <= obstacle.getyPosition() + obstacle.height)
-            )
-            {
-                iterationObstacle.remove();
-                iterationProjectile.remove();
+        for (Obstacle obstacle : levelOne) {
+            for (Projectile projectile : projectiles) {
+                if (
+                        (projectile.getxPosition() + projectile.getWidth() >= obstacle.getxPosition()) &&
+                                (projectile.getxPosition() <= obstacle.getxPosition() + obstacle.width) &&
+                                (projectile.getyPosition() + projectile.getWidth() >= obstacle.getyPosition()) &&
+                                (projectile.getyPosition() <= obstacle.getyPosition() + obstacle.height)
+                ) {
+                    projectile.yPosition = 1000;
+                    if(obstacle.isDestroyable){
+                        obstacle.yPosition = 1000;
+                    }
+                }
             }
-               
         }
     }
+
 
 
     private void detectCollisionPowerUpObject(){
@@ -82,6 +81,7 @@ public class CollisionDetector {
      * If a projectile collides with an obstacle both the projectile and the obstacle will be removed from the level.
      * If the player collides with a PowerUp object the player's PowerUp -status gets set to on.
      */
+
 
     public void runCollisionDetectorSystem(){
         detectPlayerObstacleCollision();

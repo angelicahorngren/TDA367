@@ -22,12 +22,8 @@ public class PlayerKeyController extends KeyAdapter {
 
     @Override
     public void keyPressed (KeyEvent e) {
-        if (e.getKeyCode() == 32 && projectiles.size() <= 10) {
-            projectiles.add(new Projectile(20, 10, 10, true, player.getxPosition() + player.getPlayerWidth(), player.getyPosition() + player.getPlayerHeight()/2 - 5));
-            System.out.println("ammo");
-        }
-        else {
-            System.out.println("no more ammo!");
+        if (e.getKeyCode() == 32) {
+            projectiles.add(new Projectile(20, 10, 10, true, player.getxPosition() + player.getPlayerWidth(), player.getyPosition()));
         }
     }
 
