@@ -4,8 +4,6 @@ import Utilities.Constants;
 
 public class PowerUp {
 
-    private CollisionDetector collisionDetector;
-
     private boolean powerOn = false;
 
     //Timer

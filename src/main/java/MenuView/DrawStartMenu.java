@@ -8,11 +8,11 @@ import java.awt.*;
 import java.util.ArrayList;
 
 
-public class DrawStartMenuItems extends JComponent {
+public class DrawStartMenu extends JComponent {
 
-    private ArrayList<IDrawMenuItems> startPageItems = new ArrayList<>();
+    private ArrayList<IDraw> startPageItems = new ArrayList<>();
 
-    public DrawStartMenuItems(Score score) {
+    public DrawStartMenu(Score score) {
 
 
         startPageItems.add(new DrawText("JumpNStuff", 50, (Constants.SCREEN_WIDTH - 300) / 2, (Constants.SCREEN_HEIGHT - 200)/2));
@@ -26,7 +26,7 @@ public class DrawStartMenuItems extends JComponent {
     @Override
     protected void paintComponent(Graphics g){
 
-        for ( IDrawMenuItems startPageItems: startPageItems){
+        for ( IDraw startPageItems: startPageItems){
 
            startPageItems.draw(g);
 

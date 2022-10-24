@@ -3,15 +3,15 @@ import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
 
-public class LostRoundMenu extends JPanel {
+public class GameOverMenu extends JPanel {
 
 
-    public LostRoundMenu(DrawLostRoundMenuItems drawLostRoundMenuItems){
+    public GameOverMenu(DrawGameOverMenu drawGameOverMenu){
         BorderLayout borderLayout = new BorderLayout();
 
         this.setBackground(Color.WHITE);
         this.setLayout(borderLayout);
-        this.add(drawLostRoundMenuItems);
+        this.add(drawGameOverMenu);
         this.setPreferredSize(new Dimension(Constants.LOST_ROUND_VIEW_WIDTH, Constants.LOST_ROUND_VIEW_HEIGHT));
         this.setVisible(true);
 

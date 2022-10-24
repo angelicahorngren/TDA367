@@ -2,7 +2,7 @@ package MenuView;
 
 import java.awt.*;
 
-public class DrawText implements IDrawMenuItems {
+public class DrawText implements IDraw {
 
     private String text;
     private int size;

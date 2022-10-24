@@ -7,13 +7,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class DrawLostRoundMenuItems extends JComponent {
+public class DrawGameOverMenu extends JComponent {
 
    // private LostRoundItemsList lostRoundItemsList;
-    private ArrayList<IDrawMenuItems> lostRoundItems = new ArrayList<>();
+    private ArrayList<IDraw> lostRoundItems = new ArrayList<>();
 
 
-    public DrawLostRoundMenuItems(Score score){
+    public DrawGameOverMenu(Score score){
 
         //lostRoundItemsList = new LostRoundItemsList(score);
         lostRoundItems.add(new DrawText("Oops, You lost", 50, 230, 100));
@@ -26,7 +26,7 @@ public class DrawLostRoundMenuItems extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
 
-        for (IDrawMenuItems lostRoundPageItems: lostRoundItems){
+        for (IDraw lostRoundPageItems: lostRoundItems){
 
             lostRoundPageItems.draw(g);
         }
