@@ -24,5 +24,3 @@ public class ScoreTest {
         assertEquals(7, updateScoreShouldNotUpdateTest.getCurrentScore()); //current score still updates even though it's lower than old high score
     }
 }
-
-*/

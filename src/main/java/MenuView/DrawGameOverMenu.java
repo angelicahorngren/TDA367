@@ -16,7 +16,7 @@ public class DrawGameOverMenu extends JComponent {
 
         gameOverMenuItems.add(new DrawText("Oops, You lost", 50, 230, 100));
         gameOverMenuItems.add(new DrawText("score this round: ", 20, 300, 150));
-        gameOverMenuItems.add(new DrawScore(score.getCurrentScore(), 20, 485, 150));
+        gameOverMenuItems.add(new DrawScore(score, false, 20, 485, 150));
 
 
     }
