@@ -13,6 +13,10 @@ public class DrawStartMenu extends JComponent {
 
     private ArrayList<IDraw> startMenuItems = new ArrayList<>();
 
+    /**
+     * A constructor for DrawStartMenu.
+     * @param score score displayed on menu.
+     */
     public DrawStartMenu(Score score) {
 
         startMenuItems.add(new DrawText(Constants.START_MENU_TITLE_TEXT, Constants.START_MENU_TITLE_SIZE, Constants.START_MENU_TITLE_POS_X, Constants.START_MENU_TITLE_POS_Y));
@@ -21,20 +25,16 @@ public class DrawStartMenu extends JComponent {
 
     }
 
-
+    /**
+     * Paints startMenuItems in list.
+     * @param g is a Graphics class object.
+     */
     @Override
     protected void paintComponent(Graphics g){
 
         for ( IDraw startMenuItems: startMenuItems){
-
            startMenuItems.draw(g);
-
-
         }
-
-
     }
-
-
 }
 

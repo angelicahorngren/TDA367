@@ -4,7 +4,6 @@ import Controller.PlayerMouseController;
 import Model.*;
 import View.GameView;
 import View.ProgressBar;
-import Utilities.Constants;
 import View.ViewContainer;
 
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
                 viewContainer.gameOver();
             }
             else {
-                viewContainer.goToStartPage();
+                viewContainer.goToStartMenu();
             }
             // Resets gameLoop
             player.resetPlayer();

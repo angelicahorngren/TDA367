@@ -145,6 +145,9 @@ public class Player implements IMovable{
         setIsPoweredUp();
     }
 
+    /**
+     * Resets x-position of the player its initial value
+     */
     public void resetPlayer(){
         xPosition = Constants.PLAYER_START_X;
         setPlayerAlive();

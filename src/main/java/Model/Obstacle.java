@@ -39,6 +39,9 @@ public class Obstacle implements IMovable{
         xPosition += speed;
     }
 
+    /**
+     * resets obstacle positions to its initial values.
+     */
     public void resetObstacle(){
         xPosition = startXPosition;
         yPosition = startYPosition;

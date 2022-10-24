@@ -11,7 +11,6 @@ public class ProgressBar extends JProgressBar {
      * A constructor of ProgressBar
      * @param progressIndicator
      */
-
     public ProgressBar(ProgressIndicator progressIndicator) {
         this.progressIndicator = progressIndicator;
         this.setStringPainted(true); // show the percentage on the bar

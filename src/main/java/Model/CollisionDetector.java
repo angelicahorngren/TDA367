@@ -18,14 +18,12 @@ public class CollisionDetector {
      * @param projectiles used to check for collisions with the projectiles.
      * @param powerUp used to check for collisions with the power ups.
      */
-
     public CollisionDetector(Player player, ArrayList<Obstacle> levelOne, ArrayList<Projectile> projectiles, PowerUp powerUp){
         this.player = player;
         this.levelOne = levelOne;
         this.powerUp = powerUp;
         this.projectiles = projectiles;
     }
-
 
     private void detectPlayerObstacleCollision(){
         for(Obstacle obstacle : levelOne)
@@ -81,8 +79,6 @@ public class CollisionDetector {
      * If a projectile collides with an obstacle both the projectile and the obstacle will be removed from the level.
      * If the player collides with a PowerUp object the player's PowerUp -status gets set to on.
      */
-
-
     public void runCollisionDetectorSystem(){
         detectPlayerObstacleCollision();
         detectProjectileObstacleCollision();

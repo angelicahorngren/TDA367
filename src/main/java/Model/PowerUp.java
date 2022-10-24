@@ -137,6 +137,9 @@ public class PowerUp implements IMovable {
         }
     }
 
+    /**
+     * Resets position of the powerUp to its initial value.
+     */
     public void resetPowerUp(){
         xPosition = startXpos;
     }

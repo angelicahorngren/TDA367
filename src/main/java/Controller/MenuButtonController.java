@@ -15,7 +15,7 @@ public class MenuButtonController extends MenuController {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        viewContainer.goToStartPage();
+        viewContainer.goToStartMenu();
     }
 
 }

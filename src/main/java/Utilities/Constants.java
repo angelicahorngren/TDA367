@@ -3,7 +3,8 @@ package Utilities;
 import java.awt.*;
 
 public class Constants {
-    //Jframe
+
+    //JFrame
     public static final int SCREEN_HEIGHT = 400;
     public static final int SCREEN_WIDTH = 800;
     public static final String SCREEN_TITLE = "JumpNStuff";
@@ -61,14 +62,7 @@ public class Constants {
     public static final int POWERUP_SPEED = -3;
     public static final int DISTANCE_POWERUP_TRAVELS = 3000;                       //skärmens bredd (osynlig+synlig)
 
-
-
-
-
-
-    //Timer
-    //public static int Thread_argument_ms = 10;
-
+    //Level items
     public static final double SEC_LV1 = 10000;
 
 
