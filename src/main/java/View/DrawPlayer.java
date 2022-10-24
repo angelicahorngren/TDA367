@@ -8,12 +8,19 @@ public class DrawPlayer implements IDraw {
     private Player player;
     private Color color;
 
+    /**
+     * A constructor for DrawPlayer
+     * @param player used to get the player object that needs to be drawn
+     */
     public DrawPlayer(Player player) {
 
         this.player = player;
         this.color = Color.MAGENTA;
     }
 
+    /**
+     * This method is used to change the color of the player if the player gets a power up
+     */
     private void updatePlayerViewColor(){
         if (player.getPoweredUpStatus()) {
             this.color = Color.RED;
@@ -22,6 +29,11 @@ public class DrawPlayer implements IDraw {
             this.color = Color.MAGENTA;
         }
     }
+
+    /**
+     * used to draw and color the player object
+     * @param g a neccasery parameter used to draw on a Jpanel
+     */
 
     public void draw(Graphics g) {
         updatePlayerViewColor();

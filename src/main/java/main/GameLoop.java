@@ -60,7 +60,6 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
     }
 
 
-
     @Override
     public void run() {
                 while (Thread_argument_ms != 0) {
@@ -76,13 +75,14 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
                     player.runPlayerSystem();
                     for(Obstacle obstacle: levelOne){
                         obstacle.move();
+                        if (obstacle.getxPosition() == Constants.OBSTACLE_START_X + levelOne.indexOf(obstacle) * 400 - 2700 ){
+                            levelOne.remove(obstacle);
+                        }
+                        System.out.println(levelOne.get(0).getxPosition());
                     }
                     collisionDetector.runCollisionDetectorSystem();
                     powerUp.runpowerUpSystem();
                     gameView.repaint();
-                    player.move();
-                    progressBar.setUpdatedCounter();
-                    progressBar.setProgressbarBounds();
                     try {
                         Thread.sleep(Thread_argument_ms);           //repaints the game view every 10 milliseconds
 
