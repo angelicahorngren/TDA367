@@ -30,20 +30,11 @@ public class Score {
         return hs;
     }
 
-
-    private void updateHighScore(int highScore) {
-        hs = highScore;
-    }
-
-
-    /**
-     *
-     * @param score
-     */
     public void updateScore(int score) {
-        cs = score;
+        //score to current score(percentage on progress indicator)
+        cs = score; //updates current score
         if(score > hs){ // Checks if current score is bigger than high score
-            updateHighScore(score); //Updates high score
+            hs = score; //Updates high score
         }
     }
 
