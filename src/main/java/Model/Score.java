@@ -30,12 +30,6 @@ public class Score {
         return hs;
     }
 
-
-    private void updateHighScore(int highScore) {
-        hs = highScore;
-    }
-
-
     /**
      * Updates the score if the current percentage(score) when game is over is higher than the last score.
      * @param score is the current percentage in GameLoop when the game stops.
@@ -43,7 +37,7 @@ public class Score {
     public void updateScore(int score) {
         cs = score;
         if(score > hs){ // Checks if current score is bigger than high score
-            updateHighScore(score); //Updates high score
+            hs = score; //Updates high score
         }
     }
 
