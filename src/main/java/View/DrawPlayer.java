@@ -1,6 +1,5 @@
 package View;
 
-import MenuView.IDraw;
 import Model.Player;
 import java.awt.*;
 

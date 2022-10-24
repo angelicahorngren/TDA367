@@ -2,6 +2,7 @@ package MenuView;
 
 import Model.Score;
 import Utilities.Constants;
+import View.IDraw;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 
 public class DrawStartMenuItems extends JComponent {
 
-    private ArrayList<IDrawMenuItems> startPageItems = new ArrayList<>();
+    private ArrayList<IDraw> startPageItems = new ArrayList<>();
 
     public DrawStartMenuItems(Score score) {
 
@@ -26,7 +27,7 @@ public class DrawStartMenuItems extends JComponent {
     @Override
     protected void paintComponent(Graphics g){
 
-        for ( IDrawMenuItems startPageItems: startPageItems){
+        for ( IDraw startPageItems: startPageItems){
 
            startPageItems.draw(g);
 

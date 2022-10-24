@@ -1,6 +1,5 @@
 package View;
 
-import MenuView.IDraw;
 import Model.Obstacle;
 import java.awt.*;
 import java.util.ArrayList;

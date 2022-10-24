@@ -1,5 +1,4 @@
 package View;
-import MenuView.IDraw;
 import Model.PowerUp;
 import Utilities.Constants;
 import java.awt.*;

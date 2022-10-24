@@ -1,5 +1,4 @@
 package View;
-import MenuView.IDraw;
 import Model.Obstacle;
 import Utilities.Constants;
 import javax.swing.*;

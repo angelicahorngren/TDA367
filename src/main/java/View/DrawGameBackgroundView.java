@@ -1,5 +1,4 @@
 package View;
-import MenuView.IDraw;
 
 import javax.swing.*;
 import java.awt.*;

@@ -5,6 +5,7 @@ import Model.*;
 import View.GameView;
 import View.ProgressBar;
 import Utilities.Constants;
+import View.ViewContainer;
 
 import java.util.ArrayList;
 
@@ -19,8 +20,9 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
     ArrayList<Projectile> projectiles;
     PowerUp powerUp;
     ArrayList<Obstacle> levelOne;
+    ViewContainer viewContainer;
 
-    public GameLoop(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, GameView gameView, ProgressBar progressBar, Score score, PlayerMouseController mouseListener, CollisionDetector collisionDetector, PowerUp powerUp){
+    public GameLoop(Player player, ArrayList<Projectile> projectiles, ArrayList<Obstacle> levelOne, GameView gameView, ProgressBar progressBar, Score score, PlayerMouseController mouseListener, CollisionDetector collisionDetector, PowerUp powerUp, ViewContainer viewContainer){
         this.player = player;
         this.levelOne = levelOne;
         this.progressBar = progressBar;
@@ -30,12 +32,14 @@ public class GameLoop implements Runnable {       //Have to extend JFrame for ad
         this.gameView = gameView;
         this.projectiles = projectiles;
         this.powerUp = powerUp;
+        this.viewContainer = viewContainer;
     }
 
     public void StopGame(){
         if (!player.getaliveStatus() || progressBar.progressIndicator.getCurrentProcentage() == 100) {
             score.updateScore(progressBar.progressIndicator.getCurrentProcentage());
             Constants.Thread_argument_ms = 0;
+            viewContainer.gameOver();
             //byt vy
         }
     }
