@@ -1,5 +1,7 @@
 package MenuView;
 
+import View.IDraw;
+
 import java.awt.*;
 
 public class DrawText implements IDraw {

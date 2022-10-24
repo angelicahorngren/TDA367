@@ -35,10 +35,10 @@ public class DrawGameView extends JComponent {
 
 
     public void paintComponent(Graphics g){
-        dbg.draw2(g);
-        drawPlayer.drawPlayer(g);
+        dbg.draw(g);
+        drawPlayer.draw(g);
         drawProjectile.drawProjectile(g, player, projectiles);
-        drawPowerUp.drawPowerup(g);
-        drawLevel.drawLevel(g);
+        drawPowerUp.draw(g);
+        drawLevel.draw(g);
     }
 }

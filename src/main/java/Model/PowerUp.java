@@ -2,7 +2,7 @@ package Model;
 
 import Utilities.Constants;
 
-public class PowerUp {
+public class PowerUp implements IMovable {
 
     private boolean powerOn = false;
 
@@ -12,10 +12,17 @@ public class PowerUp {
     private int width;
     private int height;
     private int speed;
-    //= Constants.OBSTACLE_START_X;
-    //public Shapes hitBox;
     private int xPosition;
     private int yPosition;
+
+    /**
+     * The constructor for the PowerUp.
+     * @param width the width of the PowerUp.
+     * @param height the height of the PowerUp.
+     * @param speed the speed of the PowerUp.
+     * @param startXpos the starting position on the x-axis for the PowerUp.
+     * @param yPosition the position on the y-axis for the PowerUp.
+     */
 
     public PowerUp(int width, int height, int speed, int startXpos, int yPosition) {
         this.width = width;
@@ -25,8 +32,9 @@ public class PowerUp {
         this.yPosition = yPosition;
     }
 
-
-
+    /**
+     *The PowerUp's move method specifies how it will move on the screen.
+     */
     public void move() {
        // speed = -10;
         xPosition += speed;
@@ -34,38 +42,63 @@ public class PowerUp {
         if (xPosition > Constants.DISTANCE_OBSTACLE_TRAVELS + width) {
             xPosition = -width;
         }
-
     }
 
-
+    /**
+     * Gets the width of the PowerUp.
+     * @return the width of the PowerUp.
+     */
     public int getWidth() {
         return width;
     }
 
+    /**
+     * Gets the height of the PowerUp.
+     * @return the height of the PowerUp.
+     */
     public int getHeight() {
         return height;
     }
 
+    /**
+     * Gets the x-axis position of the PowerUp.
+     * @return the x-axis value of the PowerUp.
+     */
     public int getxPosition() {
         return xPosition;
     }
 
+    /**
+     * Gets the y-axis position of the PowerUp.
+     * @return the y-axis value of the PowerUp.
+     */
     public int getyPosition() {
         return yPosition;
     }
 
+    /**
+     * Gets the powerup status of the PowerUp.
+     * @return if the power is on or not.
+     */
     public boolean getPowerUpStatus(){
         return powerOn;
     }
 
-
+    /**
+     * Sets powerOn to true.
+     */
     public void setPowerUpOn(){
         powerOn = true;
     }
 
+    /**
+     * Sets the powerUpTimer to argument value when called.
+     * @param timerValue is the value that is set as new powerUpTimer value. This is used for testing this class.
+     */
     public void setPowerUpTimer(int timerValue){
         powerUpTimer = timerValue;
     }
+
 
     private void setPowerUpoff(){
         powerOn = false;
@@ -89,6 +122,9 @@ public class PowerUp {
         }
     }
 
+    /**
+     *Starts the move function of the PowerUp and if the power is on (true) starts the timer for the PowerUp effect duration and stops it after timer runs out.
+     */
     public void runpowerUpSystem(){
         move();
         if (getPowerUpStatus()) {
@@ -96,9 +132,5 @@ public class PowerUp {
             endPowerup();
         }
     }
-
-
-
-
 
 }

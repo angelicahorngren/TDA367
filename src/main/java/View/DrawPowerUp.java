@@ -1,18 +1,17 @@
 package View;
 import Model.PowerUp;
 import Utilities.Constants;
-
 import java.awt.*;
 
 
-public class DrawPowerUp {
+public class DrawPowerUp implements IDraw {
     private PowerUp powerUp;
 
     public DrawPowerUp(PowerUp powerUp){
         this.powerUp = powerUp;
     }
 
-    public void drawPowerup(Graphics g) {
+    public void draw(Graphics g) {
 
         Graphics2D gg = (Graphics2D) g;
 

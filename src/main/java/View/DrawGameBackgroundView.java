@@ -1,9 +1,10 @@
 package View;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.*;
 
-public class DrawGameBackgroundView extends JComponent {
+public class DrawGameBackgroundView extends JComponent implements IDraw {
 
     private int width;
     private int height;
@@ -14,12 +15,8 @@ public class DrawGameBackgroundView extends JComponent {
         width = w;
         height = h;
     }
-    public void draw2(Graphics g){
+    public void draw(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
-
-       /* Rectangle2D.Double sky = new Rectangle2D.Double(0,0, width, 300);
-        g2d.setColor(new Color(135, 206, 250));
-        g2d.fill(sky);*/
 
         int [] x = {-1, 801, 800, 0};
         int [] y = {-1, -1, 300, 300};

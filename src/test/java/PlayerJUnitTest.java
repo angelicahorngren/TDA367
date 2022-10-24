@@ -44,7 +44,7 @@ public class PlayerJUnitTest {
         PowerUp powerUpTest = new PowerUp(1,1,1,1,1);
         Player playerMovingIntoFrame = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, 0, true, powerUpTest);
         while(playerMovingIntoFrame.getxPosition() < 250){
-            playerMovingIntoFrame.moveIntoFrame();
+            playerMovingIntoFrame.move();
         }
         System.out.println(playerMovingIntoFrame.getxPosition());
         assertEquals(252, playerMovingIntoFrame.getxPosition());

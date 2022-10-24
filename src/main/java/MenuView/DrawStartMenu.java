@@ -2,6 +2,7 @@ package MenuView;
 
 import Model.Score;
 import Utilities.Constants;
+import View.IDraw;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,13 +1,10 @@
 package View;
 
-import Model.LevelOne;
 import Model.Obstacle;
-import Model.Projectile;
-
 import java.awt.*;
 import java.util.ArrayList;
 
-public class DrawLevel {
+public class DrawLevel implements IDraw{
 
     private ArrayList<Obstacle> levelOne;
 
@@ -16,7 +13,7 @@ public class DrawLevel {
         this.levelOne = levelOne;
     }
 
-    public void drawLevel(Graphics g){
+    public void draw(Graphics g){
         if(levelOne.size() != 0){
             for(Obstacle obstacle : levelOne){
                 g.setColor(new Color(0, 0, 0));

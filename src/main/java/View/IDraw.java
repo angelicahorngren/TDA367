@@ -1,4 +1,4 @@
-package MenuView;
+package View;
 
 import java.awt.*;
 

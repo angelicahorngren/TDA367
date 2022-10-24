@@ -1,7 +1,7 @@
 package MenuView;
 
 import Model.Score;
-//import Controller.MenuItemsController;
+import View.IDraw;
 
 import javax.swing.*;
 import java.awt.*;

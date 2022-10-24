@@ -1,9 +1,8 @@
 package View;
 
-import Controller.MenuButtonController;
 import Controller.StartButtonController;
 import MenuView.LostRoundMenu;
-import MenuView.StartPageMenu;
+import MenuView.StartMenu;
 import main.GameLoop;
 
 import javax.swing.*;
@@ -12,12 +11,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class WindowLayout extends JFrame {   //CardLayout?
+public class WindowLayout extends JFrame {
 
     JFrame frame = new JFrame("Jump and Stuff");
-    JPanel container = new JPanel();
-
-    private StartPageMenu startPageMenu;
+    private ViewContainer viewContainer;
+    private StartMenu startPageMenu;
     private LostRoundMenu lostRoundMenu;
     private GameView gameView;
     StartButtonController startButtonPressed;
@@ -26,15 +24,13 @@ public class WindowLayout extends JFrame {   //CardLayout?
     JButton playAgainButton = new JButton("Play again");
     JButton goToStartPageButton = new JButton("Go to Start page");
 
-    CardLayout cl = new CardLayout();
-
-    public WindowLayout(StartPageMenu SPM, LostRoundMenu LRM, GameView gv, StartButtonController startBtnC, GameLoop gameLoop){
+    public WindowLayout(StartMenu SPM, LostRoundMenu LRM, GameView gv, StartButtonController startBtnC, GameLoop gameLoop, ViewContainer viewContainer){
         this.startPageMenu = SPM;
         this.lostRoundMenu = LRM;
         this.gameView = gv;
         this.startButtonPressed = startBtnC;
+        this.viewContainer = viewContainer;
 
-        container.setLayout(cl);
 
         startButton.setPreferredSize(new Dimension(0, 80));
         startButton.setFont(new Font("Comic Sans", Font.BOLD, 40));
@@ -47,17 +43,12 @@ public class WindowLayout extends JFrame {   //CardLayout?
         lostRoundMenu.add(playAgainButton, BorderLayout.SOUTH);
         lostRoundMenu.add(goToStartPageButton, BorderLayout.NORTH);
 
-        container.add(startPageMenu, "1");
-        container.add(lostRoundMenu, "2");
-        container.add(gameView, "3");
-        cl.show(container,"1"); //Chooses witch screen it starts on
-
 
         startButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                startGame();
                 Thread thread = new Thread(gameLoop);
+                viewContainer.startGame();
                 thread.start();
             }
         });
@@ -65,7 +56,7 @@ public class WindowLayout extends JFrame {   //CardLayout?
         playAgainButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                startGame();
+                viewContainer.startGame();
                 Thread thread = new Thread(gameLoop);
                 thread.start();
             }
@@ -74,31 +65,14 @@ public class WindowLayout extends JFrame {   //CardLayout?
         goToStartPageButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                goToStartPage();
+                viewContainer.goToStartPage();
             }
         });
 
-
-
-        frame.add(container);
+        frame.add(viewContainer);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-    }
-
-    public void startGame(){
-        cl.show(container, "3");
-
-        gameView.setFocusable(true);
-        gameView.requestFocusInWindow();
-    }
-
-    public void goToStartPage(){
-        cl.show(container, "1");
-    }
-
-    public void gameOver(){
-        cl.show(container, "2");
     }
 
 }

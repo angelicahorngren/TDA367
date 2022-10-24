@@ -4,7 +4,7 @@ import Utilities.Constants;
 import javax.swing.*;
 import java.awt.*;
 
-public class DrawRectView extends JComponent {
+public class DrawRectView extends JComponent implements IDraw {
 
 
     private Obstacle obstacle;
@@ -14,7 +14,7 @@ public class DrawRectView extends JComponent {
 
     }
 
-    public void drawRect(Graphics g) {
+    public void draw(Graphics g) {
 
         Graphics2D gg = (Graphics2D) g;
 
