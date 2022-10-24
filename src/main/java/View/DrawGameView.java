@@ -16,8 +16,6 @@ public class DrawGameView extends JComponent {
     private Projectile projectile;
     private ArrayList<Projectile> projectiles;
     private DrawPowerUp drawPowerUp;
-    private ArrayList<Obstacle> obstacles = new ArrayList<>();
-    private ArrayList<DrawRectView> drawRectViews = new ArrayList<>();
     private DrawLevel drawLevel;
 
 

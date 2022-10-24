@@ -30,6 +30,7 @@ public class WindowLayout extends JFrame {
         this.gameView = gv;
         this.startButtonPressed = startBtnC;
         this.viewContainer = viewContainer;
+        this.setResizable(false);
 
 
         startButton.setPreferredSize(new Dimension(0, 80));
@@ -73,6 +74,7 @@ public class WindowLayout extends JFrame {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        frame.setResizable(false);
     }
 
 }

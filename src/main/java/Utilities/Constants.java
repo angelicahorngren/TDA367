@@ -37,7 +37,7 @@ public class Constants {
 
 
     //Timer
-    public static int Thread_argument_ms = 10;
+    //public static int Thread_argument_ms = 10;
 
     public static final double SEC_LV1 = 10000;
 

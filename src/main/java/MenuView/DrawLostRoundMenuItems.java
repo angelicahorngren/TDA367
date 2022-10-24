@@ -7,11 +7,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+
 public class DrawLostRoundMenuItems extends JComponent {
 
     private ArrayList<IDraw> lostRoundItems = new ArrayList<>();
 
-
+    /**
+     *
+     * @param score
+     */
     public DrawLostRoundMenuItems(Score score){
 
         //lostRoundItemsList = new LostRoundItemsList(score);

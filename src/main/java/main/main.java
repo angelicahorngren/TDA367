@@ -17,10 +17,9 @@ public class main {
 
 
         System.out.println("Hello, do you wanna jump and stuff?");
-        Obstacle obstacle = new Obstacle(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.OBSTACLE_SPEED,false, Constants.OBSTACLE_START_X, Constants.OBSTACLE_START_Y);
         ArrayList<Obstacle> obstacles = new ArrayList<>();
-        LevelOne levelOne = new LevelOne(obstacles);
-        levelOne.createLevel();
+        LevelCreator levelCreator = new LevelCreator(obstacles);
+        levelCreator.createLevel();
         PowerUp powerUp = new PowerUp(Constants.POWERUP_WIDTH, Constants.POWERUP_HEIGHT, Constants.POWERUP_SPEED, Constants.POWERUP_START_X, Constants.POWERUP_START_Y );
         Player player = new Player(Constants.RECT_WIDTH, Constants.RECT_HEIGHT, Constants.Y_POS, Constants.PLAYER_START_X, true, powerUp);
         ArrayList<Projectile> projectiles = new ArrayList<>();
@@ -50,7 +49,6 @@ public class main {
         MenuButtonController menuBtnC = new MenuButtonController(Constants.MENU_BTN_POSX, Constants.MENU_BTN_POSY, Constants.MENU_BTN_WIDTH, Constants.MENU_BTN_HEIGHT);
 
       //  ViewContainer viewContainer = new ViewContainer(startPageMenu, lostRoundMenu, gameView);
-
         WindowLayout mainWindow = new WindowLayout(startPageMenu, lostRoundMenu, gameView, startBtnC, gameLoop, viewContainer);
 
 

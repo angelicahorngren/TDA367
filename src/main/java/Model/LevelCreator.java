@@ -4,7 +4,7 @@ import Utilities.Constants;
 import java.util.ArrayList;
 
 
-public class LevelOne {
+public class LevelCreator {
 
     private ArrayList<Obstacle> obstacles;
 
@@ -13,7 +13,7 @@ public class LevelOne {
      * @param obstacles is the list that will here be filled with the obstacles of level one.
      */
 
-    public LevelOne(ArrayList<Obstacle> obstacles) {
+    public LevelCreator(ArrayList<Obstacle> obstacles) {
         this.obstacles = obstacles;
     }
 

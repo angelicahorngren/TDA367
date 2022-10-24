@@ -2,7 +2,6 @@ package View;
 
 import MenuView.LostRoundMenu;
 import MenuView.StartMenu;
-import Utilities.Constants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,6 +22,10 @@ public class ViewContainer extends JPanel {
         this.add(lostRoundMenu, "2");
         this.add(gameView, "3");
         cl.show(this,"1"); //Chooses witch screen it starts on
+    }
+
+    public CardLayout getCardLayout(){
+        return cl;
     }
 
     public void startGame(){
