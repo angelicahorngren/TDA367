@@ -15,14 +15,11 @@ public class PlayButtonController extends MenuController {
         super(viewContainer);
         this.gameLoop = gameLoop;
 
-
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         GameLoop.Thread_argument_ms = 10;
-
         Thread thread = new Thread(gameLoop);
         viewContainer.startGame();
         thread.start();

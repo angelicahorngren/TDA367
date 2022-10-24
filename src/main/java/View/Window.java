@@ -22,10 +22,18 @@ public class Window extends JFrame {
     JButton playAgainButton = new JButton("Play again");
     JButton goToStartMenuButton = new JButton("Go to Start page");
 
-    public Window(StartMenu SPM, GameOverMenu GOM, GameView GV, GameLoop gameLoop, ViewContainer viewContainer){
-        this.startMenu = SPM;
-        this.gameOverMenu = GOM;
-        this.gameView = GV;
+    /**
+     * This is the constructor for the JFrame, that is the main window.
+     * @param startMenu is a JPanel where the application starts.
+     * @param gameOverMenu is a JPanel shown when player loses game.
+     * @param gameView is a JPanel where the game is displayed.
+     * @param gameLoop is the game loop of the game that updates every 10 ms.
+     * @param viewContainer is a JPanel that contains startMenu, gameOverMenu and gameView and switches between them.
+     */
+    public Window(StartMenu startMenu, GameOverMenu gameOverMenu, GameView gameView, GameLoop gameLoop, ViewContainer viewContainer){
+        this.startMenu = startMenu;
+        this.gameOverMenu = gameOverMenu;
+        this.gameView = gameView;
         this.viewContainer = viewContainer;
 
 
@@ -46,15 +54,17 @@ public class Window extends JFrame {
         goToStartMenuButton.setPreferredSize(new Dimension(0, 40));
         goToStartMenuButton.setFont(new Font("Comic Sans", Font.BOLD, 20));
 
-        startMenu.add(startButton, BorderLayout.SOUTH);
-        gameOverMenu.add(playAgainButton, BorderLayout.SOUTH);
-        gameOverMenu.add(goToStartMenuButton, BorderLayout.NORTH);
+        this.startMenu.add(startButton, BorderLayout.SOUTH);
+        this.gameOverMenu.add(playAgainButton, BorderLayout.SOUTH);
+        this.gameOverMenu.add(goToStartMenuButton, BorderLayout.NORTH);
 
 
         frame.add(viewContainer);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
     }
 
 }
